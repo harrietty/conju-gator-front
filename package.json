@@ -1,0 +1,41 @@
+{
+  "name": "laterooms_techtest",
+  "version": "1.0.0",
+  "description": "Conjugator",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ./",
+    "start": "webpack-dev-server"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./setupTests.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "acorn": "^6.0.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.5",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "eslint": "^5.4.0",
+    "eslint-config-google": "^0.11.0",
+    "eslint-plugin-react": "^7.12.3",
+    "jest": "^24.5.0",
+    "react-test-renderer": "^16.7.0",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "redux": "^4.0.1"
+  }
+}
