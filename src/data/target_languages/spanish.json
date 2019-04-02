@@ -26,6 +26,52 @@
             "amarían"
           ]
         }
+      },
+      {
+        "infinitive": "construir",
+        "translation": "to construct",
+        "conjugations": {
+          "present": [
+            "construyo",
+            "construyes",
+            "construye",
+            "construimos",
+            "construís",
+            "construyen"
+          ],
+          "imperfect": [
+            "construía",
+            "construías",
+            "construía",
+            "construíamos",
+            "construíais",
+            "construían"
+          ],
+          "preterite": [
+            "construí",
+            "construiste",
+            "construyó",
+            "construimos",
+            "construisteis",
+            "construyeron"
+          ],
+          "future": [
+            "construiré",
+            "construirás",
+            "construirá",
+            "construiremos",
+            "construiréis",
+            "construirán"
+          ],
+          "conditional": [
+            "construiría",
+            "construirías",
+            "construiría",
+            "construiríamos",
+            "construiríais",
+            "construirían"
+          ]
+        }
       }
     ]
   }

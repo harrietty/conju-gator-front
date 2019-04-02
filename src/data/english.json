@@ -31,6 +31,50 @@
             "would love"
           ]
         }
+      },
+      "to construct": {
+        "conjugations": {
+          "present": [
+            "construct",
+            "construct",
+            "constructs",
+            "construct",
+            "construct",
+            "construct"
+          ],
+          "imperfect": [
+            "was constructing",
+            "were constructing",
+            "was constructing",
+            "were constructing",
+            "were constructing",
+            "were constructing"
+          ],
+          "preterite": [
+            "constructed",
+            "constructed",
+            "constructed",
+            "constructed",
+            "constructed",
+            "constructed"
+          ],
+          "future": [
+            "will construct",
+            "will construct",
+            "will construct",
+            "will construct",
+            "will construct",
+            "will construct"
+          ],
+          "conditional": [
+            "would construct",
+            "would construct",
+            "would construct",
+            "would construct",
+            "would construct",
+            "would construct"
+          ]
+        }
       }
     }
   }
