@@ -5,16 +5,16 @@ import styled from "styled-components";
 const Btn = styled.button`
   height: 37px;
   min-width: 200px;
-  color: white;
-  background: palevioletred;
+  color: ${props => (props.disabled ? "#908589" : "white")};
+  background: ${props => (props.disabled ? "#CCC4C7" : "palevioletred")};
   font-size: 1.4rem;
   border: 0;
   border-radius: 2px;
   margin: 5px;
-  box-shadow: 3px 3px 1px lightgrey;
-  cursor: pointer;
+  box-shadow: ${props => (props.disabled ? "none" : "3px 3px 1px lightgrey")};
+  cursor: ${props => (props.disabled ? "default" : "pointer")};
   &:hover {
-    transform: translate(3px, 2px);
+    transform: ${props => (props.disabled ? "none" : "translate(3px, 2px)")};
     box-shadow: 0px 1px 1px lightgrey;
   }
 `;

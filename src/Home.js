@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Button from "./Reusable/Button";
 import Input from "./Reusable/Input";
+import Error from "./Reusable/Error";
 
 const P = styled.p`
   text-align: center;
@@ -38,7 +39,8 @@ class Home extends React.Component {
       preterite: true,
       conditional: true
     },
-    language: "Spanish"
+    language: "Spanish",
+    tensesError: null
   };
 
   generateLink = () => {
@@ -55,16 +57,24 @@ class Home extends React.Component {
   };
 
   toggleChecked = e => {
+    const newTenses = Object.assign({}, this.state.tenses, {
+      [e.target.name]: !this.state.tenses[e.target.name]
+    });
+    const vals = Object.values(newTenses);
+    let tensesError = null;
+    if (vals.every(v => !v)) {
+      tensesError = "Select at least 1 tense to practice";
+    }
     this.setState({
-      tenses: Object.assign({}, this.state.tenses, {
-        [e.target.name]: !this.state.tenses[e.target.name]
-      })
+      tenses: newTenses,
+      tensesError
     });
   };
 
   handleQuestionChange = e => {
+    const numOfQuestions = Number(e.target.value);
     this.setState({
-      numOfQuestions: e.target.value
+      numOfQuestions: numOfQuestions > 0 ? numOfQuestions : 1
     });
   };
 
@@ -76,17 +86,15 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
+      <CenterDiv>
         <P>Select a language:</P>
-        <CenterDiv>
-          <Select onChange={this.changeLanguage} value={this.state.language}>
-            {["Spanish", "French", "Portuguese", "Norwegian"].map(l => (
-              <option key={l} value={l}>
-                {l}
-              </option>
-            ))}
-          </Select>
-        </CenterDiv>
+        <Select onChange={this.changeLanguage} value={this.state.language}>
+          {["Spanish"].map(l => (
+            <option key={l} value={l}>
+              {l}
+            </option>
+          ))}
+        </Select>
         <P>Select tenses to practice:</P>
         <FlexDiv>
           {Object.keys(this.state.tenses).map(t => (
@@ -102,6 +110,7 @@ class Home extends React.Component {
             </div>
           ))}
         </FlexDiv>
+        <Error>{this.state.tensesError}</Error>
         <P>How many questions?</P>
         <FlexDiv>
           <Input
@@ -112,10 +121,10 @@ class Home extends React.Component {
         </FlexDiv>
         <FlexDiv>
           <Link to={this.generateLink()}>
-            <Button>Start</Button>
+            <Button disabled={this.state.tensesError}>Start</Button>
           </Link>
         </FlexDiv>
-      </div>
+      </CenterDiv>
     );
   }
 }
