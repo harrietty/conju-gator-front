@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+  font-family: "Oxygen", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: blanchedalmond;
+}

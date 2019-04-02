@@ -1,0 +1,37 @@
+{
+  "pronouns": ["I", "you", "he/she", "we", "you", "they"],
+  "verbs": {
+    "basic": {
+      "to love": {
+        "conjugations": {
+          "present": ["love", "love", "loves", "love", "love", "love"],
+          "imperfect": [
+            "was loving",
+            "were loving",
+            "was loving",
+            "were loving",
+            "were loving",
+            "were loving"
+          ],
+          "preterite": ["loved", "loved", "loved", "loved", "loved", "loved"],
+          "future": [
+            "will love",
+            "will love",
+            "will love",
+            "will love",
+            "will love",
+            "will love"
+          ],
+          "conditional": [
+            "would love",
+            "would love",
+            "would love",
+            "would love",
+            "would love",
+            "would love"
+          ]
+        }
+      }
+    }
+  }
+}

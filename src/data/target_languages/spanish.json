@@ -1,0 +1,32 @@
+{
+  "pronouns": ["yo", "tú", "él/ella", "nosotros", "vosotros", "ellos/ellas"],
+  "verbs": {
+    "basic": [
+      {
+        "infinitive": "amar",
+        "translation": "to love",
+        "conjugations": {
+          "present": ["amo", "amas", "ama", "amamos", "amáis", "aman"],
+          "imperfect": ["amaba", "amabas", "amábamos", "amabais", "amaban"],
+          "preterite": ["amé", "amaste", "amó", "amamos", "amasteis", "amaron"],
+          "future": [
+            "amaré",
+            "amarás",
+            "amará",
+            "amaremos",
+            "amaréis",
+            "amarán"
+          ],
+          "conditional": [
+            "amaría",
+            "amarías",
+            "amaría",
+            "amaríamos",
+            "amaríais",
+            "amarían"
+          ]
+        }
+      }
+    ]
+  }
+}
