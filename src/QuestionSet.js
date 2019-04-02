@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import english from "./data/english";
 import spanish from "./data/target_languages/spanish";
 
@@ -6,6 +7,11 @@ import { generateSet } from "./data/helpers";
 
 import Question from "./Question";
 import ProgressIndicator from "./ProgressIndicator";
+import FinalScreen from "./FinalScreen";
+
+const Container = styled.div`
+  margin-top: 50px;
+`;
 
 class QuestionSet extends React.Component {
   state = {
@@ -21,12 +27,8 @@ class QuestionSet extends React.Component {
   handleQuestionSubmit = response => {
     const { correct } = this.state.questions[this.state.question];
     const newCorrect = this.state.correct.slice();
-    if (response === correct) {
-      newCorrect.push(1);
-    } else {
-      newCorrect.push(0);
-    }
-
+    if (response === correct) newCorrect.push(true);
+    else newCorrect.push(false);
     this.setState({
       question: this.state.question + 1,
       correct: newCorrect
@@ -35,14 +37,23 @@ class QuestionSet extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Simple Spanish Conjugation Practice</h1>
-        <ProgressIndicator correct={this.state.correct} />
-        <Question
-          {...this.state.questions[this.state.question]}
-          handleQuestionSubmit={this.handleQuestionSubmit}
+      <Container>
+        <ProgressIndicator
+          correct={this.state.correct}
+          total={this.state.questions.length}
         />
-      </div>
+        {this.state.question === this.state.questions.length - 1 ? (
+          <FinalScreen
+            correct={this.state.correct.filter(c => c).length}
+            total={this.state.questions.length}
+          />
+        ) : (
+          <Question
+            {...this.state.questions[this.state.question]}
+            handleQuestionSubmit={this.handleQuestionSubmit}
+          />
+        )}
+      </Container>
     );
   }
 }

@@ -1,5 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+
+import Button from "./Reusable/Button";
+import Input from "./Reusable/Input";
+
+const CenterDiv = styled.div`
+  text-align: center;
+`;
+
+const Label = styled.label`
+  margin-right: 8px;
+  font-size: 1.4rem;
+`;
 
 class Question extends React.Component {
   state = {
@@ -24,10 +37,11 @@ class Question extends React.Component {
   render() {
     const { original, start } = this.props;
     return (
-      <div>
+      <CenterDiv>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="answerInput">{start}</label>
-          <input
+          <Label htmlFor="answerInput">{start}</Label>
+          <Input
+            width="300px"
             autoFocus
             autoComplete="off"
             type="text"
@@ -36,9 +50,9 @@ class Question extends React.Component {
             onChange={this.handleChange}
           />
           <p>{original}</p>
-          <button type="submit">Check</button>
+          <Button type="submit">Check</Button>
         </form>
-      </div>
+      </CenterDiv>
     );
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Button from "./Reusable/Button";
+import Input from "./Reusable/Input";
 
 const P = styled.p`
   text-align: center;
@@ -19,14 +20,6 @@ const FlexDiv = styled.div`
   max-width: 500px;
   margin: auto;
   margin-top: 20px;
-`;
-
-const Input = styled.input`
-  height: 37px;
-  font-size: 1rem;
-  width: 100px;
-  border: 1px solid #63b5b0;
-  border-radius: 3px;
 `;
 
 const Select = styled.select`
