@@ -19,16 +19,22 @@ const Btn = styled.button`
   }
 `;
 
-const Button = ({ children, onClick, disabled }) => (
-  <Btn onClick={onClick} disabled={disabled}>
-    {children}
-  </Btn>
-);
+class Button extends React.Component {
+  render() {
+    const { children, onClick, disabled, refCallback } = this.props;
+    return (
+      <Btn onClick={onClick} disabled={disabled} ref={refCallback}>
+        {children}
+      </Btn>
+    );
+  }
+}
 
 Button.propTypes = {
   children: PropTypes.any,
   onClick: PropTypes.func,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  refCallback: PropTypes.func
 };
 
 export default Button;

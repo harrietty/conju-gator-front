@@ -5,20 +5,41 @@ const spanishData = {
   verbs: {
     basic: [
       {
-        infinitive: "amar",
-        translation: "to love",
+        infinitive: "tener",
+        translation: "to have",
         conjugations: {
-          present: ["amo", "amas", "ama", "amamos", "amáis", "aman"],
-          imperfect: ["amaba", "amabas", "amábamos", "amabais", "amaban"],
-          preterite: ["amé", "amaste", "amó", "amamos", "amasteis", "amaron"],
-          future: ["amaré", "amarás", "amará", "amaremos", "amaréis", "amarán"],
+          present: ["tengo", "tienes", "tiene", "tenemos", "tenéis", "tienen"],
+          preterite: [
+            "tuve",
+            "tuviste",
+            "tuvo",
+            "tuvimos",
+            "tuvisteis",
+            "tuvieron"
+          ],
+          imperfect: [
+            "tenía",
+            "tenías",
+            "tenía",
+            "teníamos",
+            "teníais",
+            "tenían"
+          ],
           conditional: [
-            "amaría",
-            "amarías",
-            "amaría",
-            "amaríamos",
-            "amaríais",
-            "amarían"
+            "tendría",
+            "tendrías",
+            "tendría",
+            "tendríamos",
+            "tendríais",
+            "tendrían"
+          ],
+          future: [
+            "tendré",
+            "tendrás",
+            "tendrá",
+            "tendremos",
+            "tendréis",
+            "tendrán"
           ]
         }
       }
@@ -27,38 +48,14 @@ const spanishData = {
 };
 
 const englishData = {
-  pronouns: ["I", "you", "he/she", "we", "you", "they"],
+  pronouns: ["I", "you", "he/she", "we", "you (pl)", "they"],
   verbs: {
     basic: {
-      "to love": {
-        conjugations: {
-          present: ["love", "love", "loves", "love", "love", "love"],
-          imperfect: [
-            "was loving",
-            "were loving",
-            "was loving",
-            "were loving",
-            "were loving",
-            "were loving"
-          ],
-          preterite: ["loved", "loved", "loved", "loved", "loved", "loved"],
-          future: [
-            "will love",
-            "will love",
-            "will love",
-            "will love",
-            "will love",
-            "will love"
-          ],
-          conditional: [
-            "would love",
-            "would love",
-            "would love",
-            "would love",
-            "would love",
-            "would love"
-          ]
-        }
+      "to have": {
+        present: ["have", "have", "has", "have", "have", "have"],
+        present_participle: "having",
+        past_participle: "had",
+        root: "have"
       }
     }
   }
@@ -67,14 +64,16 @@ const englishData = {
 describe("generateSet", () => {
   test("returns the correctly formatted question set", () => {
     const result = generateSet({
-      source: englishData,
+      english: englishData,
       target: spanishData,
-      length: 3
+      length: 3,
+      tenses: ["present", "conditional", "future", "preterite", "imperfect"]
     });
 
     expect(result).toHaveLength(3);
     expect(result[0]).toHaveProperty("start");
     expect(result[0]).toHaveProperty("correct");
     expect(result[0]).toHaveProperty("original");
+    expect(result[0]).toHaveProperty("infinitive");
   });
 });

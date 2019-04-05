@@ -2,79 +2,1284 @@
   "pronouns": ["I", "you", "he/she", "we", "you", "they"],
   "verbs": {
     "basic": {
-      "to love": {
-        "conjugations": {
-          "present": ["love", "love", "loves", "love", "love", "love"],
-          "imperfect": [
-            "was loving",
-            "were loving",
-            "was loving",
-            "were loving",
-            "were loving",
-            "were loving"
-          ],
-          "preterite": ["loved", "loved", "loved", "loved", "loved", "loved"],
-          "future": [
-            "will love",
-            "will love",
-            "will love",
-            "will love",
-            "will love",
-            "will love"
-          ],
-          "conditional": [
-            "would love",
-            "would love",
-            "would love",
-            "would love",
-            "would love",
-            "would love"
-          ]
-        }
+      "to hear": {
+        "present": ["hear", "hear", "hears", "hear", "hear", "hear"],
+        "preterite": ["heard", "heard", "heard", "heard", "heard", "heard"],
+        "present_participle": "hearing",
+        "past_participle": "heard",
+        "root": "hear"
       },
-      "to construct": {
-        "conjugations": {
-          "present": [
-            "construct",
-            "construct",
-            "constructs",
-            "construct",
-            "construct",
-            "construct"
-          ],
-          "imperfect": [
-            "was constructing",
-            "were constructing",
-            "was constructing",
-            "were constructing",
-            "were constructing",
-            "were constructing"
-          ],
-          "preterite": [
-            "constructed",
-            "constructed",
-            "constructed",
-            "constructed",
-            "constructed",
-            "constructed"
-          ],
-          "future": [
-            "will construct",
-            "will construct",
-            "will construct",
-            "will construct",
-            "will construct",
-            "will construct"
-          ],
-          "conditional": [
-            "would construct",
-            "would construct",
-            "would construct",
-            "would construct",
-            "would construct",
-            "would construct"
-          ]
-        }
+      "to be": {
+        "present": ["am", "are", "is", "are", "are", "are"],
+        "preterite": ["was", "were", "was", "were", "were", "were"],
+        "present_participle": "being",
+        "past_participle": "been",
+        "root": "be"
+      },
+      "to have": {
+        "present": ["have", "have", "has", "have", "have", "have"],
+        "preterite": ["had", "had", "had", "had", "had", "had"],
+        "present_participle": "having",
+        "past_participle": "had",
+        "root": "have"
+      },
+      "to do/to make": {
+        "present": ["do", "do", "does", "do", "do", "do"],
+        "preterite": ["did", "did", "did", "did", "did", "did"],
+        "present_participle": "doing",
+        "past_participle": "done",
+        "root": "do"
+      },
+      "to say": {
+        "present": ["say", "say", "says", "say", "say", "say"],
+        "preterite": ["said", "said", "said", "said", "said", "said"],
+        "present_participle": "saying",
+        "past_participle": "said",
+        "root": "say"
+      },
+      "to go": {
+        "present": ["go", "go", "goes", "go", "go", "go"],
+        "preterite": ["went", "went", "went", "went", "went", "went"],
+        "present_participle": "going",
+        "past_participle": "gone",
+        "root": "go"
+      },
+      "to see": {
+        "present": ["see", "see", "sees", "see", "see", "see"],
+        "preterite": ["saw", "saw", "saw", "saw", "saw", "saw"],
+        "present_participle": "seeing",
+        "past_participle": "seen",
+        "root": "see"
+      },
+      "to give": {
+        "present": ["give", "give", "gives", "give", "give", "give"],
+        "preterite": ["gave", "gave", "gave", "gave", "gave", "gave"],
+        "present_participle": "giving",
+        "past_participle": "given",
+        "root": "give"
+      },
+      "to know": {
+        "present": ["know", "know", "knows", "know", "know", "know"],
+        "preterite": ["knew", "knew", "knew", "knew", "knew", "knew"],
+        "present_participle": "knowing",
+        "past_participle": "known",
+        "root": "know"
+      },
+      "to want/to love": {
+        "present": ["want", "want", "wants", "want", "want", "want"],
+        "preterite": [
+          "wanted",
+          "wanted",
+          "wanted",
+          "wanted",
+          "wanted",
+          "wanted"
+        ],
+        "present_participle": "wanting",
+        "past_participle": "wanted",
+        "root": "want"
+      },
+      "to arrive": {
+        "present": [
+          "arrive",
+          "arrive",
+          "arrives",
+          "arrive",
+          "arrive",
+          "arrive"
+        ],
+        "preterite": [
+          "arrived",
+          "arrived",
+          "arrived",
+          "arrived",
+          "arrived",
+          "arrived"
+        ],
+        "present_participle": "arriving",
+        "past_participle": "arrived",
+        "root": "arrive"
+      },
+      "to pass/to spend/to happen": {
+        "present": ["pass", "pass", "passes", "pass", "pass", "pass"],
+        "preterite": [
+          "passed",
+          "passed",
+          "passed",
+          "passed",
+          "passed",
+          "passed"
+        ],
+        "present_participle": "passing",
+        "past_participle": "passed",
+        "root": "pass"
+      },
+      "to owe": {
+        "present": ["owe", "owe", "owes", "owe", "owe", "owe"],
+        "preterite": ["owed", "owed", "owed", "owed", "owed", "owed"],
+        "present_participle": "owing",
+        "past_participle": "owed",
+        "root": "owe"
+      },
+      "to put": {
+        "present": ["put", "put", "puts", "put", "put", "put"],
+        "preterite": ["put", "put", "put", "put", "put", "put"],
+        "present_participle": "putting",
+        "past_participle": "put",
+        "root": "put"
+      },
+      "to seem": {
+        "present": ["seem", "seem", "seems", "seem", "seem", "seem"],
+        "preterite": [
+          "seemed",
+          "seemed",
+          "seemed",
+          "seemed",
+          "seemed",
+          "seemed"
+        ],
+        "present_participle": "seeming",
+        "past_participle": "seemed",
+        "root": "seem"
+      },
+      "to stay": {
+        "present": ["stay", "stay", "stays", "stay", "stay", "stay"],
+        "preterite": [
+          "stayed",
+          "stayed",
+          "stayed",
+          "stayed",
+          "stayed",
+          "stayed"
+        ],
+        "present_participle": "staying",
+        "past_participle": "stayed",
+        "root": "stay"
+      },
+      "to believe": {
+        "present": [
+          "believe",
+          "believe",
+          "believes",
+          "believe",
+          "believe",
+          "believe"
+        ],
+        "preterite": [
+          "believed",
+          "believed",
+          "believed",
+          "believed",
+          "believed",
+          "believed"
+        ],
+        "present_participle": "believing",
+        "past_participle": "believed",
+        "root": "believe"
+      },
+      "to speak": {
+        "present": ["speak", "speak", "speaks", "speak", "speak", "speak"],
+        "preterite": ["spoke", "spoke", "spoke", "spoke", "spoke", "spoke"],
+        "present_participle": "speaking",
+        "past_participle": "spoken",
+        "root": "speak"
+      },
+      "to carry/to bring": {
+        "present": ["carry", "carry", "carries", "carry", "carry", "carry"],
+        "preterite": [
+          "carried",
+          "carried",
+          "carried",
+          "carried",
+          "carried",
+          "carried"
+        ],
+        "present_participle": "carrying",
+        "past_participle": "carried",
+        "root": "carry"
+      },
+      "to leave/to abandon/to let": {
+        "present": ["leave", "leave", "leaves", "leave", "leave", "leave"],
+        "preterite": ["left", "left", "left", "left", "left", "left"],
+        "present_participle": "leaving",
+        "past_participle": "left",
+        "root": "leave"
+      },
+      "to follow/to continue": {
+        "present": [
+          "follow",
+          "follow",
+          "follows",
+          "follow",
+          "follow",
+          "follow"
+        ],
+        "preterite": [
+          "followed",
+          "followed",
+          "followed",
+          "followed",
+          "followed",
+          "followed"
+        ],
+        "present_participle": "following",
+        "past_participle": "followed",
+        "root": "follow"
+      },
+      "to find/to encounter": {
+        "present": ["find", "find", "finds", "find", "find", "find"],
+        "preterite": ["found", "found", "found", "found", "found", "found"],
+        "present_participle": "finding",
+        "past_participle": "found",
+        "root": "find"
+      },
+      "to call/to name": {
+        "present": ["call", "call", "calls", "call", "call", "call"],
+        "preterite": [
+          "called",
+          "called",
+          "called",
+          "called",
+          "called",
+          "called"
+        ],
+        "present_participle": "calling",
+        "past_participle": "called",
+        "root": "call"
+      },
+      "to come\t": {
+        "present": ["come", "come", "comes", "come", "come", "come"],
+        "preterite": ["came", "came", "came", "came", "came", "came"],
+        "present_participle": "coming",
+        "past_participle": "come",
+        "root": "come"
+      },
+      "to think": {
+        "present": ["think", "think", "thinks", "think", "think", "think"],
+        "preterite": [
+          "thought",
+          "thought",
+          "thought",
+          "thought",
+          "thought",
+          "thought"
+        ],
+        "present_participle": "thinking",
+        "past_participle": "thought",
+        "root": "think"
+      },
+      "to leave/to go out": {
+        "present": ["leave", "leave", "leaves", "leave", "leave", "leave"],
+        "preterite": ["left", "left", "left", "left", "left", "left"],
+        "present_participle": "leaving",
+        "past_participle": "left",
+        "root": "leave"
+      },
+      "to return": {
+        "present": [
+          "return",
+          "return",
+          "returns",
+          "return",
+          "return",
+          "return"
+        ],
+        "preterite": [
+          "returned",
+          "returned",
+          "returned",
+          "returned",
+          "returned",
+          "returned"
+        ],
+        "present_participle": "returning",
+        "past_participle": "returned",
+        "root": "return"
+      },
+      "to take": {
+        "present": ["take", "take", "takes", "take", "take", "take"],
+        "preterite": ["took", "took", "took", "took", "took", "took"],
+        "present_participle": "taking",
+        "past_participle": "taken",
+        "root": "take"
+      },
+      "to live": {
+        "present": ["live", "live", "lives", "live", "live", "live"],
+        "preterite": ["lived", "lived", "lived", "lived", "lived", "lived"],
+        "present_participle": "living",
+        "past_participle": "lived",
+        "root": "live"
+      },
+      "to feel/to regret": {
+        "present": ["feel", "feel", "feels", "feel", "feel", "feel"],
+        "preterite": ["felt", "felt", "felt", "felt", "felt", "felt"],
+        "present_participle": "feeling",
+        "past_participle": "felt",
+        "root": "feel"
+      },
+      "to treat": {
+        "present": ["treat", "treat", "treats", "treat", "treat", "treat"],
+        "preterite": [
+          "treated",
+          "treated",
+          "treated",
+          "treated",
+          "treated",
+          "treated"
+        ],
+        "present_participle": "treating",
+        "past_participle": "treated",
+        "root": "treat"
+      },
+      "to watch/to look at": {
+        "present": ["watch", "watch", "watches", "watch", "watch", "watch"],
+        "preterite": [
+          "watched",
+          "watched",
+          "watched",
+          "watched",
+          "watched",
+          "watched"
+        ],
+        "present_participle": "watching",
+        "past_participle": "watched",
+        "root": "watch"
+      },
+      "to count/to relate/to tell": {
+        "present": ["count", "count", "counts", "count", "count", "count"],
+        "preterite": [
+          "counted",
+          "counted",
+          "counted",
+          "counted",
+          "counted",
+          "counted"
+        ],
+        "present_participle": "counting",
+        "past_participle": "counted",
+        "root": "count"
+      },
+      "to begin": {
+        "present": ["begin", "begin", "begins", "begin", "begin", "begin"],
+        "preterite": ["began", "began", "began", "began", "began", "began"],
+        "present_participle": "beginning",
+        "past_participle": "begun",
+        "root": "begin"
+      },
+      "to wait/to wait for/to hope": {
+        "present": ["wait", "wait", "waits", "wait", "wait", "wait"],
+        "preterite": [
+          "waited",
+          "waited",
+          "waited",
+          "waited",
+          "waited",
+          "waited"
+        ],
+        "present_participle": "waiting",
+        "past_participle": "waited",
+        "root": "wait"
+      },
+      "to search": {
+        "present": [
+          "search",
+          "search",
+          "searches",
+          "search",
+          "search",
+          "search"
+        ],
+        "preterite": [
+          "searched",
+          "searched",
+          "searched",
+          "searched",
+          "searched",
+          "searched"
+        ],
+        "present_participle": "searching",
+        "past_participle": "searched",
+        "root": "search"
+      },
+      "to exist": {
+        "present": ["exist", "exist", "exists", "exist", "exist", "exist"],
+        "preterite": [
+          "existed",
+          "existed",
+          "existed",
+          "existed",
+          "existed",
+          "existed"
+        ],
+        "present_participle": "existing",
+        "past_participle": "existed",
+        "root": "exist"
+      },
+      "to enter": {
+        "present": ["enter", "enter", "enters", "enter", "enter", "enter"],
+        "preterite": [
+          "entered",
+          "entered",
+          "entered",
+          "entered",
+          "entered",
+          "entered"
+        ],
+        "present_participle": "entering",
+        "past_participle": "entered",
+        "root": "enter"
+      },
+      "to work": {
+        "present": ["work", "work", "works", "work", "work", "work"],
+        "preterite": [
+          "worked",
+          "worked",
+          "worked",
+          "worked",
+          "worked",
+          "worked"
+        ],
+        "present_participle": "working",
+        "past_participle": "worked",
+        "root": "work"
+      },
+      "to write": {
+        "present": ["write", "write", "writes", "write", "write", "write"],
+        "preterite": ["wrote", "wrote", "wrote", "wrote", "wrote", "wrote"],
+        "present_participle": "writing",
+        "past_participle": "written",
+        "root": "write"
+      },
+      "to lose": {
+        "present": ["lose", "lose", "loses", "lose", "lose", "lose"],
+        "preterite": ["lost", "lost", "lost", "lost", "lost", "lost"],
+        "present_participle": "losing",
+        "past_participle": "lost",
+        "root": "lose"
+      },
+      "to produce": {
+        "present": [
+          "produce",
+          "produce",
+          "produces",
+          "produce",
+          "produce",
+          "produce"
+        ],
+        "preterite": [
+          "produced",
+          "produced",
+          "produced",
+          "produced",
+          "produced",
+          "produced"
+        ],
+        "present_participle": "producing",
+        "past_participle": "produced",
+        "root": "produce"
+      },
+      "to occur": {
+        "present": ["occur", "occur", "occurs", "occur", "occur", "occur"],
+        "preterite": [
+          "occurred",
+          "occurred",
+          "occurred",
+          "occurred",
+          "occurred",
+          "occurred"
+        ],
+        "present_participle": "occurring",
+        "past_participle": "occurred",
+        "root": "occur"
+      },
+      "to understand": {
+        "present": [
+          "understand",
+          "understand",
+          "understands",
+          "understand",
+          "understand",
+          "understand"
+        ],
+        "preterite": [
+          "understood",
+          "understood",
+          "understood",
+          "understood",
+          "understood",
+          "understood"
+        ],
+        "present_participle": "understanding",
+        "past_participle": "understood",
+        "root": "understand"
+      },
+      "to request": {
+        "present": [
+          "request",
+          "request",
+          "requests",
+          "request",
+          "request",
+          "request"
+        ],
+        "preterite": [
+          "requested",
+          "requested",
+          "requested",
+          "requested",
+          "requested",
+          "requested"
+        ],
+        "present_participle": "requesting",
+        "past_participle": "requested",
+        "root": "request"
+      },
+      "to receive/to welcome": {
+        "present": [
+          "receive",
+          "receive",
+          "receives",
+          "receive",
+          "receive",
+          "receive"
+        ],
+        "preterite": [
+          "received",
+          "received",
+          "received",
+          "received",
+          "received",
+          "received"
+        ],
+        "present_participle": "receiving",
+        "past_participle": "received",
+        "root": "receive"
+      },
+      "to remember/to remind": {
+        "present": [
+          "remember",
+          "remember",
+          "remembers",
+          "remember",
+          "remember",
+          "remember"
+        ],
+        "preterite": [
+          "remembered",
+          "remembered",
+          "remembered",
+          "remembered",
+          "remembered",
+          "remembered"
+        ],
+        "present_participle": "remembering",
+        "past_participle": "remembered",
+        "root": "remember"
+      },
+      "to finish": {
+        "present": [
+          "finish",
+          "finish",
+          "finishes",
+          "finish",
+          "finish",
+          "finish"
+        ],
+        "preterite": [
+          "finished",
+          "finished",
+          "finished",
+          "finished",
+          "finished",
+          "finished"
+        ],
+        "present_participle": "finishing",
+        "past_participle": "finished",
+        "root": "finish"
+      },
+      "to permit": {
+        "present": [
+          "permit",
+          "permit",
+          "permits",
+          "permit",
+          "permit",
+          "permit"
+        ],
+        "preterite": [
+          "permitted",
+          "permitted",
+          "permitted",
+          "permitted",
+          "permitted",
+          "permitted"
+        ],
+        "present_participle": "permitting",
+        "past_participle": "permitted",
+        "root": "permit"
+      },
+      "to appear": {
+        "present": [
+          "appear",
+          "appear",
+          "appears",
+          "appear",
+          "appear",
+          "appear"
+        ],
+        "preterite": [
+          "appeared",
+          "appeared",
+          "appeared",
+          "appeared",
+          "appeared",
+          "appeared"
+        ],
+        "present_participle": "appearing",
+        "past_participle": "appeared",
+        "root": "appear"
+      },
+      "to get": {
+        "present": ["get", "get", "gets", "get", "get", "get"],
+        "preterite": ["got", "got", "got", "got", "got", "got"],
+        "present_participle": "getting",
+        "past_participle": "got/gotten",
+        "root": "get"
+      },
+      "to serve": {
+        "present": ["serve", "serve", "serves", "serve", "serve", "serve"],
+        "preterite": [
+          "served",
+          "served",
+          "served",
+          "served",
+          "served",
+          "served"
+        ],
+        "present_participle": "serving",
+        "past_participle": "served",
+        "root": "serve"
+      },
+      "to take out": {
+        "present": ["take", "take", "takes", "take", "take", "take"],
+        "preterite": ["took", "took", "took", "took", "took", "took"],
+        "present_participle": "taking",
+        "past_participle": "taken",
+        "root": "take"
+      },
+      "to need": {
+        "present": ["need", "need", "needs", "need", "need", "need"],
+        "preterite": [
+          "needed",
+          "needed",
+          "needed",
+          "needed",
+          "needed",
+          "needed"
+        ],
+        "present_participle": "needing",
+        "past_participle": "needed",
+        "root": "need"
+      },
+      "to maintain": {
+        "present": [
+          "maintain",
+          "maintain",
+          "maintains",
+          "maintain",
+          "maintain",
+          "maintain"
+        ],
+        "preterite": [
+          "maintained",
+          "maintained",
+          "maintained",
+          "maintained",
+          "maintained",
+          "maintained"
+        ],
+        "present_participle": "maintaining",
+        "past_participle": "maintained",
+        "root": "maintain"
+      },
+      "to read": {
+        "present": ["read", "read", "reads", "read", "read", "read"],
+        "preterite": ["read", "read", "read", "read", "read", "read"],
+        "present_participle": "reading",
+        "past_participle": "read",
+        "root": "read"
+      },
+      "to fall": {
+        "present": ["fall", "fall", "falls", "fall", "fall", "fall"],
+        "preterite": ["fell", "fell", "fell", "fell", "fell", "fell"],
+        "present_participle": "falling",
+        "past_participle": "fallen",
+        "root": "fall"
+      },
+      "to result/to turn out (to be)": {
+        "present": [
+          "result",
+          "result",
+          "results",
+          "result",
+          "result",
+          "result"
+        ],
+        "preterite": [
+          "resulted",
+          "resulted",
+          "resulted",
+          "resulted",
+          "resulted",
+          "resulted"
+        ],
+        "present_participle": "resulting",
+        "past_participle": "resulted",
+        "root": "result"
+      },
+      "to change": {
+        "present": [
+          "change",
+          "change",
+          "changes",
+          "change",
+          "change",
+          "change"
+        ],
+        "preterite": [
+          "changed",
+          "changed",
+          "changed",
+          "changed",
+          "changed",
+          "changed"
+        ],
+        "present_participle": "changing",
+        "past_participle": "changed",
+        "root": "change"
+      },
+      "to introduce": {
+        "present": [
+          "introduce",
+          "introduce",
+          "introduces",
+          "introduce",
+          "introduce",
+          "introduce"
+        ],
+        "preterite": [
+          "introduced",
+          "introduced",
+          "introduced",
+          "introduced",
+          "introduced",
+          "introduced"
+        ],
+        "present_participle": "introducing",
+        "past_participle": "introduced",
+        "root": "introduce"
+      },
+      "to create/to make": {
+        "present": [
+          "create",
+          "create",
+          "creates",
+          "create",
+          "create",
+          "create"
+        ],
+        "preterite": [
+          "created",
+          "created",
+          "created",
+          "created",
+          "created",
+          "created"
+        ],
+        "present_participle": "creating",
+        "past_participle": "created",
+        "root": "create"
+      },
+      "to open": {
+        "present": ["open", "open", "opens", "open", "open", "open"],
+        "preterite": [
+          "opened",
+          "opened",
+          "opened",
+          "opened",
+          "opened",
+          "opened"
+        ],
+        "present_participle": "opening",
+        "past_participle": "opened",
+        "root": "open"
+      },
+      "to consider": {
+        "present": [
+          "consider",
+          "consider",
+          "considers",
+          "consider",
+          "consider",
+          "consider"
+        ],
+        "preterite": [
+          "considered",
+          "considered",
+          "considered",
+          "considered",
+          "considered",
+          "considered"
+        ],
+        "present_participle": "considering",
+        "past_participle": "considered",
+        "root": "consider"
+      },
+      "to convert": {
+        "present": [
+          "convert",
+          "convert",
+          "converts",
+          "convert",
+          "convert",
+          "convert"
+        ],
+        "preterite": [
+          "converted",
+          "converted",
+          "converted",
+          "converted",
+          "converted",
+          "converted"
+        ],
+        "present_participle": "converting",
+        "past_participle": "converted",
+        "root": "convert"
+      },
+      "to win/to gain/to earn": {
+        "present": ["win", "win", "wins", "win", "win", "win"],
+        "preterite": ["won", "won", "won", "won", "won", "won"],
+        "present_participle": "winning",
+        "past_participle": "won",
+        "root": "win"
+      },
+      "to form": {
+        "present": ["form", "form", "forms", "form", "form", "form"],
+        "preterite": [
+          "formed",
+          "formed",
+          "formed",
+          "formed",
+          "formed",
+          "formed"
+        ],
+        "present_participle": "forming",
+        "past_participle": "formed",
+        "root": "form"
+      },
+      "to bring/to carry": {
+        "present": ["bring", "bring", "brings", "bring", "bring", "bring"],
+        "preterite": [
+          "brought",
+          "brought",
+          "brought",
+          "brought",
+          "brought",
+          "brought"
+        ],
+        "present_participle": "bringing",
+        "past_participle": "brought",
+        "root": "bring"
+      },
+      "to divide/to leave": {
+        "present": [
+          "divide",
+          "divide",
+          "divides",
+          "divide",
+          "divide",
+          "divide"
+        ],
+        "preterite": [
+          "divided",
+          "divided",
+          "divided",
+          "divided",
+          "divided",
+          "divided"
+        ],
+        "present_participle": "dividing",
+        "past_participle": "divided",
+        "root": "divide"
+      },
+      "to die": {
+        "present": ["die", "die", "dies", "die", "die", "die"],
+        "preterite": ["died", "died", "died", "died", "died", "died"],
+        "present_participle": "dying",
+        "past_participle": "died",
+        "root": "die"
+      },
+      "to accept": {
+        "present": [
+          "accept",
+          "accept",
+          "accepts",
+          "accept",
+          "accept",
+          "accept"
+        ],
+        "preterite": [
+          "accepted",
+          "accepted",
+          "accepted",
+          "accepted",
+          "accepted",
+          "accepted"
+        ],
+        "present_participle": "accepting",
+        "past_participle": "accepted",
+        "root": "accept"
+      },
+      "to achieve/to attain": {
+        "present": [
+          "achieve",
+          "achieve",
+          "achieves",
+          "achieve",
+          "achieve",
+          "achieve"
+        ],
+        "preterite": [
+          "achieved",
+          "achieved",
+          "achieved",
+          "achieved",
+          "achieved",
+          "achieved"
+        ],
+        "present_participle": "achieving",
+        "past_participle": "achieved",
+        "root": "achieve"
+      },
+      "to suppose": {
+        "present": [
+          "suppose",
+          "suppose",
+          "supposes",
+          "suppose",
+          "suppose",
+          "suppose"
+        ],
+        "preterite": [
+          "supposed",
+          "supposed",
+          "supposed",
+          "supposed",
+          "supposed",
+          "supposed"
+        ],
+        "present_participle": "supposing",
+        "past_participle": "supposed",
+        "root": "suppose"
+      },
+      "to get/to obtain/to achieve": {
+        "present": ["get", "get", "gets", "get", "get", "get"],
+        "preterite": ["got", "got", "got", "got", "got", "got"],
+        "present_participle": "getting",
+        "past_participle": "got/gotten",
+        "root": "get"
+      },
+      "to explain": {
+        "present": [
+          "explain",
+          "explain",
+          "explains",
+          "explain",
+          "explain",
+          "explain"
+        ],
+        "preterite": [
+          "explained",
+          "explained",
+          "explained",
+          "explained",
+          "explained",
+          "explained"
+        ],
+        "present_participle": "explaining",
+        "past_participle": "explained",
+        "root": "explain"
+      },
+      "to ask": {
+        "present": ["ask", "ask", "asks", "ask", "ask", "ask"],
+        "preterite": ["asked", "asked", "asked", "asked", "asked", "asked"],
+        "present_participle": "asking",
+        "past_participle": "asked",
+        "root": "ask"
+      },
+      "to touch/ to play (an instrument)": {
+        "present": ["touch", "touch", "touches", "touch", "touch", "touch"],
+        "preterite": [
+          "touched",
+          "touched",
+          "touched",
+          "touched",
+          "touched",
+          "touched"
+        ],
+        "present_participle": "touching",
+        "past_participle": "touched",
+        "root": "touch"
+      },
+      "to recognize": {
+        "present": [
+          "recognize",
+          "recognize",
+          "recognizes",
+          "recognize",
+          "recognize",
+          "recognize"
+        ],
+        "preterite": [
+          "recognized",
+          "recognized",
+          "recognized",
+          "recognized",
+          "recognized",
+          "recognized"
+        ],
+        "present_participle": "recognizing",
+        "past_participle": "recognized",
+        "root": "recognize"
+      },
+      "to study": {
+        "present": ["study", "study", "studies", "study", "study", "study"],
+        "preterite": [
+          "studied",
+          "studied",
+          "studied",
+          "studied",
+          "studied",
+          "studied"
+        ],
+        "present_participle": "studying",
+        "past_participle": "studied",
+        "root": "study"
+      },
+      "to reach/to catch up": {
+        "present": ["reach", "reach", "reaches", "reach", "reach", "reach"],
+        "preterite": [
+          "reached",
+          "reached",
+          "reached",
+          "reached",
+          "reached",
+          "reached"
+        ],
+        "present_participle": "reaching",
+        "past_participle": "reached",
+        "root": "reach"
+      },
+      "to be born": {
+        "present": ["am", "are", "is", "are", "are", "are"],
+        "preterite": ["was", "were", "was", "were", "were", "were"],
+        "present_participle": "being",
+        "past_participle": "been",
+        "root": "be"
+      },
+      "to direct": {
+        "present": [
+          "direct",
+          "direct",
+          "directs",
+          "direct",
+          "direct",
+          "direct"
+        ],
+        "preterite": [
+          "directed",
+          "directed",
+          "directed",
+          "directed",
+          "directed",
+          "directed"
+        ],
+        "present_participle": "directing",
+        "past_participle": "directed",
+        "root": "direct"
+      },
+      "to run": {
+        "present": ["run", "run", "runs", "run", "run", "run"],
+        "preterite": ["ran", "ran", "ran", "ran", "ran", "ran"],
+        "present_participle": "running",
+        "past_participle": "run",
+        "root": "run"
+      },
+      "to use": {
+        "present": ["use", "use", "uses", "use", "use", "use"],
+        "preterite": ["used", "used", "used", "used", "used", "used"],
+        "present_participle": "using",
+        "past_participle": "used",
+        "root": "use"
+      },
+      "to pay": {
+        "present": ["pay", "pay", "pays", "pay", "pay", "pay"],
+        "preterite": ["paid", "paid", "paid", "paid", "paid", "paid"],
+        "present_participle": "paying",
+        "past_participle": "paid",
+        "root": "pay"
+      },
+      "to help": {
+        "present": ["help", "help", "helps", "help", "help", "help"],
+        "preterite": [
+          "helped",
+          "helped",
+          "helped",
+          "helped",
+          "helped",
+          "helped"
+        ],
+        "present_participle": "helping",
+        "past_participle": "helped",
+        "root": "help"
+      },
+      "to please": {
+        "present": [
+          "please",
+          "please",
+          "pleases",
+          "please",
+          "please",
+          "please"
+        ],
+        "preterite": [
+          "pleased",
+          "pleased",
+          "pleased",
+          "pleased",
+          "pleased",
+          "pleased"
+        ],
+        "present_participle": "pleasing",
+        "past_participle": "pleased",
+        "root": "please"
+      },
+      "to play (a game or sport)": {
+        "present": ["play", "play", "plays", "play", "play", "play"],
+        "preterite": [
+          "played",
+          "played",
+          "played",
+          "played",
+          "played",
+          "played"
+        ],
+        "present_participle": "playing",
+        "past_participle": "played",
+        "root": "play"
+      },
+      "to listen/to hear": {
+        "present": [
+          "listen",
+          "listen",
+          "listens",
+          "listen",
+          "listen",
+          "listen"
+        ],
+        "preterite": [
+          "listened",
+          "listened",
+          "listened",
+          "listened",
+          "listened",
+          "listened"
+        ],
+        "present_participle": "listening",
+        "past_participle": "listened",
+        "root": "listen"
+      },
+      "to fulfil": {
+        "present": [
+          "fulfil",
+          "fulfil",
+          "fulfils",
+          "fulfil",
+          "fulfil",
+          "fulfil"
+        ],
+        "preterite": [
+          "fulfilled",
+          "fulfilled",
+          "fulfilled",
+          "fulfilled",
+          "fulfilled",
+          "fulfilled"
+        ],
+        "present_participle": "fulfilling",
+        "past_participle": "fulfilled",
+        "root": "fulfil"
+      },
+      "to offer": {
+        "present": ["offer", "offer", "offers", "offer", "offer", "offer"],
+        "preterite": [
+          "offered",
+          "offered",
+          "offered",
+          "offered",
+          "offered",
+          "offered"
+        ],
+        "present_participle": "offering",
+        "past_participle": "offered",
+        "root": "offer"
+      },
+      "to discover": {
+        "present": [
+          "discover",
+          "discover",
+          "discovers",
+          "discover",
+          "discover",
+          "discover"
+        ],
+        "preterite": [
+          "discovered",
+          "discovered",
+          "discovered",
+          "discovered",
+          "discovered",
+          "discovered"
+        ],
+        "present_participle": "discovering",
+        "past_participle": "discovered",
+        "root": "discover"
+      },
+      "to raise": {
+        "present": ["raise", "raise", "raises", "raise", "raise", "raise"],
+        "preterite": [
+          "raised",
+          "raised",
+          "raised",
+          "raised",
+          "raised",
+          "raised"
+        ],
+        "present_participle": "raising",
+        "past_participle": "raised",
+        "root": "raise"
+      },
+      "to try": {
+        "present": ["try", "try", "tries", "try", "try", "try"],
+        "preterite": ["tried", "tried", "tried", "tried", "tried", "tried"],
+        "present_participle": "trying",
+        "past_participle": "tried",
+        "root": "try"
+      },
+      "to be able": {
+        "present": ["can", "can", "can", "can", "can", "can"],
+        "present_participle": "able to",
+        "past_participle": "able to"
       }
     }
   }

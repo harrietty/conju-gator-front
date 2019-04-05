@@ -1,7 +1,8 @@
 export function generateSet(params) {
-  if (!params.source) throw new Error("source is required");
+  if (!params.english) throw new Error("english is required");
   if (!params.target) throw new Error("target is required");
   if (params.length === undefined) throw new Error("length is required");
+  if (!params.tenses) throw new Error("tenses is required");
   const verbs = params.target.verbs.basic;
   const conjugations = Object.keys(verbs[0].conjugations);
   const pronouns = params.target.pronouns;
@@ -16,18 +17,42 @@ export function generateSet(params) {
     const pronounIndex = Math.floor(Math.random() * pronouns.length);
 
     // crete start, correct and original
-    const engVerb = params.source.verbs.basic[v.translation];
-    const engPronoun = params.source.pronouns[pronounIndex];
-    const original = `${engPronoun} ${
-      engVerb.conjugations[c][pronounIndex]
-    } (${c})`;
+    const engVerb = params.english.verbs.basic[v.translation];
+    const engPronoun = params.english.pronouns[pronounIndex];
+    let engCorrect;
+    if (c === "present") {
+      engCorrect = engVerb.present[pronounIndex];
+    } else if (c === "future") {
+      engCorrect = `will ${engVerb.root}`;
+    } else if (c === "conditional") {
+      engCorrect = `would ${engVerb.root}`;
+    } else if (c === "preterite") {
+      engCorrect = engVerb.preterite[pronounIndex];
+    } else if (c === "imperfect") {
+      engCorrect = `${getImperfectToBe(engPronoun)} ${
+        engVerb.present_participle
+      }`;
+    }
+    const original = `${engPronoun} ${engCorrect} (${c})`;
     const start = params.target.pronouns[pronounIndex];
     const correct = v.conjugations[c][pronounIndex];
     set.push({
       start,
       original,
-      correct
+      correct,
+      infinitive: v.infinitive
     });
   }
   return set;
+}
+
+function getImperfectToBe(pronoun) {
+  return {
+    I: "was",
+    you: "were",
+    "he/she": "was",
+    we: "were",
+    "you (pl)": "were",
+    they: "were"
+  }[pronoun];
 }

@@ -89,9 +89,9 @@ class Home extends React.Component {
       <CenterDiv>
         <P>Select a language:</P>
         <Select onChange={this.changeLanguage} value={this.state.language}>
-          {["Spanish"].map(l => (
-            <option key={l} value={l}>
-              {l}
+          {["Spanish", "French", "Portuguese", "Norwegian"].map(l => (
+            <option key={l} value={l} disabled={l !== "Spanish"}>
+              {l === "Spanish" ? l : `${l} (coming soon)`}
             </option>
           ))}
         </Select>

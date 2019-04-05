@@ -1,5 +1,5 @@
 {
-  "name": "laterooms_techtest",
+  "name": "conjugator",
   "version": "1.0.0",
   "description": "Conjugator",
   "main": "index.js",
@@ -9,7 +9,9 @@
     "start": "webpack-dev-server"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./setupTests.js"
+    "setupFilesAfterEnv": [
+      "./setupTests.js"
+    ]
   },
   "keywords": [],
   "author": "",
