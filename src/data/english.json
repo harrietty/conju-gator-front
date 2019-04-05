@@ -1080,13 +1080,6 @@
         "past_participle": "reached",
         "root": "reach"
       },
-      "to be born": {
-        "present": ["am", "are", "is", "are", "are", "are"],
-        "preterite": ["was", "were", "was", "were", "were", "were"],
-        "present_participle": "being",
-        "past_participle": "been",
-        "root": "be"
-      },
       "to direct": {
         "present": [
           "direct",
