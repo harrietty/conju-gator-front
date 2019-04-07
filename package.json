@@ -7,7 +7,8 @@
     "test": "jest",
     "lint": "eslint ./",
     "start": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "aws s3 sync ./dist s3://conju-gator.com --delete"
   },
   "jest": {
     "setupFilesAfterEnv": [
