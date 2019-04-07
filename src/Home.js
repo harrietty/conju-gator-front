@@ -40,7 +40,8 @@ class Home extends React.Component {
       conditional: true
     },
     language: "Spanish",
-    tensesError: null
+    tensesError: null,
+    numOfQuestionsError: null
   };
 
   generateLink = () => {
@@ -72,9 +73,14 @@ class Home extends React.Component {
   };
 
   handleQuestionChange = e => {
-    const numOfQuestions = Number(e.target.value);
+    const numOfQuestions = e.target.value;
+    let err = null;
+    if (Number(numOfQuestions) < 1) {
+      err = "Must select at least 1 question";
+    }
     this.setState({
-      numOfQuestions: numOfQuestions > 0 ? numOfQuestions : 1
+      numOfQuestions: numOfQuestions,
+      numOfQuestionsError: err
     });
   };
 
@@ -119,9 +125,16 @@ class Home extends React.Component {
             value={this.state.numOfQuestions}
           />
         </FlexDiv>
+        <Error>{this.state.numOfQuestionsError}</Error>
         <FlexDiv>
           <Link to={this.generateLink()}>
-            <Button disabled={this.state.tensesError}>Start</Button>
+            <Button
+              disabled={
+                this.state.tensesError || this.state.numOfQuestionsError
+              }
+            >
+              Start
+            </Button>
           </Link>
         </FlexDiv>
       </CenterDiv>
