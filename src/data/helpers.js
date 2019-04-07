@@ -4,7 +4,9 @@ export function generateSet(params) {
   if (params.length === undefined) throw new Error("length is required");
   if (!params.tenses) throw new Error("tenses is required");
   const verbs = params.target.verbs.basic;
-  const conjugations = Object.keys(verbs[0].conjugations);
+  const tenseOptions = Object.keys(verbs[0].conjugations).filter(c => {
+    return params.tenses.includes(c);
+  });
   const pronouns = params.target.pronouns;
 
   const set = [];
@@ -12,7 +14,7 @@ export function generateSet(params) {
     // choose a verb at random
     const v = verbs[Math.floor(Math.random() * verbs.length)];
     // choose a conjugation at random
-    const c = conjugations[Math.floor(Math.random() * conjugations.length)];
+    const c = tenseOptions[Math.floor(Math.random() * tenseOptions.length)];
     // choose a pronoun index at random
     const pronounIndex = Math.floor(Math.random() * pronouns.length);
 

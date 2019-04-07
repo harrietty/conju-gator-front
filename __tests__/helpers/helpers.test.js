@@ -53,6 +53,7 @@ const englishData = {
     basic: {
       "to have": {
         present: ["have", "have", "has", "have", "have", "have"],
+        preterite: ["had", "had", "had", "had", "had", "had"],
         present_participle: "having",
         past_participle: "had",
         root: "have"
