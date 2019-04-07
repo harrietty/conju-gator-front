@@ -130,7 +130,7 @@ class Home extends React.Component {
           <Link to={this.generateLink()}>
             <Button
               disabled={
-                this.state.tensesError || this.state.numOfQuestionsError
+                !!(this.state.tensesError || this.state.numOfQuestionsError)
               }
             >
               Start
