@@ -13,7 +13,8 @@ import "./static/apple-touch-icon.png";
 import "./static/favicon-16x16.png";
 import "./static/favicon-32x32.png";
 import "./static/favicon.ico";
-// import "./static/site.webmanifest";
+// Currently importing so it gets copied into the dist directory, is there a better way?
+import "./static/twittercard.png";
 
 ReactDOM.render(
   <Router>
