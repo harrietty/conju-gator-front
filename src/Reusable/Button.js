@@ -6,7 +6,7 @@ const Btn = styled.button`
   height: 37px;
   min-width: 200px;
   color: ${props => (props.disabled ? "#908589" : "white")};
-  background: ${props => (props.disabled ? "#CCC4C7" : "palevioletred")};
+  background: ${props => (props.disabled ? "#CCC4C7" : "#664668")};
   font-size: 1.4rem;
   border: 0;
   border-radius: 2px;

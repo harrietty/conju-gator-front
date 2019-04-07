@@ -2,17 +2,22 @@ import qs from "querystring";
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { Progress } from "react-sweet-progress";
+import "react-sweet-progress/lib/style.css";
 import english from "./data/english";
 import spanish from "./data/target_languages/spanish";
 
 import { generateSet } from "./data/helpers";
 
 import Question from "./Question";
-import ProgressIndicator from "./ProgressIndicator";
 import FinalScreen from "./FinalScreen";
 
 const Container = styled.div`
   margin-top: 50px;
+`;
+
+const ProgressContainer = styled.div`
+  padding: 0 3%;
 `;
 
 class QuestionSet extends React.Component {
@@ -49,12 +54,24 @@ class QuestionSet extends React.Component {
   };
 
   render() {
+    const progress = Math.round(
+      (this.state.question / this.state.questions.length) * 100
+    );
+    const progressTheme = {
+      success: {
+        color: "#0eb9be",
+        symbol: progress + "%"
+      },
+      active: {
+        color: "#0eb9be",
+        symbol: progress + "%"
+      }
+    };
     return (
       <Container>
-        <ProgressIndicator
-          correct={this.state.correct}
-          total={this.state.questions.length}
-        />
+        <ProgressContainer>
+          <Progress percent={progress} theme={progressTheme} />
+        </ProgressContainer>
         {this.state.question === this.state.questions.length ? (
           <FinalScreen
             correct={this.state.correct.filter(c => c).length}
