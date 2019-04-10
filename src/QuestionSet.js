@@ -45,7 +45,7 @@ class QuestionSet extends React.Component {
   handleQuestionSubmit = response => {
     const { correct } = this.state.questions[this.state.question];
     const newCorrect = this.state.correct.slice();
-    if (response === correct) newCorrect.push(true);
+    if (response.toLowerCase() === correct) newCorrect.push(true);
     else newCorrect.push(false);
     this.setState({
       question: this.state.question + 1,

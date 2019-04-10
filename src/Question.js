@@ -37,7 +37,7 @@ class Question extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const response = this.state.value;
+    const response = this.state.value.toLowerCase();
     if (this.state.showingCorrect || response === this.props.correct) {
       this.setState({
         value: "",
