@@ -15,8 +15,8 @@ export function generateSet(params) {
     const v = verbs[Math.floor(Math.random() * verbs.length)];
     // choose a conjugation at random
     const c = tenseOptions[Math.floor(Math.random() * tenseOptions.length)];
-    // choose a pronoun index at random
-    const pronounIndex = Math.floor(Math.random() * pronouns.length);
+    // choose a pronoun index at random, , out of the available options
+    const pronounIndex = choosePronoun(v, pronouns);
 
     // crete start, correct and original
     const engVerb = params.english.verbs.basic[v.translation];
@@ -57,4 +57,23 @@ function getImperfectToBe(pronoun) {
     "you (pl)": "were",
     they: "were"
   }[pronoun];
+}
+
+/**
+ * Receives a Spanish verb and responds with a pronoun index to use,
+ * based on which pronouns this particular verb conjugates for
+ * For example, llover would only ever return a pronoun index of 2
+ * for third person singular
+ * @param {Object} verb
+ * @return {Number}
+ */
+export function choosePronoun(verb) {
+  const availablePronouns = verb.conjugations.present
+    .map((p, i) => ({ i, pronoun: p }))
+    .filter(p => p.pronoun)
+    .map(p => p.i);
+
+  return availablePronouns[
+    Math.floor(Math.random() * availablePronouns.length)
+  ];
 }
