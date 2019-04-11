@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import Button from "./Reusable/Button";
 import Input from "./Reusable/Input";
@@ -90,44 +90,50 @@ class Home extends React.Component {
     });
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    const l = this.generateLink();
+    this.props.history.push(l);
+  };
+
   render() {
     return (
       <CenterDiv>
-        <P>Select a language:</P>
-        <Select onChange={this.changeLanguage} value={this.state.language}>
-          {["Spanish", "More languages coming soon!"].map(l => (
-            <option key={l} value={l} disabled={l !== "Spanish"}>
-              {l}
-            </option>
-          ))}
-        </Select>
-        <P>Select tenses to practice:</P>
-        <FlexDiv>
-          {Object.keys(this.state.tenses).map(t => (
-            <div key={t}>
-              <input
-                onChange={this.toggleChecked}
-                type="checkBox"
-                name={t}
-                id={`${t}TenseCheck`}
-                checked={this.state.tenses[t]}
-              />
-              <label htmlFor={`${t}TenseCheck`}>{t}</label>
-            </div>
-          ))}
-        </FlexDiv>
-        <Error>{this.state.tensesError}</Error>
-        <P>How many questions?</P>
-        <FlexDiv>
-          <Input
-            onChange={this.handleQuestionChange}
-            type="number"
-            value={this.state.numOfQuestions}
-          />
-        </FlexDiv>
-        <Error>{this.state.numOfQuestionsError}</Error>
-        <FlexDiv>
-          <Link to={this.generateLink()}>
+        <form onSubmit={this.handleSubmit}>
+          <P>Select a language:</P>
+          <Select onChange={this.changeLanguage} value={this.state.language}>
+            {["Spanish", "More languages coming soon!"].map(l => (
+              <option key={l} value={l} disabled={l !== "Spanish"}>
+                {l}
+              </option>
+            ))}
+          </Select>
+          <P>Select tenses to practice:</P>
+          <FlexDiv>
+            {Object.keys(this.state.tenses).map(t => (
+              <div key={t}>
+                <input
+                  onChange={this.toggleChecked}
+                  type="checkBox"
+                  name={t}
+                  id={`${t}TenseCheck`}
+                  checked={this.state.tenses[t]}
+                />
+                <label htmlFor={`${t}TenseCheck`}>{t}</label>
+              </div>
+            ))}
+          </FlexDiv>
+          <Error>{this.state.tensesError}</Error>
+          <P>How many questions?</P>
+          <FlexDiv>
+            <Input
+              onChange={this.handleQuestionChange}
+              type="number"
+              value={this.state.numOfQuestions}
+            />
+          </FlexDiv>
+          <Error>{this.state.numOfQuestionsError}</Error>
+          <FlexDiv>
             <Button
               disabled={
                 !!(this.state.tensesError || this.state.numOfQuestionsError)
@@ -135,11 +141,15 @@ class Home extends React.Component {
             >
               Start
             </Button>
-          </Link>
-        </FlexDiv>
+          </FlexDiv>
+        </form>
       </CenterDiv>
     );
   }
+
+  static propTypes = {
+    history: PropTypes.object.isRequired
+  };
 }
 
 export default Home;
