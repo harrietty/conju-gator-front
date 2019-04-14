@@ -246,4 +246,26 @@ describe("generateSet", () => {
       expect(typeof r.infinitive).toBe("string");
     });
   });
+
+  test("returns the pronoun 'it' for third-person only verbs", () => {
+    const result = generateSet({
+      english: englishDataThirdPerson,
+      target: spanishDataThirdPerson,
+      length: 50,
+      tenses: ["present", "conditional", "future", "preterite", "imperfect"]
+    });
+
+    // Llover should be "it"
+    // Ocurrir could be "it" or "they"
+    result.forEach(r => {
+      if (r.infinitive === "llover") {
+        expect(r.original.split(" ")[0]).toBe("it");
+        // In Spanish we would not use the pronoun for "it"
+        expect(r.start).toBe("");
+      } else if (r.infinitive === "ocurrir") {
+        expect(["it", "they"]).toContain(r.original.split(" ")[0]);
+        expect(["they", ""]).toContain(r.start);
+      }
+    });
+  });
 });
