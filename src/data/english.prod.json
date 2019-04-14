@@ -1282,11 +1282,6 @@
         "present_participle": "raining",
         "past_participle": "rained",
         "root": "rain"
-      },
-      "to be able": {
-        "present": ["can", "can", "can", "can", "can", "can"],
-        "present_participle": "able to",
-        "past_participle": "able to"
       }
     }
   }
