@@ -5,15 +5,6 @@ import Button from "./Reusable/Button";
 import Input from "./Reusable/Input";
 import Error from "./Reusable/Error";
 
-const P = styled.p`
-  text-align: center;
-  font-size: 1.5rem;
-`;
-
-const CenterDiv = styled.div`
-  text-align: center;
-`;
-
 const FlexDiv = styled.div`
   text-align: center;
   display: flex;
@@ -30,6 +21,17 @@ const Select = styled.select`
 `;
 
 class Home extends React.Component {
+  static verbTypes = [
+    { type: "all", meta: ["Randomly selected from over 250 available verbs"] },
+    {
+      type: "common",
+      meta: [
+        "25 common verbs including ser, estar, tener, seguir, decir, venir, hacer, ir, poder"
+      ]
+    },
+    { type: "irregular", meta: ["Randomly selected irregular verbs"] }
+  ];
+
   state = {
     numOfQuestions: 30,
     tenses: {
@@ -39,6 +41,7 @@ class Home extends React.Component {
       preterite: true,
       conditional: true
     },
+    chosenVerbType: "all",
     language: "Spanish",
     tensesError: null,
     numOfQuestionsError: null
@@ -96,54 +99,109 @@ class Home extends React.Component {
     this.props.history.push(l);
   };
 
+  changeVerbType = e => {
+    this.setState({
+      chosenVerbType: e.target.name
+    });
+  };
+
   render() {
     return (
-      <CenterDiv>
+      <div className="container">
         <form onSubmit={this.handleSubmit}>
-          <P>Select a language:</P>
-          <Select onChange={this.changeLanguage} value={this.state.language}>
-            {["Spanish", "More languages coming soon!"].map(l => (
-              <option key={l} value={l} disabled={l !== "Spanish"}>
-                {l}
-              </option>
-            ))}
-          </Select>
-          <P>Select tenses to practice:</P>
-          <FlexDiv>
-            {Object.keys(this.state.tenses).map(t => (
-              <div key={t}>
-                <input
-                  onChange={this.toggleChecked}
-                  type="checkBox"
-                  name={t}
-                  id={`${t}TenseCheck`}
-                  checked={this.state.tenses[t]}
-                />
-                <label htmlFor={`${t}TenseCheck`}>{t}</label>
-              </div>
-            ))}
-          </FlexDiv>
-          <Error>{this.state.tensesError}</Error>
-          <P>How many questions?</P>
-          <FlexDiv>
-            <Input
-              onChange={this.handleQuestionChange}
-              type="number"
-              value={this.state.numOfQuestions}
-            />
-          </FlexDiv>
-          <Error>{this.state.numOfQuestionsError}</Error>
-          <FlexDiv>
-            <Button
-              disabled={
-                !!(this.state.tensesError || this.state.numOfQuestionsError)
-              }
-            >
-              Start
-            </Button>
-          </FlexDiv>
+          {/* Select a language */}
+          <div className="row">
+            <div className="col-3">
+              <label>Select a language:</label>
+            </div>
+            <div className="col-9">
+              <Select
+                onChange={this.changeLanguage}
+                value={this.state.language}
+              >
+                {["Spanish", "More languages coming soon!"].map(l => (
+                  <option key={l} value={l} disabled={l !== "Spanish"}>
+                    {l}
+                  </option>
+                ))}
+              </Select>
+            </div>
+          </div>
+
+          {/* Selec Tenses */}
+          <div className="row">
+            <div className="col-3">
+              <label>Select tenses to practice:</label>
+            </div>
+            <div className="col-9">
+              <FlexDiv>
+                {Object.keys(this.state.tenses).map(t => (
+                  <div key={t}>
+                    <input
+                      onChange={this.toggleChecked}
+                      type="checkBox"
+                      name={t}
+                      id={`${t}TenseCheck`}
+                      checked={this.state.tenses[t]}
+                    />
+                    <label htmlFor={`${t}TenseCheck`}>{t}</label>
+                  </div>
+                ))}
+              </FlexDiv>
+              <Error>{this.state.tensesError}</Error>
+            </div>
+          </div>
+
+          {/* Select Irregular/Common/All */}
+          <div className="row">
+            <div className="col-3">
+              <label>What verbs do you want to study?</label>
+            </div>
+            <div className="col-9">
+              {Home.verbTypes.map(t => (
+                <div key={t.type}>
+                  <input
+                    onChange={this.changeVerbType}
+                    type="radio"
+                    name={t.type}
+                    id={`${t.type}VerbSelection`}
+                    checked={this.state.chosenVerbType === t.type}
+                  />
+                  <label htmlFor={`${t.type}VerbSelection`}>{t.type}</label>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* How many questions? */}
+          <div className="row">
+            <div className="col-3">
+              <label>How many questions?</label>
+            </div>
+            <div className="col-9">
+              <Input
+                onChange={this.handleQuestionChange}
+                type="number"
+                value={this.state.numOfQuestions}
+              />
+              <Error>{this.state.numOfQuestionsError}</Error>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-3" />
+            <div className="col-9">
+              <Button
+                disabled={
+                  !!(this.state.tensesError || this.state.numOfQuestionsError)
+                }
+              >
+                Start
+              </Button>
+            </div>
+          </div>
         </form>
-      </CenterDiv>
+      </div>
     );
   }
 
