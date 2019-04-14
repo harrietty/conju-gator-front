@@ -6,6 +6,7 @@ import QuestionSet from "./QuestionSet";
 import Home from "./Home";
 import Nav from "./Nav";
 
+import "./style/grid.css";
 import "./style/main.css";
 import "./static/android-chrome-192x192.png";
 import "./static/android-chrome-512x512.png";

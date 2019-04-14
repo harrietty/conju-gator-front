@@ -17,6 +17,21 @@ const Label = styled.label`
   font-size: 1.4rem;
 `;
 
+const H5 = styled.h5`
+  margin: 10px 0 30px 0;
+  font-size: 0.9rem;
+`;
+
+const P = styled.p`
+  margin-bottom: 0px;
+`;
+
+const Flex = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+`;
+
 const InputWithIncorrectOption = styled(Input)`
   color: ${props => (props.incorrect ? colors.errorRed : "default")};
 `;
@@ -72,24 +87,32 @@ class Question extends React.Component {
     const { original, start } = this.props;
     return (
       <CenterDiv>
-        <h5>{this.props.infinitive}</h5>
+        <P>{original}</P>
+        <H5>({this.props.infinitive})</H5>
         <form onSubmit={this.handleSubmit}>
-          <Label htmlFor="answerInput">{start}</Label>
-          <InputWithIncorrectOption
-            width="300px"
-            autoFocus
-            type="text"
-            ref={this._input}
-            id="answerInput"
-            autoComplete="off"
-            value={this.state.value}
-            onChange={this.handleChange}
-            incorrect={this.state.showingCorrect}
-            shouldBeDisabled={this.state.showingCorrect}
-          />
-          <p>{original}</p>
+          <Flex>
+            <div>
+              <Label htmlFor="answerInput">{start}</Label>
+            </div>
+            <div>
+              <InputWithIncorrectOption
+                width="300px"
+                autoFocus
+                type="text"
+                ref={this._input}
+                id="answerInput"
+                autoComplete="off"
+                value={this.state.value}
+                onChange={this.handleChange}
+                incorrect={this.state.showingCorrect}
+                shouldBeDisabled={this.state.showingCorrect}
+              />
+              <AccentedOptions
+                handleAccentSelection={this.handleAccentSelection}
+              />
+            </div>
+          </Flex>
           {this.state.showingCorrect && <Error>{this.props.correct}</Error>}
-          <AccentedOptions handleAccentSelection={this.handleAccentSelection} />
           <Button type="submit" refCallback={c => (this._button = c)}>
             {this.state.showingCorrect ? "Next" : "Check"}
           </Button>
