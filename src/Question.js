@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import AccentedOptions from "./AccentedOptions";
 import Button from "./Reusable/Button";
 import Input from "./Reusable/Input";
 import Error from "./Reusable/Error";
@@ -27,7 +28,6 @@ class Question extends React.Component {
   };
 
   _input = React.createRef();
-  _input2 = React.createRef();
 
   handleChange = e => {
     this.setState({
@@ -45,13 +45,27 @@ class Question extends React.Component {
       });
       this.props.handleQuestionSubmit(response);
       this._button.blur();
-      this._input2.current.focus();
+      this._input.current.focus();
     } else if (response !== this.props.correct) {
       this.setState({
         showingCorrect: true
       });
       this._button.focus();
     }
+  };
+
+  handleAccentSelection = e => {
+    const isAccentSelect = Array.from(e.target.classList).includes(
+      "accentSelect"
+    );
+    // Otherwise is a normal form submission
+    if (isAccentSelect) e.preventDefault();
+
+    // Update input area with selected accented letter
+    this.setState({
+      value: this.state.value + e.target.innerText
+    });
+    this._input.current.focus();
   };
 
   render() {
@@ -65,7 +79,7 @@ class Question extends React.Component {
             width="300px"
             autoFocus
             type="text"
-            ref={this._input2}
+            ref={this._input}
             id="answerInput"
             autoComplete="off"
             value={this.state.value}
@@ -75,6 +89,7 @@ class Question extends React.Component {
           />
           <p>{original}</p>
           {this.state.showingCorrect && <Error>{this.props.correct}</Error>}
+          <AccentedOptions handleAccentSelection={this.handleAccentSelection} />
           <Button type="submit" refCallback={c => (this._button = c)}>
             {this.state.showingCorrect ? "Next" : "Check"}
           </Button>
