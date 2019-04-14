@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Progress } from "react-sweet-progress";
 import "react-sweet-progress/lib/style.css";
-import english from "./data/english.dev.json";
-import spanish from "./data/target_languages/spanish.dev.json";
+import english from "./data/english.prod.json";
+import spanish from "./data/target_languages/spanish.prod.json";
 
 import { generateSet } from "./data/helpers";
 
