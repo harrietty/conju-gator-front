@@ -2,26 +2,12 @@
   "pronouns": ["I", "you", "he/she", "we", "you", "they"],
   "verbs": {
     "basic": {
-      "to try": {
-        "present": ["try", "try", "tries", "try", "try", "try"],
-        "preterite": ["tried", "tried", "tried", "tried", "tried", "tried"],
-        "present_participle": "trying",
-        "past_participle": "tried",
-        "root": "try"
-      },
-      "to occur/to happen": {
-        "present": [null, null, "occurs", null, null, "occur"],
-        "preterite": [null, null, "occurred", null, null, "occurred"],
-        "present_participle": "occurring",
-        "past_participle": "occurred",
-        "root": "occur"
-      },
-      "to rain": {
-        "present": [null, null, "rains", null, null, null],
-        "preterite": [null, null, "rained", null, null, null],
-        "present_participle": "raining",
-        "past_participle": "rained",
-        "root": "rain"
+      "to be": {
+        "present": ["am", "are", "is", "are", "are", "are"],
+        "preterite": ["was", "were", "was", "were", "were", "were"],
+        "present_participle": "being",
+        "past_participle": "been",
+        "root": "be"
       }
     }
   }

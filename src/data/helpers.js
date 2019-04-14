@@ -13,27 +13,41 @@ export function generateSet(params) {
   for (let i = 0; i < params.length; i++) {
     // choose a verb at random
     const v = verbs[Math.floor(Math.random() * verbs.length)];
+
+    // If the verb is derived from "to be" such as "to be born", we use "to be" as the verb which we
+    // conjugate, and then add on the "extra word" such as "born" later on
+    const isDerivedFromToBe = v.translation.match(/[a-z]+\(\+[a-z]+\)/);
+    const extraWord = isDerivedFromToBe
+      ? v.translation.match(/\(\+([a-z]+)\)/)[1]
+      : null;
+
     // choose a conjugation at random
     const c = tenseOptions[Math.floor(Math.random() * tenseOptions.length)];
     // choose a pronoun index at random, , out of the available options
     const pronounIndex = choosePronoun(v, pronouns);
 
     // crete start, correct and original
-    const engVerb = params.english.verbs.basic[v.translation];
+    const translation = isDerivedFromToBe ? "to be" : v.translation;
+    const engVerb = params.english.verbs.basic[translation];
     const engPronoun = getEngPronoun(params.english.pronouns[pronounIndex], v);
     let engCorrect;
     if (c === "present") {
       engCorrect = engVerb.present[pronounIndex];
+      if (isDerivedFromToBe) engCorrect += ` ${extraWord}`;
     } else if (c === "future") {
       engCorrect = `will ${engVerb.root}`;
+      if (isDerivedFromToBe) engCorrect += ` ${extraWord}`;
     } else if (c === "conditional") {
       engCorrect = `would ${engVerb.root}`;
+      if (isDerivedFromToBe) engCorrect += ` ${extraWord}`;
     } else if (c === "preterite") {
       engCorrect = engVerb.preterite[pronounIndex];
+      if (isDerivedFromToBe) engCorrect += ` ${extraWord}`;
     } else if (c === "imperfect") {
       engCorrect = `${getImperfectToBe(engPronoun)} ${
         engVerb.present_participle
       }`;
+      if (isDerivedFromToBe) engCorrect += ` ${extraWord}`;
     }
     const original = `${engPronoun} ${engCorrect} (${c})`;
     const start = getStartPronoun(params.target.pronouns[pronounIndex], v);

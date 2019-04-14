@@ -268,4 +268,78 @@ describe("generateSet", () => {
       }
     });
   });
+
+  test("returns the correct data for verbs with a 'to be' root such as 'to be born'", () => {
+    const engData = {
+      pronouns: ["I", "you", "he/she", "we", "you", "they"],
+      verbs: {
+        basic: {
+          "to be": {
+            present: ["am", "are", "is", "are", "are", "are"],
+            preterite: ["was", "were", "was", "were", "were", "were"],
+            present_participle: "being",
+            past_participle: "been",
+            root: "be"
+          }
+        }
+      }
+    };
+    const spanData = {
+      pronouns: ["yo", "tú", "él/ella", "nosotros", "vosotros", "ellos/ellas"],
+      verbs: {
+        basic: [
+          {
+            infinitive: "nacer",
+            translation: "to be(+born)",
+            conjugations: {
+              present: ["nazco", "naces", "nace", "nacemos", "nacéis", "nacen"],
+              preterite: [
+                "nací",
+                "naciste",
+                "nació",
+                "nacimos",
+                "nacisteis",
+                "nacieron"
+              ],
+              imperfect: [
+                "nacía",
+                "nacías",
+                "nacía",
+                "nacíamos",
+                "nacíais",
+                "nacían"
+              ],
+              conditional: [
+                "nacería",
+                "nacerías",
+                "nacería",
+                "naceríamos",
+                "naceríais",
+                "nacerían"
+              ],
+              future: [
+                "naceré",
+                "nacerás",
+                "nacerá",
+                "naceremos",
+                "naceréis",
+                "nacerán"
+              ]
+            }
+          }
+        ]
+      }
+    };
+
+    const result = generateSet({
+      english: engData,
+      target: spanData,
+      length: 50,
+      tenses: ["present", "conditional", "future", "preterite", "imperfect"]
+    });
+
+    result.forEach(r => {
+      expect(r.original).toContain("born");
+    });
+  });
 });

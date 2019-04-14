@@ -3,70 +3,87 @@
   "verbs": {
     "basic": [
       {
-        "infinitive": "ocurrir",
-        "translation": "to occur/to happen",
+        "infinitive": "nacer",
+        "translation": "to be(+born)",
         "conjugations": {
-          "present": [null, null, "ocurre", null, null, "ocurren"],
-          "preterite": [null, null, "ocurrió", null, null, "ocurrieron"],
-          "imperfect": [null, null, "ocurría", null, null, "ocurrían"],
-          "conditional": [null, null, "ocurriría", null, null, "ocurrirían"],
-          "future": [null, null, "ocurrirá", null, null, "ocurrirán"]
-        }
-      },
-      {
-        "infinitive": "llover",
-        "translation": "to rain",
-        "conjugations": {
-          "present": [null, null, "llueve", null, null, null],
-          "preterite": [null, null, "llovió", null, null, null],
-          "imperfect": [null, null, "llovía", null, null, null],
-          "conditional": [null, null, "llovería", null, null, null],
-          "future": [null, null, "lloverá", null, null, null]
-        }
-      },
-      {
-        "infinitive": "intentar",
-        "translation": "to try",
-        "conjugations": {
-          "present": [
-            "intento",
-            "intentas",
-            "intenta",
-            "intentamos",
-            "intentáis",
-            "intentan"
-          ],
+          "present": ["nazco", "naces", "nace", "nacemos", "nacéis", "nacen"],
           "preterite": [
-            "intenté",
-            "intentaste",
-            "intentó",
-            "intentamos",
-            "intentasteis",
-            "intentaron"
+            "nací",
+            "naciste",
+            "nació",
+            "nacimos",
+            "nacisteis",
+            "nacieron"
           ],
           "imperfect": [
-            "intentaba",
-            "intentabas",
-            "intentaba",
-            "intentábamos",
-            "intentabais",
-            "intentaban"
+            "nacía",
+            "nacías",
+            "nacía",
+            "nacíamos",
+            "nacíais",
+            "nacían"
           ],
           "conditional": [
-            "intentaría",
-            "intentarías",
-            "intentaría",
-            "intentaríamos",
-            "intentaríais",
-            "intentarían"
+            "nacería",
+            "nacerías",
+            "nacería",
+            "naceríamos",
+            "naceríais",
+            "nacerían"
           ],
           "future": [
-            "intentaré",
-            "intentarás",
-            "intentará",
-            "intentaremos",
-            "intentaréis",
-            "intentarán"
+            "naceré",
+            "nacerás",
+            "nacerá",
+            "naceremos",
+            "naceréis",
+            "nacerán"
+          ]
+        }
+      },
+      {
+        "infinitive": "poder",
+        "translation": "to be(+able)",
+        "conjugations": {
+          "present": [
+            "puedo",
+            "puedes",
+            "puede",
+            "podemos",
+            "podéis",
+            "pueden"
+          ],
+          "preterite": [
+            "pude",
+            "pudiste",
+            "pudo",
+            "pudimos",
+            "pudisteis",
+            "pudieron"
+          ],
+          "imperfect": [
+            "podía",
+            "podías",
+            "podía",
+            "podíamos",
+            "podíais",
+            "podían"
+          ],
+          "conditional": [
+            "podría",
+            "podrías",
+            "podría",
+            "podríamos",
+            "podríais",
+            "podrían"
+          ],
+          "future": [
+            "podré",
+            "podrás",
+            "podrá",
+            "podremos",
+            "podréis",
+            "podrán"
           ]
         }
       }
