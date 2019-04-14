@@ -1,0 +1,75 @@
+{
+  "pronouns": ["yo", "tú", "él/ella", "nosotros", "vosotros", "ellos/ellas"],
+  "verbs": {
+    "basic": [
+      {
+        "infinitive": "ocurrir",
+        "translation": "to occur/to happen",
+        "conjugations": {
+          "present": [null, null, "ocurre", null, null, "ocurren"],
+          "preterite": [null, null, "ocurrió", null, null, "ocurrieron"],
+          "imperfect": [null, null, "ocurría", null, null, "ocurrían"],
+          "conditional": [null, null, "ocurriría", null, null, "ocurrirían"],
+          "future": [null, null, "ocurrirá", null, null, "ocurrirán"]
+        }
+      },
+      {
+        "infinitive": "llover",
+        "translation": "to rain",
+        "conjugations": {
+          "present": [null, null, "llueve", null, null, null],
+          "preterite": [null, null, "llovió", null, null, null],
+          "imperfect": [null, null, "llovía", null, null, null],
+          "conditional": [null, null, "llovería", null, null, null],
+          "future": [null, null, "lloverá", null, null, null]
+        }
+      },
+      {
+        "infinitive": "intentar",
+        "translation": "to try",
+        "conjugations": {
+          "present": [
+            "intento",
+            "intentas",
+            "intenta",
+            "intentamos",
+            "intentáis",
+            "intentan"
+          ],
+          "preterite": [
+            "intenté",
+            "intentaste",
+            "intentó",
+            "intentamos",
+            "intentasteis",
+            "intentaron"
+          ],
+          "imperfect": [
+            "intentaba",
+            "intentabas",
+            "intentaba",
+            "intentábamos",
+            "intentabais",
+            "intentaban"
+          ],
+          "conditional": [
+            "intentaría",
+            "intentarías",
+            "intentaría",
+            "intentaríamos",
+            "intentaríais",
+            "intentarían"
+          ],
+          "future": [
+            "intentaré",
+            "intentarás",
+            "intentará",
+            "intentaremos",
+            "intentaréis",
+            "intentarán"
+          ]
+        }
+      }
+    ]
+  }
+}

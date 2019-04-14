@@ -1269,6 +1269,20 @@
         "past_participle": "tried",
         "root": "try"
       },
+      "to occur/to happen": {
+        "present": [null, null, "occurs", null, null, "occur"],
+        "preterite": [null, null, "occurred", null, null, "occurred"],
+        "present_participle": "occurring",
+        "past_participle": "occurred",
+        "root": "occur"
+      },
+      "to rain": {
+        "present": [null, null, "rains", null, null, null],
+        "preterite": [null, null, "rained", null, null, null],
+        "present_participle": "raining",
+        "past_participle": "rained",
+        "root": "rain"
+      },
       "to be able": {
         "present": ["can", "can", "can", "can", "can", "can"],
         "present_participle": "able to",

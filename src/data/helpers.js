@@ -20,7 +20,7 @@ export function generateSet(params) {
 
     // crete start, correct and original
     const engVerb = params.english.verbs.basic[v.translation];
-    const engPronoun = params.english.pronouns[pronounIndex];
+    const engPronoun = getEngPronoun(params.english.pronouns[pronounIndex], v);
     let engCorrect;
     if (c === "present") {
       engCorrect = engVerb.present[pronounIndex];
@@ -36,7 +36,7 @@ export function generateSet(params) {
       }`;
     }
     const original = `${engPronoun} ${engCorrect} (${c})`;
-    const start = params.target.pronouns[pronounIndex];
+    const start = getStartPronoun(params.target.pronouns[pronounIndex], v);
     const correct = v.conjugations[c][pronounIndex];
     set.push({
       start,
@@ -76,4 +76,42 @@ export function choosePronoun(verb) {
   return availablePronouns[
     Math.floor(Math.random() * availablePronouns.length)
   ];
+}
+
+/**
+ * When given a pronoun, will check against the verb whether it should return "it"
+ * or the original pronoun e.g. he/she, they, we, you
+ * @param {String} pronoun
+ * @param {Object} verb
+ * @return {String}
+ */
+function getEngPronoun(pronoun, verb) {
+  if (pronoun !== "he/she") return pronoun;
+  else {
+    // Is it a "third-person only" verb?
+    const isThirdPersonOnly =
+      verb.conjugations.present.filter(e => e === null).length >= 4;
+    if (isThirdPersonOnly) {
+      return "it";
+    } else {
+      return pronoun;
+    }
+  }
+}
+
+/**
+ * When given a pronoun, will check against the verb whether it should return ""
+ * or the original pronoun e.g. él/ella, nosotros
+ * @param {String} pronoun
+ * @param {Object} verb
+ * @return {String}
+ */
+function getStartPronoun(pronoun, verb) {
+  const isThirdPersonOnly =
+    verb.conjugations.present.filter(e => e === null).length >= 4;
+  if (isThirdPersonOnly && pronoun === "él/ella") {
+    return "";
+  } else {
+    return pronoun;
+  }
 }
