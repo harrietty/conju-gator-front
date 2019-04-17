@@ -20,6 +20,10 @@ const Select = styled.select`
   border: 1px solid #63b5b0;
 `;
 
+const Label = styled.label`
+  font-weight: 800;
+`;
+
 class Home extends React.Component {
   static verbTypes = [
     { type: "all", meta: ["Randomly selected from over 250 available verbs"] },
@@ -111,10 +115,10 @@ class Home extends React.Component {
         <form onSubmit={this.handleSubmit}>
           {/* Select a language */}
           <div className="row">
-            <div className="col-3">
-              <label>Select a language:</label>
+            <div className="col-4">
+              <Label>Select a language:</Label>
             </div>
-            <div className="col-9">
+            <div className="col-8">
               <Select
                 onChange={this.changeLanguage}
                 value={this.state.language}
@@ -130,10 +134,10 @@ class Home extends React.Component {
 
           {/* Selec Tenses */}
           <div className="row">
-            <div className="col-3">
-              <label>Select tenses to practice:</label>
+            <div className="col-4">
+              <Label>Select tenses to practice:</Label>
             </div>
-            <div className="col-9">
+            <div className="col-8">
               <FlexDiv>
                 {Object.keys(this.state.tenses).map(t => (
                   <div key={t}>
@@ -144,7 +148,7 @@ class Home extends React.Component {
                       id={`${t}TenseCheck`}
                       checked={this.state.tenses[t]}
                     />
-                    <label htmlFor={`${t}TenseCheck`}>{t}</label>
+                    <Label htmlFor={`${t}TenseCheck`}>{t}</Label>
                   </div>
                 ))}
               </FlexDiv>
@@ -154,10 +158,10 @@ class Home extends React.Component {
 
           {/* Select Irregular/Common/All */}
           <div className="row">
-            <div className="col-3">
-              <label>What verbs do you want to study?</label>
+            <div className="col-4">
+              <Label>What verbs do you want to study?</Label>
             </div>
-            <div className="col-9">
+            <div className="col-8">
               {Home.verbTypes.map(t => (
                 <div key={t.type}>
                   <input
@@ -167,7 +171,7 @@ class Home extends React.Component {
                     id={`${t.type}VerbSelection`}
                     checked={this.state.chosenVerbType === t.type}
                   />
-                  <label htmlFor={`${t.type}VerbSelection`}>{t.type}</label>
+                  <Label htmlFor={`${t.type}VerbSelection`}>{t.type}</Label>
                 </div>
               ))}
             </div>
@@ -175,10 +179,10 @@ class Home extends React.Component {
 
           {/* How many questions? */}
           <div className="row">
-            <div className="col-3">
-              <label>How many questions?</label>
+            <div className="col-4">
+              <Label>How many questions?</Label>
             </div>
-            <div className="col-9">
+            <div className="col-8">
               <Input
                 onChange={this.handleQuestionChange}
                 type="number"
@@ -189,8 +193,8 @@ class Home extends React.Component {
           </div>
 
           <div className="row">
-            <div className="col-3" />
-            <div className="col-9">
+            <div className="col-4" />
+            <div className="col-8">
               <Button
                 disabled={
                   !!(this.state.tensesError || this.state.numOfQuestionsError)
