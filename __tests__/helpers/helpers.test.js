@@ -7,6 +7,7 @@ const spanishData = {
       {
         infinitive: "tener",
         translation: "to have",
+        type: ["common", "irregular"],
         conjugations: {
           present: ["tengo", "tienes", "tiene", "tenemos", "tenéis", "tienen"],
           preterite: [
@@ -220,7 +221,8 @@ describe("generateSet", () => {
       english: englishData,
       target: spanishData,
       length: 3,
-      tenses: ["present", "conditional", "future", "preterite", "imperfect"]
+      tenses: ["present", "conditional", "future", "preterite", "imperfect"],
+      verbType: "all"
     });
 
     expect(result).toHaveLength(3);
@@ -235,7 +237,8 @@ describe("generateSet", () => {
       english: englishDataThirdPerson,
       target: spanishDataThirdPerson,
       length: 3,
-      tenses: ["present", "conditional", "future", "preterite", "imperfect"]
+      tenses: ["present", "conditional", "future", "preterite", "imperfect"],
+      verbType: "all"
     });
 
     expect(result).toHaveLength(3);
@@ -252,7 +255,8 @@ describe("generateSet", () => {
       english: englishDataThirdPerson,
       target: spanishDataThirdPerson,
       length: 50,
-      tenses: ["present", "conditional", "future", "preterite", "imperfect"]
+      tenses: ["present", "conditional", "future", "preterite", "imperfect"],
+      verbType: "all"
     });
 
     // Llover should be "it"
@@ -335,11 +339,232 @@ describe("generateSet", () => {
       english: engData,
       target: spanData,
       length: 50,
-      tenses: ["present", "conditional", "future", "preterite", "imperfect"]
+      tenses: ["present", "conditional", "future", "preterite", "imperfect"],
+      verbType: "all"
     });
 
     result.forEach(r => {
       expect(r.original).toContain("born");
+    });
+  });
+
+  test("selects only common verbs if type: common provided as param", () => {
+    const spanishData = {
+      pronouns: ["yo", "tú", "él/ella", "nosotros", "vosotros", "ellos/ellas"],
+      verbs: {
+        basic: [
+          {
+            infinitive: "tener",
+            translation: "to have",
+            type: ["common"],
+            conjugations: {
+              present: [
+                "tengo",
+                "tienes",
+                "tiene",
+                "tenemos",
+                "tenéis",
+                "tienen"
+              ],
+              preterite: [
+                "tuve",
+                "tuviste",
+                "tuvo",
+                "tuvimos",
+                "tuvisteis",
+                "tuvieron"
+              ],
+              imperfect: [
+                "tenía",
+                "tenías",
+                "tenía",
+                "teníamos",
+                "teníais",
+                "tenían"
+              ],
+              conditional: [
+                "tendría",
+                "tendrías",
+                "tendría",
+                "tendríamos",
+                "tendríais",
+                "tendrían"
+              ],
+              future: [
+                "tendré",
+                "tendrás",
+                "tendrá",
+                "tendremos",
+                "tendréis",
+                "tendrán"
+              ]
+            }
+          },
+          {
+            infinitive: "oír",
+            translation: "to hear",
+            type: ["irregular"],
+            conjugations: {
+              present: ["oigo", "oyes", "oye", "oímos", "oís", "oyen"],
+              preterite: ["oí", "oíste", "oyó", "oímos", "oísteis", "oyeron"],
+              imperfect: ["oía", "oías", "oía", "oíamos", "oíais", "oían"],
+              conditional: [
+                "oiría",
+                "oirías",
+                "oiría",
+                "oiríamos",
+                "oiríais",
+                "oirían"
+              ],
+              future: ["oiré", "oirás", "oirá", "oiremos", "oiréis", "oirán"]
+            }
+          }
+        ]
+      }
+    };
+
+    const englishData = {
+      pronouns: ["I", "you", "he/she", "we", "you (pl)", "they"],
+      verbs: {
+        basic: {
+          "to have": {
+            present: ["have", "have", "has", "have", "have", "have"],
+            preterite: ["had", "had", "had", "had", "had", "had"],
+            present_participle: "having",
+            past_participle: "had",
+            root: "have"
+          },
+          "to hear": {
+            present: ["hear", "hear", "hears", "hear", "hear", "hear"],
+            preterite: ["heard", "heard", "heard", "heard", "heard", "heard"],
+            present_participle: "hearing",
+            past_participle: "heard",
+            root: "hear"
+          }
+        }
+      }
+    };
+
+    const result = generateSet({
+      english: englishData,
+      target: spanishData,
+      length: 50,
+      tenses: ["present"],
+      verbType: "common"
+    });
+
+    result.forEach(r => {
+      expect(r.infinitive).toBe("tener");
+    });
+  });
+
+  test("selects only irregular verbs if type: irregular provided as param", () => {
+    const spanishData = {
+      pronouns: ["yo", "tú", "él/ella", "nosotros", "vosotros", "ellos/ellas"],
+      verbs: {
+        basic: [
+          {
+            infinitive: "tener",
+            translation: "to have",
+            type: ["common"],
+            conjugations: {
+              present: [
+                "tengo",
+                "tienes",
+                "tiene",
+                "tenemos",
+                "tenéis",
+                "tienen"
+              ],
+              preterite: [
+                "tuve",
+                "tuviste",
+                "tuvo",
+                "tuvimos",
+                "tuvisteis",
+                "tuvieron"
+              ],
+              imperfect: [
+                "tenía",
+                "tenías",
+                "tenía",
+                "teníamos",
+                "teníais",
+                "tenían"
+              ],
+              conditional: [
+                "tendría",
+                "tendrías",
+                "tendría",
+                "tendríamos",
+                "tendríais",
+                "tendrían"
+              ],
+              future: [
+                "tendré",
+                "tendrás",
+                "tendrá",
+                "tendremos",
+                "tendréis",
+                "tendrán"
+              ]
+            }
+          },
+          {
+            infinitive: "oír",
+            translation: "to hear",
+            type: ["irregular"],
+            conjugations: {
+              present: ["oigo", "oyes", "oye", "oímos", "oís", "oyen"],
+              preterite: ["oí", "oíste", "oyó", "oímos", "oísteis", "oyeron"],
+              imperfect: ["oía", "oías", "oía", "oíamos", "oíais", "oían"],
+              conditional: [
+                "oiría",
+                "oirías",
+                "oiría",
+                "oiríamos",
+                "oiríais",
+                "oirían"
+              ],
+              future: ["oiré", "oirás", "oirá", "oiremos", "oiréis", "oirán"]
+            }
+          }
+        ]
+      }
+    };
+
+    const englishData = {
+      pronouns: ["I", "you", "he/she", "we", "you (pl)", "they"],
+      verbs: {
+        basic: {
+          "to have": {
+            present: ["have", "have", "has", "have", "have", "have"],
+            preterite: ["had", "had", "had", "had", "had", "had"],
+            present_participle: "having",
+            past_participle: "had",
+            root: "have"
+          },
+          "to hear": {
+            present: ["hear", "hear", "hears", "hear", "hear", "hear"],
+            preterite: ["heard", "heard", "heard", "heard", "heard", "heard"],
+            present_participle: "hearing",
+            past_participle: "heard",
+            root: "hear"
+          }
+        }
+      }
+    };
+
+    const result = generateSet({
+      english: englishData,
+      target: spanishData,
+      length: 50,
+      tenses: ["present"],
+      verbType: "irregular"
+    });
+
+    result.forEach(r => {
+      expect(r.infinitive).toBe("oír");
     });
   });
 });

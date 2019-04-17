@@ -3,7 +3,20 @@ export function generateSet(params) {
   if (!params.target) throw new Error("target is required");
   if (params.length === undefined) throw new Error("length is required");
   if (!params.tenses) throw new Error("tenses is required");
-  const verbs = params.target.verbs.basic;
+  if (!params.verbType) throw new Error("verbType is required");
+
+  let verbs = params.target.verbs.basic;
+  if (params.verbType !== "all") {
+    verbs = verbs.filter(v => {
+      if (params.verbType === "irregular" && v.type.includes("irregular")) {
+        return true;
+      } else if (params.verbType === "common" && v.type.includes("common")) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
   const tenseOptions = Object.keys(verbs[0].conjugations).filter(c => {
     return params.tenses.includes(c);
   });

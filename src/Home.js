@@ -53,6 +53,7 @@ class Home extends React.Component {
 
   generateLink = () => {
     let l = `/${this.state.language.toLowerCase()}?`;
+    l += `verbs=${this.state.chosenVerbType}&`;
     l += `questions=${this.state.numOfQuestions}&tenses=`;
     const tenses = [];
     Object.keys(this.state.tenses).forEach(t => {

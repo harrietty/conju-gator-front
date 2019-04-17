@@ -3,30 +3,9 @@
   "verbs": {
     "basic": [
       {
-        "infinitive": "ocurrir",
-        "translation": "to occur/to happen",
-        "conjugations": {
-          "present": [null, null, "ocurre", null, null, "ocurren"],
-          "preterite": [null, null, "ocurrió", null, null, "ocurrieron"],
-          "imperfect": [null, null, "ocurría", null, null, "ocurrían"],
-          "conditional": [null, null, "ocurriría", null, null, "ocurrirían"],
-          "future": [null, null, "ocurrirá", null, null, "ocurrirán"]
-        }
-      },
-      {
-        "infinitive": "llover",
-        "translation": "to rain",
-        "conjugations": {
-          "present": [null, null, "llueve", null, null, null],
-          "preterite": [null, null, "llovió", null, null, null],
-          "imperfect": [null, null, "llovía", null, null, null],
-          "conditional": [null, null, "llovería", null, null, null],
-          "future": [null, null, "lloverá", null, null, null]
-        }
-      },
-      {
         "infinitive": "oír",
         "translation": "to hear",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["oigo", "oyes", "oye", "oímos", "oís", "oyen"],
           "preterite": ["oí", "oíste", "oyó", "oímos", "oísteis", "oyeron"],
@@ -45,6 +24,7 @@
       {
         "infinitive": "ser",
         "translation": "to be",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": ["soy", "eres", "es", "somos", "sois", "son"],
           "preterite": ["fui", "fuiste", "fue", "fuimos", "fuisteis", "fueron"],
@@ -63,6 +43,7 @@
       {
         "infinitive": "estar",
         "translation": "to be",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": ["estoy", "estás", "está", "estamos", "estáis", "están"],
           "preterite": [
@@ -102,6 +83,7 @@
       {
         "infinitive": "haber",
         "translation": "to have",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["he", "has", "ha,hay", "hemos", "habéis", "han"],
           "preterite": [
@@ -141,6 +123,7 @@
       {
         "infinitive": "tener",
         "translation": "to have",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": [
             "tengo",
@@ -187,6 +170,7 @@
       {
         "infinitive": "hacer",
         "translation": "to do/to make",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": ["hago", "haces", "hace", "hacemos", "hacéis", "hacen"],
           "preterite": [
@@ -219,6 +203,7 @@
       {
         "infinitive": "decir",
         "translation": "to say",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": ["digo", "dices", "dice", "decimos", "decís", "dicen"],
           "preterite": [
@@ -251,6 +236,7 @@
       {
         "infinitive": "ir",
         "translation": "to go",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": ["voy", "vas", "va", "vamos", "vais", "van"],
           "preterite": ["fui", "fuiste", "fue", "fuimos", "fuisteis", "fueron"],
@@ -269,6 +255,7 @@
       {
         "infinitive": "ver",
         "translation": "to see",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": ["veo", "ves", "ve", "vemos", "veis", "ven"],
           "preterite": ["vi", "viste", "vio", "vimos", "visteis", "vieron"],
@@ -287,6 +274,7 @@
       {
         "infinitive": "dar",
         "translation": "to give",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": ["doy", "das", "da", "damos", "dais", "dan"],
           "preterite": ["di", "diste", "dio", "dimos", "disteis", "dieron"],
@@ -305,6 +293,7 @@
       {
         "infinitive": "saber",
         "translation": "to know",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": ["sé", "sabes", "sabe", "sabemos", "sabéis", "saben"],
           "preterite": [
@@ -344,6 +333,7 @@
       {
         "infinitive": "querer",
         "translation": "to want/to love",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": [
             "quiero",
@@ -390,6 +380,7 @@
       {
         "infinitive": "llegar",
         "translation": "to arrive",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": [
             "llego",
@@ -436,6 +427,7 @@
       {
         "infinitive": "pasar",
         "translation": "to pass/to spend/to happen",
+        "type": ["regular"],
         "conjugations": {
           "present": ["paso", "pasas", "pasa", "pasamos", "pasáis", "pasan"],
           "preterite": [
@@ -475,6 +467,7 @@
       {
         "infinitive": "deber",
         "translation": "to owe",
+        "type": ["common", "regular"],
         "conjugations": {
           "present": ["debo", "debes", "debe", "debemos", "debéis", "deben"],
           "preterite": [
@@ -514,6 +507,7 @@
       {
         "infinitive": "poner",
         "translation": "to put",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": ["pongo", "pones", "pone", "ponemos", "ponéis", "ponen"],
           "preterite": [
@@ -553,6 +547,7 @@
       {
         "infinitive": "parecer",
         "translation": "to seem",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "parezco",
@@ -599,6 +594,7 @@
       {
         "infinitive": "quedar",
         "translation": "to stay",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "quedo",
@@ -645,6 +641,7 @@
       {
         "infinitive": "creer",
         "translation": "to believe",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["creo", "crees", "cree", "creemos", "creéis", "creen"],
           "preterite": [
@@ -684,6 +681,7 @@
       {
         "infinitive": "hablar",
         "translation": "to speak",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "hablo",
@@ -730,6 +728,7 @@
       {
         "infinitive": "llevar",
         "translation": "to carry/to bring",
+        "type": ["common", "regular"],
         "conjugations": {
           "present": [
             "llevo",
@@ -776,6 +775,7 @@
       {
         "infinitive": "dejar",
         "translation": "to leave/to abandon/to let",
+        "type": ["common", "regular"],
         "conjugations": {
           "present": ["dejo", "dejas", "deja", "dejamos", "dejáis", "dejan"],
           "preterite": [
@@ -815,6 +815,7 @@
       {
         "infinitive": "seguir",
         "translation": "to follow/to continue",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": [
             "sigo",
@@ -861,6 +862,7 @@
       {
         "infinitive": "encontrar",
         "translation": "to find/to encounter",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": [
             "encuentro",
@@ -907,6 +909,7 @@
       {
         "infinitive": "llamar",
         "translation": "to call/to name",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "llamo",
@@ -953,6 +956,7 @@
       {
         "infinitive": "venir",
         "translation": "to come\t",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": ["vengo", "vienes", "viene", "venimos", "venís", "vienen"],
           "preterite": [
@@ -992,6 +996,7 @@
       {
         "infinitive": "pensar",
         "translation": "to think",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "pienso",
@@ -1038,6 +1043,7 @@
       {
         "infinitive": "salir",
         "translation": "to leave/to go out",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": ["salgo", "sales", "sale", "salimos", "salís", "salen"],
           "preterite": [
@@ -1077,6 +1083,7 @@
       {
         "infinitive": "volver",
         "translation": "to return",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": [
             "vuelvo",
@@ -1123,6 +1130,7 @@
       {
         "infinitive": "tomar",
         "translation": "to take",
+        "type": ["regular"],
         "conjugations": {
           "present": ["tomo", "tomas", "toma", "tomamos", "tomáis", "toman"],
           "preterite": [
@@ -1162,6 +1170,7 @@
       {
         "infinitive": "conocer",
         "translation": "to know",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "conozco",
@@ -1208,6 +1217,7 @@
       {
         "infinitive": "vivir",
         "translation": "to live",
+        "type": ["common", "regular"],
         "conjugations": {
           "present": ["vivo", "vives", "vive", "vivimos", "vivís", "viven"],
           "preterite": [
@@ -1247,6 +1257,7 @@
       {
         "infinitive": "sentir",
         "translation": "to feel/to regret",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "siento",
@@ -1293,6 +1304,7 @@
       {
         "infinitive": "tratar",
         "translation": "to treat",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "trato",
@@ -1339,6 +1351,7 @@
       {
         "infinitive": "mirar",
         "translation": "to watch/to look at",
+        "type": ["regular"],
         "conjugations": {
           "present": ["miro", "miras", "mira", "miramos", "miráis", "miran"],
           "preterite": [
@@ -1378,6 +1391,7 @@
       {
         "infinitive": "contar",
         "translation": "to count/to relate/to tell",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "cuento",
@@ -1424,6 +1438,7 @@
       {
         "infinitive": "empezar",
         "translation": "to begin",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "empiezo",
@@ -1470,6 +1485,7 @@
       {
         "infinitive": "esperar",
         "translation": "to wait/to wait for/to hope",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "espero",
@@ -1516,6 +1532,7 @@
       {
         "infinitive": "buscar",
         "translation": "to search",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "busco",
@@ -1562,6 +1579,7 @@
       {
         "infinitive": "existir",
         "translation": "to exist",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "existo",
@@ -1608,6 +1626,7 @@
       {
         "infinitive": "entrar",
         "translation": "to enter",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "entro",
@@ -1654,6 +1673,7 @@
       {
         "infinitive": "trabajar",
         "translation": "to work",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "trabajo",
@@ -1700,6 +1720,7 @@
       {
         "infinitive": "escribir",
         "translation": "to write",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "escribo",
@@ -1746,6 +1767,7 @@
       {
         "infinitive": "perder",
         "translation": "to lose",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "pierdo",
@@ -1792,6 +1814,7 @@
       {
         "infinitive": "producir",
         "translation": "to produce",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "produzco",
@@ -1838,6 +1861,7 @@
       {
         "infinitive": "ocurrir",
         "translation": "to occur",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "ocurro",
@@ -1884,6 +1908,7 @@
       {
         "infinitive": "entender",
         "translation": "to understand",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "entiendo",
@@ -1930,6 +1955,7 @@
       {
         "infinitive": "pedir",
         "translation": "to request",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["pido", "pides", "pide", "pedimos", "pedís", "piden"],
           "preterite": [
@@ -1969,6 +1995,7 @@
       {
         "infinitive": "recibir",
         "translation": "to receive/to welcome",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "recibo",
@@ -2015,6 +2042,7 @@
       {
         "infinitive": "recordar",
         "translation": "to remember/to remind",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "recuerdo",
@@ -2061,6 +2089,7 @@
       {
         "infinitive": "terminar",
         "translation": "to finish",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "termino",
@@ -2107,6 +2136,7 @@
       {
         "infinitive": "permitir",
         "translation": "to permit",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "permito",
@@ -2153,6 +2183,7 @@
       {
         "infinitive": "aparecer",
         "translation": "to appear",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "aparezco",
@@ -2199,6 +2230,7 @@
       {
         "infinitive": "conseguir",
         "translation": "to get",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "consigo",
@@ -2245,6 +2277,7 @@
       {
         "infinitive": "comenzar",
         "translation": "to begin",
+        "type": ["common", "irregular"],
         "conjugations": {
           "present": [
             "comienzo",
@@ -2291,6 +2324,7 @@
       {
         "infinitive": "servir",
         "translation": "to serve",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "sirvo",
@@ -2337,6 +2371,7 @@
       {
         "infinitive": "sacar",
         "translation": "to take out",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["saco", "sacas", "saca", "sacamos", "sacáis", "sacan"],
           "preterite": [
@@ -2376,6 +2411,7 @@
       {
         "infinitive": "necesitar",
         "translation": "to need",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "necesito",
@@ -2422,6 +2458,7 @@
       {
         "infinitive": "mantener",
         "translation": "to maintain",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "mantengo",
@@ -2468,6 +2505,7 @@
       {
         "infinitive": "leer",
         "translation": "to read",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["leo", "lees", "lee", "leemos", "leéis", "leen"],
           "preterite": [
@@ -2500,6 +2538,7 @@
       {
         "infinitive": "caer",
         "translation": "to fall",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["caigo", "caes", "cae", "caemos", "caéis", "caen"],
           "preterite": [
@@ -2532,6 +2571,7 @@
       {
         "infinitive": "resultar",
         "translation": "to result/to turn out (to be)",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "resulto",
@@ -2578,6 +2618,7 @@
       {
         "infinitive": "cambiar",
         "translation": "to change",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "cambio",
@@ -2624,6 +2665,7 @@
       {
         "infinitive": "presentar",
         "translation": "to introduce",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "presento",
@@ -2670,6 +2712,7 @@
       {
         "infinitive": "crear",
         "translation": "to create/to make",
+        "type": ["regular"],
         "conjugations": {
           "present": ["creo", "creas", "crea", "creamos", "creáis", "crean"],
           "preterite": [
@@ -2709,6 +2752,7 @@
       {
         "infinitive": "abrir",
         "translation": "to open",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["abro", "abres", "abre", "abrimos", "abrís", "abren"],
           "preterite": [
@@ -2748,6 +2792,7 @@
       {
         "infinitive": "considerar",
         "translation": "to consider",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "considero",
@@ -2794,6 +2839,7 @@
       {
         "infinitive": "acabar",
         "translation": "to finish",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "acabo",
@@ -2840,6 +2886,7 @@
       {
         "infinitive": "convertir",
         "translation": "to convert",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "convierto",
@@ -2886,6 +2933,7 @@
       {
         "infinitive": "ganar",
         "translation": "to win/to gain/to earn",
+        "type": ["regular"],
         "conjugations": {
           "present": ["gano", "ganas", "gana", "ganamos", "ganáis", "ganan"],
           "preterite": [
@@ -2925,6 +2973,7 @@
       {
         "infinitive": "formar",
         "translation": "to form",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "formo",
@@ -2971,6 +3020,7 @@
       {
         "infinitive": "traer",
         "translation": "to bring/to carry",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["traigo", "traes", "trae", "traemos", "traéis", "traen"],
           "preterite": [
@@ -3010,6 +3060,7 @@
       {
         "infinitive": "partir",
         "translation": "to divide/to leave",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "parto",
@@ -3056,6 +3107,7 @@
       {
         "infinitive": "morir",
         "translation": "to die",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["muero", "mueres", "muere", "morimos", "morís", "mueren"],
           "preterite": [
@@ -3095,6 +3147,7 @@
       {
         "infinitive": "aceptar",
         "translation": "to accept",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "acepto",
@@ -3141,6 +3194,7 @@
       {
         "infinitive": "realizar",
         "translation": "to achieve/to attain",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "realizo",
@@ -3187,6 +3241,7 @@
       {
         "infinitive": "suponer",
         "translation": "to suppose",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "supongo",
@@ -3233,6 +3288,7 @@
       {
         "infinitive": "comprender",
         "translation": "to understand",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "comprendo",
@@ -3279,6 +3335,7 @@
       {
         "infinitive": "lograr",
         "translation": "to get/to obtain/to achieve",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "logro",
@@ -3325,6 +3382,7 @@
       {
         "infinitive": "explicar",
         "translation": "to explain",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "explico",
@@ -3371,6 +3429,7 @@
       {
         "infinitive": "preguntar",
         "translation": "to ask",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "pregunto",
@@ -3417,6 +3476,7 @@
       {
         "infinitive": "tocar",
         "translation": "to touch/ to play (an instrument)",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["toco", "tocas", "toca", "tocamos", "tocáis", "tocan"],
           "preterite": [
@@ -3456,6 +3516,7 @@
       {
         "infinitive": "reconocer",
         "translation": "to recognize",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "reconozco",
@@ -3502,6 +3563,7 @@
       {
         "infinitive": "estudiar",
         "translation": "to study",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "estudio",
@@ -3548,6 +3610,7 @@
       {
         "infinitive": "alcanzar",
         "translation": "to reach/to catch up",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "alcanzo",
@@ -3594,6 +3657,7 @@
       {
         "infinitive": "dirigir",
         "translation": "to direct",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "dirijo",
@@ -3640,6 +3704,7 @@
       {
         "infinitive": "correr",
         "translation": "to run",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "corro",
@@ -3686,6 +3751,7 @@
       {
         "infinitive": "utilizar",
         "translation": "to use",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "utilizo",
@@ -3732,6 +3798,7 @@
       {
         "infinitive": "pagar",
         "translation": "to pay",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["pago", "pagas", "paga", "pagamos", "pagáis", "pagan"],
           "preterite": [
@@ -3771,6 +3838,7 @@
       {
         "infinitive": "ayudar",
         "translation": "to help",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "ayudo",
@@ -3817,6 +3885,7 @@
       {
         "infinitive": "gustar",
         "translation": "to please",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "gusto",
@@ -3863,6 +3932,7 @@
       {
         "infinitive": "jugar",
         "translation": "to play (a game or sport)",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "juego",
@@ -3909,6 +3979,7 @@
       {
         "infinitive": "escuchar",
         "translation": "to listen/to hear",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "escucho",
@@ -3955,6 +4026,7 @@
       {
         "infinitive": "cumplir",
         "translation": "to fulfil",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "cumplo",
@@ -4001,6 +4073,7 @@
       {
         "infinitive": "ofrecer",
         "translation": "to offer",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "ofrezco",
@@ -4047,6 +4120,7 @@
       {
         "infinitive": "descubrir",
         "translation": "to discover",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "descubro",
@@ -4093,6 +4167,7 @@
       {
         "infinitive": "levantar",
         "translation": "to raise",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "levanto",
@@ -4139,6 +4214,7 @@
       {
         "infinitive": "intentar",
         "translation": "to try",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "intento",
@@ -4183,8 +4259,33 @@
         }
       },
       {
+        "infinitive": "ocurrir",
+        "translation": "to occur/to happen",
+        "type": ["regular"],
+        "conjugations": {
+          "present": [null, null, "ocurre", null, null, "ocurren"],
+          "preterite": [null, null, "ocurrió", null, null, "ocurrieron"],
+          "imperfect": [null, null, "ocurría", null, null, "ocurrían"],
+          "conditional": [null, null, "ocurriría", null, null, "ocurrirían"],
+          "future": [null, null, "ocurrirá", null, null, "ocurrirán"]
+        }
+      },
+      {
+        "infinitive": "llover",
+        "translation": "to rain",
+        "type": ["irregular"],
+        "conjugations": {
+          "present": [null, null, "llueve", null, null, null],
+          "preterite": [null, null, "llovió", null, null, null],
+          "imperfect": [null, null, "llovía", null, null, null],
+          "conditional": [null, null, "llovería", null, null, null],
+          "future": [null, null, "lloverá", null, null, null]
+        }
+      },
+      {
         "infinitive": "nacer",
         "translation": "to be(+born)",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["nazco", "naces", "nace", "nacemos", "nacéis", "nacen"],
           "preterite": [
@@ -4224,6 +4325,7 @@
       {
         "infinitive": "poder",
         "translation": "to be(+able)",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "puedo",
@@ -4270,6 +4372,7 @@
       {
         "infinitive": "registrar",
         "translation": "to register",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "registro",
@@ -4316,6 +4419,7 @@
       {
         "infinitive": "aburrir",
         "translation": "to bore",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "aburro",
@@ -4362,6 +4466,7 @@
       {
         "infinitive": "agarrar",
         "translation": "to grip",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "agarro",
@@ -4408,6 +4513,7 @@
       {
         "infinitive": "bostezar",
         "translation": "to yawn",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "bostezo",
@@ -4454,6 +4560,7 @@
       {
         "infinitive": "achicar",
         "translation": "to shrink",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "achico",
@@ -4500,6 +4607,7 @@
       {
         "infinitive": "acordar",
         "translation": "to agree",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "acuerdo",
@@ -4546,6 +4654,7 @@
       {
         "infinitive": "amar",
         "translation": "to love",
+        "type": ["regular"],
         "conjugations": {
           "present": ["amo", "amas", "ama", "amamos", "amáis", "aman"],
           "preterite": ["amé", "amaste", "amó", "amamos", "amasteis", "amaron"],
@@ -4578,6 +4687,7 @@
       {
         "infinitive": "andar",
         "translation": "to walk",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["ando", "andas", "anda", "andamos", "andáis", "andan"],
           "preterite": [
@@ -4617,6 +4727,7 @@
       {
         "infinitive": "aprender",
         "translation": "to learn",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "aprendo",
@@ -4663,6 +4774,7 @@
       {
         "infinitive": "asistir",
         "translation": "to attend",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "asisto",
@@ -4709,6 +4821,7 @@
       {
         "infinitive": "bailar",
         "translation": "to dance",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "bailo",
@@ -4755,6 +4868,7 @@
       {
         "infinitive": "beber",
         "translation": "to drink",
+        "type": ["regular"],
         "conjugations": {
           "present": ["bebo", "bebes", "bebe", "bebemos", "bebéis", "beben"],
           "preterite": [
@@ -4794,6 +4908,7 @@
       {
         "infinitive": "caber",
         "translation": "to fit",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["quepo", "cabes", "cabe", "cabemos", "cabéis", "caben"],
           "preterite": [
@@ -4833,6 +4948,7 @@
       {
         "infinitive": "cantar",
         "translation": "to sing",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "canto",
@@ -4879,6 +4995,7 @@
       {
         "infinitive": "casar",
         "translation": "to marry",
+        "type": ["regular"],
         "conjugations": {
           "present": ["caso", "casas", "casa", "casamos", "casáis", "casan"],
           "preterite": [
@@ -4918,6 +5035,7 @@
       {
         "infinitive": "cerrar",
         "translation": "to close",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "cierro",
@@ -4964,6 +5082,7 @@
       {
         "infinitive": "cocinar",
         "translation": "to cook",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "cocino",
@@ -5010,6 +5129,7 @@
       {
         "infinitive": "coger",
         "translation": "to catch",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["cojo", "coges", "coge", "cogemos", "cogéis", "cogen"],
           "preterite": [
@@ -5049,6 +5169,7 @@
       {
         "infinitive": "comer",
         "translation": "to eat",
+        "type": ["regular"],
         "conjugations": {
           "present": ["como", "comes", "come", "comemos", "coméis", "comen"],
           "preterite": [
@@ -5088,6 +5209,7 @@
       {
         "infinitive": "compartir",
         "translation": "to share",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "comparto",
@@ -5134,6 +5256,7 @@
       {
         "infinitive": "comprar",
         "translation": "to buy",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "compro",
@@ -5180,6 +5303,7 @@
       {
         "infinitive": "conducir",
         "translation": "to drive",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "conduzco",
@@ -5226,6 +5350,7 @@
       {
         "infinitive": "construir",
         "translation": "to build",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "construyo",
@@ -5272,6 +5397,7 @@
       {
         "infinitive": "corregir",
         "translation": "to correct",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "corrijo",
@@ -5318,6 +5444,7 @@
       {
         "infinitive": "regir",
         "translation": "to reign",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["rijo", "riges", "rige", "regimos", "regís", "rigen"],
           "preterite": [
@@ -5357,6 +5484,7 @@
       {
         "infinitive": "rezar",
         "translation": "to pray",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["rezo", "rezas", "reza", "rezamos", "rezáis", "rezan"],
           "preterite": [
@@ -5396,6 +5524,7 @@
       {
         "infinitive": "atraer",
         "translation": "to attract",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "atraigo",
@@ -5442,6 +5571,7 @@
       {
         "infinitive": "cortar",
         "translation": "to cut",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "corto",
@@ -5488,6 +5618,7 @@
       {
         "infinitive": "dibujar",
         "translation": "to draw",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "dibujo",
@@ -5534,6 +5665,7 @@
       {
         "infinitive": "costar",
         "translation": "to cost",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "cuesto",
@@ -5580,6 +5712,7 @@
       {
         "infinitive": "amarrar",
         "translation": "to tie",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "amarro",
@@ -5626,6 +5759,7 @@
       {
         "infinitive": "crecer",
         "translation": "to grow",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "crezco",
@@ -5672,6 +5806,7 @@
       {
         "infinitive": "cruzar",
         "translation": "to cross",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "cruzo",
@@ -5718,6 +5853,7 @@
       {
         "infinitive": "cubrir",
         "translation": "to cover",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "cubro",
@@ -5764,6 +5900,7 @@
       {
         "infinitive": "decidir",
         "translation": "to decide",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "decido",
@@ -5810,6 +5947,7 @@
       {
         "infinitive": "derrochar",
         "translation": "to waste",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "derrocho",
@@ -5856,6 +5994,7 @@
       {
         "infinitive": "defender",
         "translation": "to defend",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "defiendo",
@@ -5902,6 +6041,7 @@
       {
         "infinitive": "pintar",
         "translation": "to paint",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "pinto",
@@ -5948,6 +6088,7 @@
       {
         "infinitive": "desear",
         "translation": "to wish",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "deseo",
@@ -5994,6 +6135,7 @@
       {
         "infinitive": "destruir",
         "translation": "to destroy",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "destruyo",
@@ -6040,6 +6182,7 @@
       {
         "infinitive": "derrotar",
         "translation": "to defeat",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "me derroto",
@@ -6086,6 +6229,7 @@
       {
         "infinitive": "derramar",
         "translation": "to spill",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "derramo",
@@ -6132,6 +6276,7 @@
       {
         "infinitive": "devolver",
         "translation": "to return",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "devuelvo",
@@ -6178,6 +6323,7 @@
       {
         "infinitive": "divertir",
         "translation": "to entertain",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "divierto",
@@ -6224,6 +6370,7 @@
       {
         "infinitive": "dormir",
         "translation": "to sleep",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "duermo",
@@ -6270,6 +6417,7 @@
       {
         "infinitive": "duchar",
         "translation": "to shower",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "ducho",
@@ -6316,6 +6464,7 @@
       {
         "infinitive": "encolar",
         "translation": "to glue",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "encolo",
@@ -6362,6 +6511,7 @@
       {
         "infinitive": "echar",
         "translation": "to throw",
+        "type": ["regular"],
         "conjugations": {
           "present": ["echo", "echas", "echa", "echamos", "echáis", "echan"],
           "preterite": [
@@ -6401,6 +6551,7 @@
       {
         "infinitive": "arrojar",
         "translation": "to throw",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "arrojo",
@@ -6447,6 +6598,7 @@
       {
         "infinitive": "contradecir",
         "translation": "to contradict",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "contradigo",
@@ -6493,6 +6645,7 @@
       {
         "infinitive": "elegir",
         "translation": "to choose",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "elijo",
@@ -6539,6 +6692,7 @@
       {
         "infinitive": "encantar",
         "translation": "to enchant",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "encanto",
@@ -6585,6 +6739,7 @@
       {
         "infinitive": "encender",
         "translation": "to light",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "enciendo",
@@ -6631,6 +6786,7 @@
       {
         "infinitive": "enviar",
         "translation": "to send",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "envío",
@@ -6677,6 +6833,7 @@
       {
         "infinitive": "escoger",
         "translation": "to choose",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "escojo",
@@ -6723,6 +6880,7 @@
       {
         "infinitive": "encoger",
         "translation": "to shrink",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "encojo",
@@ -6769,6 +6927,7 @@
       {
         "infinitive": "exigir",
         "translation": "to demand",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "exijo",
@@ -6815,6 +6974,7 @@
       {
         "infinitive": "gastar",
         "translation": "to spend",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "gasto",
@@ -6861,6 +7021,7 @@
       {
         "infinitive": "malgastar",
         "translation": "to waste",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "malgasto",
@@ -6907,6 +7068,7 @@
       {
         "infinitive": "habitar",
         "translation": "to inhabit",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "habito",
@@ -6953,6 +7115,7 @@
       {
         "infinitive": "abonar",
         "translation": "to fertilize",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "abono",
@@ -6999,6 +7162,7 @@
       {
         "infinitive": "halagar",
         "translation": "to flatter",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "halago",
@@ -7045,6 +7209,7 @@
       {
         "infinitive": "helar",
         "translation": "to freeze",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "hielo",
@@ -7091,6 +7256,7 @@
       {
         "infinitive": "henchir",
         "translation": "to fill",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "hincho",
@@ -7137,6 +7303,7 @@
       {
         "infinitive": "herir",
         "translation": "to hurt",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["hiero", "hieres", "hiere", "herimos", "herís", "hieren"],
           "preterite": [
@@ -7176,6 +7343,7 @@
       {
         "infinitive": "hinchar",
         "translation": "to inflate",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "hincho",
@@ -7222,6 +7390,7 @@
       {
         "infinitive": "hincar",
         "translation": "to thrust",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "hinco",
@@ -7268,6 +7437,7 @@
       {
         "infinitive": "hervir",
         "translation": "to boil",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "hiervo",
@@ -7314,6 +7484,7 @@
       {
         "infinitive": "hostigar",
         "translation": "to pester",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "hostigo",
@@ -7360,6 +7531,7 @@
       {
         "infinitive": "huir",
         "translation": "to flee",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["huyo", "huyes", "huye", "huimos", "huis", "huyen"],
           "preterite": [
@@ -7392,6 +7564,7 @@
       {
         "infinitive": "incluir",
         "translation": "to include",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "incluyo",
@@ -7438,6 +7611,7 @@
       {
         "infinitive": "limpiar",
         "translation": "to clean",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "limpio",
@@ -7484,6 +7658,7 @@
       {
         "infinitive": "llenar",
         "translation": "to fill",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "lleno",
@@ -7530,6 +7705,7 @@
       {
         "infinitive": "hornear",
         "translation": "to bake",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "horneo",
@@ -7576,6 +7752,7 @@
       {
         "infinitive": "llorar",
         "translation": "to cry",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "lloro",
@@ -7622,6 +7799,7 @@
       {
         "infinitive": "mandar",
         "translation": "to order",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "mando",
@@ -7668,6 +7846,7 @@
       {
         "infinitive": "manejar",
         "translation": "to handle",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "manejo",
@@ -7714,6 +7893,7 @@
       {
         "infinitive": "medir",
         "translation": "to measure",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["mido", "mides", "mide", "medimos", "medís", "miden"],
           "preterite": [
@@ -7753,6 +7933,7 @@
       {
         "infinitive": "estornudar",
         "translation": "to sneeze",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "estornudo",
@@ -7799,6 +7980,7 @@
       {
         "infinitive": "mentir",
         "translation": "to lie",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "miento",
@@ -7845,6 +8027,7 @@
       {
         "infinitive": "ladrar",
         "translation": "to bark",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "ladro",
@@ -7891,6 +8074,7 @@
       {
         "infinitive": "silbar",
         "translation": "to whistle",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "silbo",
@@ -7937,6 +8121,7 @@
       {
         "infinitive": "chiflar",
         "translation": "to whistle",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "chiflo",
@@ -7983,6 +8168,7 @@
       {
         "infinitive": "mostrar",
         "translation": "to show",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "muestro",
@@ -8029,6 +8215,7 @@
       {
         "infinitive": "mover",
         "translation": "to move",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "muevo",
@@ -8075,6 +8262,7 @@
       {
         "infinitive": "nadar",
         "translation": "to swim",
+        "type": ["regular"],
         "conjugations": {
           "present": ["nado", "nadas", "nada", "nadamos", "nadáis", "nadan"],
           "preterite": [
@@ -8114,6 +8302,7 @@
       {
         "infinitive": "obtener",
         "translation": "to obtain",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "obtengo",
@@ -8160,6 +8349,7 @@
       {
         "infinitive": "oler",
         "translation": "to smell",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["huelo", "hueles", "huele", "olemos", "oléis", "huelen"],
           "preterite": [
@@ -8192,6 +8382,7 @@
       {
         "infinitive": "olfatear",
         "translation": "to sniff",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "olfateo",
@@ -8238,6 +8429,7 @@
       {
         "infinitive": "olvidar",
         "translation": "to forget",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "olvido",
@@ -8284,6 +8476,7 @@
       {
         "infinitive": "organizar",
         "translation": "to organize",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "organizo",
@@ -8330,6 +8523,7 @@
       {
         "infinitive": "parar",
         "translation": "to stop",
+        "type": ["regular"],
         "conjugations": {
           "present": ["paro", "paras", "para", "paramos", "paráis", "paran"],
           "preterite": [
@@ -8369,6 +8563,7 @@
       {
         "infinitive": "desplumar",
         "translation": "to pluck",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "desplumo",
@@ -8415,6 +8610,7 @@
       {
         "infinitive": "asar",
         "translation": "to grill",
+        "type": ["regular"],
         "conjugations": {
           "present": ["aso", "asas", "asa", "asamos", "asáis", "asan"],
           "preterite": ["asé", "asaste", "asó", "asamos", "asasteis", "asaron"],
@@ -8447,6 +8643,7 @@
       {
         "infinitive": "practicar",
         "translation": "to practise",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "practico",
@@ -8493,6 +8690,7 @@
       {
         "infinitive": "preferir",
         "translation": "to prefer",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "prefiero",
@@ -8539,6 +8737,7 @@
       {
         "infinitive": "preparar",
         "translation": "to prepare",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "preparo",
@@ -8585,6 +8784,7 @@
       {
         "infinitive": "prestar",
         "translation": "to lend",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "presto",
@@ -8631,6 +8831,7 @@
       {
         "infinitive": "probar",
         "translation": "to taste/to try",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "pruebo",
@@ -8677,6 +8878,7 @@
       {
         "infinitive": "proteger",
         "translation": "to protect",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "protejo",
@@ -8723,6 +8925,7 @@
       {
         "infinitive": "quejar",
         "translation": "to complain",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "quedo",
@@ -8769,6 +8972,7 @@
       {
         "infinitive": "menear",
         "translation": "to shake",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "meneo",
@@ -8815,6 +9019,7 @@
       {
         "infinitive": "recomendar",
         "translation": "to recommend",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "recomiendo",
@@ -8861,6 +9066,7 @@
       {
         "infinitive": "regresar",
         "translation": "to return",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "regreso",
@@ -8907,6 +9113,7 @@
       {
         "infinitive": "reír",
         "translation": "to laugh",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["río", "ríes", "ríe", "reímos", "reís", "ríen"],
           "preterite": ["reí", "reíste", "rio", "reímos", "reísteis", "rieron"],
@@ -8932,6 +9139,7 @@
       {
         "infinitive": "repetir",
         "translation": "to repeat",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "repito",
@@ -8978,6 +9186,7 @@
       {
         "infinitive": "resolver",
         "translation": "to resolve",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "resuelvo",
@@ -9024,6 +9233,7 @@
       {
         "infinitive": "rogar",
         "translation": "to beg",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "ruego",
@@ -9070,6 +9280,7 @@
       {
         "infinitive": "romper",
         "translation": "to break",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "rompo",
@@ -9116,6 +9327,7 @@
       {
         "infinitive": "rezar",
         "translation": "to pray",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["rezo", "rezas", "reza", "rezamos", "rezáis", "rezan"],
           "preterite": [
@@ -9155,6 +9367,7 @@
       {
         "infinitive": "remar",
         "translation": "to row",
+        "type": ["regular"],
         "conjugations": {
           "present": ["remo", "remas", "rema", "remamos", "remáis", "reman"],
           "preterite": [
@@ -9194,6 +9407,7 @@
       {
         "infinitive": "secar",
         "translation": "to dry",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["seco", "secas", "seca", "secamos", "secáis", "secan"],
           "preterite": [
@@ -9233,6 +9447,7 @@
       {
         "infinitive": "perseguir",
         "translation": "to chase",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "persigo",
@@ -9279,6 +9494,7 @@
       {
         "infinitive": "proseguir",
         "translation": "to proceed",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "prosigo",
@@ -9325,6 +9541,7 @@
       {
         "infinitive": "sentar",
         "translation": "to sit",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "siento",
@@ -9371,6 +9588,7 @@
       {
         "infinitive": "sonreír",
         "translation": "to smile",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "sonrío",
@@ -9417,6 +9635,7 @@
       {
         "infinitive": "sonar",
         "translation": "to sound",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "sueno",
@@ -9463,6 +9682,7 @@
       {
         "infinitive": "sonreír",
         "translation": "to smile",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "sonrío",
@@ -9509,6 +9729,7 @@
       {
         "infinitive": "sugerir",
         "translation": "to suggest",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "sugiero",
@@ -9555,6 +9776,7 @@
       {
         "infinitive": "sumergir",
         "translation": "to submerge",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "sumerjo",
@@ -9601,6 +9823,7 @@
       {
         "infinitive": "traducir",
         "translation": "to translate",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "traduzco",
@@ -9647,6 +9870,7 @@
       {
         "infinitive": "usar",
         "translation": "to use",
+        "type": ["regular"],
         "conjugations": {
           "present": ["uso", "usas", "usa", "usamos", "usáis", "usan"],
           "preterite": ["usé", "usaste", "usó", "usamos", "usasteis", "usaron"],
@@ -9679,6 +9903,7 @@
       {
         "infinitive": "valer",
         "translation": "to be(+worth)",
+        "type": ["irregular"],
         "conjugations": {
           "present": ["valgo", "vales", "vale", "valemos", "valéis", "valen"],
           "preterite": [
@@ -9718,6 +9943,7 @@
       {
         "infinitive": "velar",
         "translation": "to guard",
+        "type": ["regular"],
         "conjugations": {
           "present": ["velo", "velas", "vela", "velamos", "veláis", "velan"],
           "preterite": [
@@ -9757,6 +9983,7 @@
       {
         "infinitive": "vender",
         "translation": "to sale",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "vendo",
@@ -9803,6 +10030,7 @@
       {
         "infinitive": "viajar",
         "translation": "to travel",
+        "type": ["common", "regular"],
         "conjugations": {
           "present": [
             "viajo",
@@ -9849,6 +10077,7 @@
       {
         "infinitive": "visitar",
         "translation": "to visit",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "visito",
@@ -9895,6 +10124,7 @@
       {
         "infinitive": "volar",
         "translation": "to fly",
+        "type": ["irregular"],
         "conjugations": {
           "present": [
             "vuelo",
@@ -9941,6 +10171,7 @@
       {
         "infinitive": "violar",
         "translation": "to violate",
+        "type": ["regular"],
         "conjugations": {
           "present": [
             "violo",
