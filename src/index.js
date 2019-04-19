@@ -22,10 +22,12 @@ ReactDOM.render(
     <div>
       <Nav />
     </div>
-    <div className="container">
-      <Route exact path="/" component={Home} />
-      <Route exact path="/:language" component={QuestionSet} />
-    </div>
+    <main>
+      <div className="container">
+        <Route exact path="/" component={Home} />
+        <Route exact path="/:language" component={QuestionSet} />
+      </div>
+    </main>
   </Router>,
   document.getElementById("root")
 );

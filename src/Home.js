@@ -117,10 +117,11 @@ class Home extends React.Component {
           {/* Select a language */}
           <div className="row">
             <div className="col-4">
-              <Label>Select a language:</Label>
+              <Label htmlFor="selectLang">Select a language:</Label>
             </div>
             <div className="col-8">
               <Select
+                id="selectLang"
                 onChange={this.changeLanguage}
                 value={this.state.language}
               >
@@ -181,10 +182,11 @@ class Home extends React.Component {
           {/* How many questions? */}
           <div className="row">
             <div className="col-4">
-              <Label>How many questions?</Label>
+              <Label htmlFor="questionQuantity">How many questions?</Label>
             </div>
             <div className="col-8">
               <Input
+                id="questionQuantity"
                 onChange={this.handleQuestionChange}
                 type="number"
                 value={this.state.numOfQuestions}
