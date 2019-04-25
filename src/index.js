@@ -1,4 +1,4 @@
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -17,7 +17,7 @@ import "./static/favicon.ico";
 // Currently importing so it gets copied into the dist directory, is there a better way?
 import "./static/twittercard.png";
 
-ReactDOM.render(
+render(
   <Router>
     <div>
       <Nav />

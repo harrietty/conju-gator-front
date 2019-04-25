@@ -1,4 +1,4 @@
-import qs from "querystring";
+import { parse } from "querystring";
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
@@ -22,17 +22,17 @@ const ProgressContainer = styled.div`
 
 class QuestionSet extends React.Component {
   extractTenses = () => {
-    const s = qs.parse(this.props.location.search.slice(1));
+    const s = parse(this.props.location.search.slice(1));
     return s.tenses ? s.tenses.split(",") : [];
   };
 
   extractQuestionLength = () => {
-    const s = qs.parse(this.props.location.search.slice(1));
+    const s = parse(this.props.location.search.slice(1));
     return s.questions ? Number(s.questions) : 30;
   };
 
   extractVerbType = () => {
-    const s = qs.parse(this.props.location.search.slice(1));
+    const s = parse(this.props.location.search.slice(1));
     return s.verbs ? s.verbs : "all";
   };
 

@@ -6,10 +6,10 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint ./",
-    "start": "webpack-dev-server",
+    "start": "NODE_ENV=development webpack-dev-server",
     "build": "NODE_ENV=production webpack",
     "deploy": "aws s3 sync ./dist s3://conju-gator.com --metadata Content-Encoding=gzip --cache-control min-age=86400 --cache-control max-age=31536000 --delete",
-    "stats": "ANALYZE=true webpack --profile --json > stats.json"
+    "stats": "ANALYZE=true NODE_ENV=production webpack --profile --json > stats.json"
   },
   "jest": {
     "setupFilesAfterEnv": [
