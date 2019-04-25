@@ -9,6 +9,7 @@ const StyledNavLink = styled.div`
     color: #303131;
     text-decoration: none;
     font-family: "Overlock", cursive;
+    font-display: auto;
     font-size: 5rem;
   }
   a:hover {

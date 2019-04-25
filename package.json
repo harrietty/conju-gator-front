@@ -7,8 +7,9 @@
     "test": "jest",
     "lint": "eslint ./",
     "start": "webpack-dev-server",
-    "build": "webpack",
-    "deploy": "aws s3 sync ./dist s3://conju-gator.com --delete"
+    "build": "NODE_ENV=production webpack",
+    "deploy": "aws s3 sync ./dist s3://conju-gator.com --metadata Content-Encoding=gzip --cache-control min-age=86400 --cache-control max-age=31536000 --delete",
+    "stats": "ANALYZE=true webpack --profile --json > stats.json"
   },
   "jest": {
     "setupFilesAfterEnv": [
@@ -28,6 +29,8 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.5",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.1",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
@@ -40,7 +43,9 @@
     "jest": "^24.5.0",
     "react-test-renderer": "^16.7.0",
     "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.28.4",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
   },

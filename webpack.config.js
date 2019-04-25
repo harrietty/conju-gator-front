@@ -1,6 +1,10 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MinifyPlugin = require("babel-minify-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 module.exports = {
   entry: "./src/index.js",
@@ -25,7 +29,7 @@ module.exports = {
       }
     ]
   },
-  mode: "development",
+  mode: process.env.NODE_ENV,
   devtool: "eval-source-map ",
   devServer: {
     hot: true,
@@ -40,6 +44,11 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html",
       favicon: "./src/static/favicon-16x16.png"
+    }),
+    new MinifyPlugin(),
+    new UglifyJsPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: process.env.ANALYZE === "true" ? "server" : "disabled"
     })
   ]
 };

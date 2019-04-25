@@ -1,12 +1,13 @@
 * {
   box-sizing: border-box;
   font-family: "Oxygen", sans-serif;
+  font-display: auto;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: blanchedalmond;
+  background-color: #ffebcd;
 }
 
 a:link,
