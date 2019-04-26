@@ -85,6 +85,8 @@ class Home extends React.Component {
     let err = null;
     if (Number(numOfQuestions) < 1) {
       err = "Must select at least 1 question";
+    } else if (Number(numOfQuestions) > 300) {
+      err = "Maximum number of questions is 300"
     }
     this.setState({
       numOfQuestions: numOfQuestions,
