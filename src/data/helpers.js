@@ -17,9 +17,12 @@ export function generateSet(params) {
       }
     });
   }
+
+  // Remove any nonsensical tenses
   const tenseOptions = Object.keys(verbs[0].conjugations).filter(c => {
     return params.tenses.includes(c);
   });
+
   const pronouns = params.target.pronouns;
 
   const set = [];
