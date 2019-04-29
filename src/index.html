@@ -40,24 +40,15 @@
       content="Practice verb conjugations in Spanish. Choose to focus on irregular or most common verbs and practice conjugations in numerous tenses."
     />
     <title>Conju-gator: Practice verb conjugations</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Overlock|Oxygen"
+    />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   </head>
   <body>
     <div id="root"></div>
-
-    <script>
-      // Async loading of non-critical CSS
-      var myCSS = document.createElement("link");
-      myCSS.rel = "stylesheet";
-      myCSS.href = "https://fonts.googleapis.com/css?family=Overlock|Oxygen";
-      // insert it at the end of the head in a legacy-friendly manner
-      document.head.insertBefore(
-        myCSS,
-        document.head.childNodes[document.head.childNodes.length - 1]
-          .nextSibling
-      );
-    </script>
   </body>
 </html>
