@@ -37,6 +37,7 @@ module.exports = {
     port: 7700,
     historyApiFallback: true,
     inline: true,
+    disableHostCheck: true,
     contentBase: path.join(__dirname, "dist")
   },
   plugins: [
