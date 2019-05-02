@@ -1,5 +1,13 @@
 * {
   box-sizing: border-box;
+}
+
+.wf-loading body,
+.wf-inactive body {
+  font-family: sans-serif;
+}
+
+.wf-active body {
   font-family: "Oxygen", sans-serif;
 }
 

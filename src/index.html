@@ -40,15 +40,34 @@
       content="Practice verb conjugations in Spanish. Choose to focus on irregular or most common verbs and practice conjugations in numerous tenses."
     />
     <title>Conju-gator: Practice verb conjugations</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Overlock|Oxygen"
-    />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   </head>
   <body>
     <div id="root"></div>
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: ["Overlock", "Oxygen"] }
+      };
+      (function() {
+        var wf = document.createElement("script");
+        wf.src =
+          ("https:" == document.location.protocol ? "https" : "http") +
+          "://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js";
+        wf.type = "text/javascript";
+        wf.async = "true";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+
+    <noscript>
+      <link
+        href="http://fonts.googleapis.com/css?family=Overlock|Oxygen"
+        rel="stylesheet"
+        type="text/css"
+      />
+    </noscript>
   </body>
 </html>
