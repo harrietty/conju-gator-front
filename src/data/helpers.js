@@ -30,11 +30,13 @@ export function generateSet(params) {
     // choose a verb at random
     const v = verbs[Math.floor(Math.random() * verbs.length)];
 
-    // If the verb is derived from "to be" such as "to be born", we use "to be" as the verb which we
-    // conjugate, and then add on the "extra word" such as "born" later on
-    const isDerivedFromToBe = v.translation.match(/[a-z]+\(\+[a-z]+\)/);
-    const extraWord = isDerivedFromToBe
-      ? v.translation.match(/\(\+([a-z]+)\)/)[1]
+    // If the verb is phrasal such as "to be born" or "to go up",
+    // we use the main verb as the verb which we conjugate, and then
+    // add on the "extra words" such as "up" later on
+    const isPhrasal = v.translation.match(/([a-z\s]+)\(\+[a-z\s]+\)/);
+    const phrasalRoot = isPhrasal ? isPhrasal[1] : null;
+    const extraWords = isPhrasal
+      ? v.translation.match(/\(\+([a-z\s]+)\)/)[1]
       : null;
 
     // choose a conjugation at random
@@ -43,27 +45,27 @@ export function generateSet(params) {
     const pronounIndex = choosePronoun(v, pronouns);
 
     // crete start, correct and original
-    const translation = isDerivedFromToBe ? "to be" : v.translation;
+    const translation = isPhrasal ? phrasalRoot : v.translation;
     const engVerb = params.english.verbs.basic[translation];
     const engPronoun = getEngPronoun(params.english.pronouns[pronounIndex], v);
     let engCorrect;
     if (c === "present") {
       engCorrect = engVerb.present[pronounIndex];
-      if (isDerivedFromToBe) engCorrect += ` ${extraWord}`;
+      if (isPhrasal) engCorrect += ` ${extraWords}`;
     } else if (c === "future") {
       engCorrect = `will ${engVerb.root}`;
-      if (isDerivedFromToBe) engCorrect += ` ${extraWord}`;
+      if (isPhrasal) engCorrect += ` ${extraWords}`;
     } else if (c === "conditional") {
       engCorrect = `would ${engVerb.root}`;
-      if (isDerivedFromToBe) engCorrect += ` ${extraWord}`;
+      if (isPhrasal) engCorrect += ` ${extraWords}`;
     } else if (c === "preterite") {
       engCorrect = engVerb.preterite[pronounIndex];
-      if (isDerivedFromToBe) engCorrect += ` ${extraWord}`;
+      if (isPhrasal) engCorrect += ` ${extraWords}`;
     } else if (c === "imperfect") {
       engCorrect = `${getImperfectToBe(engPronoun)} ${
         engVerb.present_participle
       }`;
-      if (isDerivedFromToBe) engCorrect += ` ${extraWord}`;
+      if (isPhrasal) engCorrect += ` ${extraWords}`;
     }
     const original = `${engPronoun} ${engCorrect} (${c})`;
     const start = getStartPronoun(params.target.pronouns[pronounIndex], v);
