@@ -41,7 +41,7 @@ class Home extends React.Component {
     tenses: {
       present: true,
       future: true,
-      perfect: true,
+      imperfect: true,
       preterite: true,
       conditional: true
     },
@@ -86,7 +86,7 @@ class Home extends React.Component {
     if (Number(numOfQuestions) < 1) {
       err = "Must select at least 1 question";
     } else if (Number(numOfQuestions) > 300) {
-      err = "Maximum number of questions is 300"
+      err = "Maximum number of questions is 300";
     }
     this.setState({
       numOfQuestions: numOfQuestions,

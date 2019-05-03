@@ -85,6 +85,7 @@ function getImperfectToBe(pronoun) {
     I: "was",
     you: "were",
     "he/she": "was",
+    it: "was",
     we: "were",
     "you (pl)": "were",
     they: "were"
