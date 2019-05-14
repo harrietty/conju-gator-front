@@ -30,6 +30,8 @@ export function generateSet(params) {
     // choose a verb at random
     const v = verbs[Math.floor(Math.random() * verbs.length)];
 
+    const isReflexive = v.type.includes("reflexive");
+
     // If the verb is phrasal such as "to be born" or "to go up",
     // we use the main verb as the verb which we conjugate, and then
     // add on the "extra words" such as "up" later on
@@ -74,7 +76,8 @@ export function generateSet(params) {
       start,
       original,
       correct,
-      infinitive: v.infinitive
+      infinitive: v.infinitive,
+      isReflexive
     });
   }
   return set;

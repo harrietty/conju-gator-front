@@ -70,6 +70,7 @@ const spanishDataThirdPerson = {
       {
         infinitive: "occurrir",
         translation: "to occur/to happen",
+        type: [],
         conjugations: {
           present: [null, null, "ocurre", null, null, "ocurren"],
           preterite: [null, null, "ocurrió", null, null, "ocurrieron"],
@@ -81,6 +82,7 @@ const spanishDataThirdPerson = {
       {
         infinitive: "llover",
         translation: "to rain",
+        type: [],
         conjugations: {
           present: [null, null, "llueve", null, null, null],
           preterite: [null, null, "llovió", null, null, null],
@@ -295,6 +297,7 @@ describe("generateSet", () => {
           {
             infinitive: "nacer",
             translation: "to be(+born)",
+            type: [],
             conjugations: {
               present: ["nazco", "naces", "nace", "nacemos", "nacéis", "nacen"],
               preterite: [
@@ -565,6 +568,103 @@ describe("generateSet", () => {
 
     result.forEach(r => {
       expect(r.infinitive).toBe("oír");
+    });
+  });
+
+  test("Applies the isReflexive key correctly", () => {
+    const spanishData = {
+      pronouns: ["yo", "tú", "él/ella", "nosotros", "vosotros", "ellos/ellas"],
+      verbs: {
+        basic: [
+          {
+            infinitive: "ducharse",
+            translation: "to shower",
+            type: ["reflexive", "regular"],
+            conjugations: {
+              present: [
+                "me ducho",
+                "te duchas",
+                "se ducha",
+                "nos duchamos",
+                "os ducháis",
+                "se duchan"
+              ],
+              preterite: [
+                "me duché",
+                "te duchaste",
+                "se duchó",
+                "nos duchamos",
+                "os duchasteis",
+                "se ducharon"
+              ],
+              imperfect: [
+                "me duchaba",
+                "te duchabas",
+                "se duchaba",
+                "nos duchábamos",
+                "os duchabais",
+                "se duchaban"
+              ],
+              conditional: [
+                "me ducharía",
+                "te ducharías",
+                "se ducharía",
+                "nos ducharíamos",
+                "os ducharíais",
+                "se ducharían"
+              ],
+              future: [
+                "me ducharé",
+                "te ducharás",
+                "se duchará",
+                "nos ducharemos",
+                "os ducharéis",
+                "se ducharán"
+              ]
+            }
+          }
+        ]
+      }
+    };
+    const englishData = {
+      pronouns: ["I", "you", "he/she", "we", "you", "they"],
+      verbs: {
+        basic: {
+          "to shower": {
+            present: [
+              "shower",
+              "shower",
+              "showers",
+              "shower",
+              "shower",
+              "shower"
+            ],
+            preterite: [
+              "showered",
+              "showered",
+              "showered",
+              "showered",
+              "showered",
+              "showered"
+            ],
+            present_participle: "showering",
+            past_participle: "showered",
+            root: "shower"
+          }
+        }
+      }
+    };
+
+    const result = generateSet({
+      english: englishData,
+      target: spanishData,
+      length: 3,
+      tenses: ["present", "conditional", "future", "preterite", "imperfect"],
+      verbType: "all"
+    });
+
+    result.forEach(r => {
+      expect(r.isReflexive).toBe(true);
     });
   });
 });
