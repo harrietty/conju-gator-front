@@ -51,10 +51,10 @@ class QuestionSet extends React.Component {
   componentDidMount = async () => {
     try {
       const spanishRes = await axios.get(
-        "https://s3-eu-west-1.amazonaws.com/conjugator-verb-data/spanish.dev.json"
+        "https://s3-eu-west-1.amazonaws.com/conjugator-verb-data/spanish.json"
       );
       const englishRes = await axios.get(
-        "https://s3-eu-west-1.amazonaws.com/conjugator-verb-data/english.dev.json"
+        "https://s3-eu-west-1.amazonaws.com/conjugator-verb-data/english.json"
       );
 
       const questions = generateSet({

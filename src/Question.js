@@ -52,7 +52,11 @@ class Question extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const response = this.state.value.toLowerCase();
+    let response = this.state.value.toLowerCase();
+    if (this.props.isReflexive) {
+      const reflexivePronoun = this.props.correct.match(/([a-z]+\s)/)[1];
+      response = `${reflexivePronoun}${response}`;
+    }
     if (this.state.showingCorrect || response === this.props.correct) {
       this.setState({
         value: "",
@@ -85,6 +89,10 @@ class Question extends React.Component {
 
   render() {
     const { original, start } = this.props;
+    let reflexiveStart = "";
+    if (this.props.isReflexive) {
+      reflexiveStart = this.props.correct.match(/([a-z]+)\s/)[1];
+    }
     return (
       <CenterDiv>
         <P>{original}</P>
@@ -92,7 +100,9 @@ class Question extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <Flex>
             <div>
-              <Label htmlFor="answerInput">{start}</Label>
+              <Label htmlFor="answerInput">
+                {start} {reflexiveStart}
+              </Label>
             </div>
             <div>
               <InputWithIncorrectOption
@@ -127,7 +137,8 @@ Question.propTypes = {
   start: PropTypes.string.isRequired,
   correct: PropTypes.string.isRequired,
   handleQuestionSubmit: PropTypes.func.isRequired,
-  infinitive: PropTypes.string.isRequired
+  infinitive: PropTypes.string.isRequired,
+  isReflexive: PropTypes.bool.isRequired
 };
 
 export default Question;
