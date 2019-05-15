@@ -667,4 +667,89 @@ describe("generateSet", () => {
       expect(r.isReflexive).toBe(true);
     });
   });
+
+  test("Chooses randomly from more than 1 english translation", () => {
+    const spanishData = {
+      pronouns: ["yo", "tú", "él/ella", "nosotros", "vosotros", "ellos/ellas"],
+      verbs: {
+        basic: [
+          {
+            infinitive: "hacer",
+            translations: ["to do", "to make"],
+            type: ["common", "irregular"],
+            conjugations: {
+              present: ["hago", "haces", "hace", "hacemos", "hacéis", "hacen"],
+              preterite: [
+                "hice",
+                "hiciste",
+                "hizo",
+                "hicimos",
+                "hicisteis",
+                "hicieron"
+              ],
+              imperfect: [
+                "hacía",
+                "hacías",
+                "hacía",
+                "hacíamos",
+                "hacíais",
+                "hacían"
+              ],
+              conditional: [
+                "haría",
+                "harías",
+                "haría",
+                "haríamos",
+                "haríais",
+                "harían"
+              ],
+              future: ["haré", "harás", "hará", "haremos", "haréis", "harán"]
+            }
+          }
+        ]
+      }
+    };
+
+    const englishData = {
+      pronouns: ["I", "you", "he/she", "we", "you (pl)", "they"],
+      verbs: {
+        basic: {
+          "to do": {
+            present: ["do", "do", "does", "do", "do", "do"],
+            preterite: ["did", "did", "did", "did", "did", "did"],
+            present_participle: "doing",
+            past_participle: "done",
+            root: "do"
+          },
+          "to make": {
+            present: ["make", "make", "makes", "make", "make", "make"],
+            preterite: ["made", "made", "made", "made", "made", "made"],
+            present_participle: "making",
+            past_participle: "made",
+            root: "make"
+          }
+        }
+      }
+    };
+
+    const result = generateSet({
+      english: englishData,
+      target: spanishData,
+      length: 50,
+      tenses: ["preterite"],
+      verbType: "all"
+    });
+
+    const collectedTranslations = { did: 0, made: 0 };
+    result.forEach(r => {
+      if (r.original.includes("made")) {
+        collectedTranslations.made++;
+      } else if (r.original.includes("did")) {
+        collectedTranslations.did++;
+      }
+    });
+
+    expect(collectedTranslations.did).toBeGreaterThan(1);
+    expect(collectedTranslations.made).toBeGreaterThan(1);
+  });
 });
