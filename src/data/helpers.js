@@ -64,13 +64,8 @@ export function generateSet(params) {
     } else if (c === "conditional") {
       engCorrect = `would ${engVerb.root}`;
       if (isPhrasal) engCorrect += ` ${extraWords}`;
-    } else if (c === "preterite") {
+    } else if (c === "preterite" || c === "imperfect") {
       engCorrect = engVerb.preterite[pronounIndex];
-      if (isPhrasal) engCorrect += ` ${extraWords}`;
-    } else if (c === "imperfect") {
-      engCorrect = `${getImperfectToBe(engPronoun)} ${
-        engVerb.present_participle
-      }`;
       if (isPhrasal) engCorrect += ` ${extraWords}`;
     }
     const original = `${engPronoun} ${engCorrect} (${c})`;
@@ -85,18 +80,6 @@ export function generateSet(params) {
     });
   }
   return set;
-}
-
-function getImperfectToBe(pronoun) {
-  return {
-    I: "was",
-    you: "were",
-    "he/she": "was",
-    it: "was",
-    we: "were",
-    "you (pl)": "were",
-    they: "were"
-  }[pronoun];
 }
 
 /**
