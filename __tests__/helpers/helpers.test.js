@@ -6,7 +6,7 @@ const spanishData = {
     basic: [
       {
         infinitive: "tener",
-        translation: "to have",
+        translations: ["to have"],
         type: ["common", "irregular"],
         conjugations: {
           present: ["tengo", "tienes", "tiene", "tenemos", "tenéis", "tienen"],
@@ -69,7 +69,7 @@ const spanishDataThirdPerson = {
     basic: [
       {
         infinitive: "occurrir",
-        translation: "to occur/to happen",
+        translations: ["to occur"],
         type: [],
         conjugations: {
           present: [null, null, "ocurre", null, null, "ocurren"],
@@ -81,7 +81,7 @@ const spanishDataThirdPerson = {
       },
       {
         infinitive: "llover",
-        translation: "to rain",
+        translations: ["to rain"],
         type: [],
         conjugations: {
           present: [null, null, "llueve", null, null, null],
@@ -106,7 +106,7 @@ const englishDataThirdPerson = {
         past_participle: "rained",
         root: "rain"
       },
-      "to occur/to happen": {
+      "to occur": {
         present: [null, null, "occurs", null, null, "occur"],
         preterite: [null, null, "occurred", null, null, "occurred"],
         present_participle: "occurring",
@@ -121,7 +121,7 @@ describe("choosePronoun", () => {
   test("returns any random prounoun when given a verb that supports all pronouns", () => {
     const verb = {
       infinitive: "intentar",
-      translation: "to try",
+      translations: ["to try"],
       conjugations: {
         present: [
           "intento",
@@ -180,7 +180,7 @@ describe("choosePronoun", () => {
   test("returns only a supported pronoun index for a verb such as llover", () => {
     const verb = {
       infinitive: "llover",
-      translation: "to rain",
+      translations: ["to rain"],
       conjugations: {
         present: [null, null, "llueve", null, null, null],
         preterite: [null, null, "llovió", null, null, null],
@@ -195,7 +195,7 @@ describe("choosePronoun", () => {
 
     const verb2 = {
       infinitive: "occurrir",
-      translation: "to occur/to happen",
+      translations: ["to occur"],
       conjugations: {
         present: [null, null, "ocurre", null, null, "ocurren"],
         preterite: [null, null, "ocurrió", null, null, "ocurrieron"],
@@ -296,7 +296,7 @@ describe("generateSet", () => {
         basic: [
           {
             infinitive: "nacer",
-            translation: "to be(+born)",
+            translations: ["to be(+born)"],
             type: [],
             conjugations: {
               present: ["nazco", "naces", "nace", "nacemos", "nacéis", "nacen"],
@@ -358,7 +358,7 @@ describe("generateSet", () => {
         basic: [
           {
             infinitive: "tener",
-            translation: "to have",
+            translations: ["to have"],
             type: ["common"],
             conjugations: {
               present: [
@@ -405,7 +405,7 @@ describe("generateSet", () => {
           },
           {
             infinitive: "oír",
-            translation: "to hear",
+            translations: ["to hear"],
             type: ["irregular"],
             conjugations: {
               present: ["oigo", "oyes", "oye", "oímos", "oís", "oyen"],
@@ -468,7 +468,7 @@ describe("generateSet", () => {
         basic: [
           {
             infinitive: "tener",
-            translation: "to have",
+            translations: ["to have"],
             type: ["common"],
             conjugations: {
               present: [
@@ -515,7 +515,7 @@ describe("generateSet", () => {
           },
           {
             infinitive: "oír",
-            translation: "to hear",
+            translations: ["to hear"],
             type: ["irregular"],
             conjugations: {
               present: ["oigo", "oyes", "oye", "oímos", "oís", "oyen"],
@@ -578,7 +578,7 @@ describe("generateSet", () => {
         basic: [
           {
             infinitive: "ducharse",
-            translation: "to shower",
+            translations: ["to shower"],
             type: ["reflexive", "regular"],
             conjugations: {
               present: [

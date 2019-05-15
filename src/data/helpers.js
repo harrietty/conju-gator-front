@@ -32,13 +32,17 @@ export function generateSet(params) {
 
     const isReflexive = v.type.includes("reflexive");
 
+    // Some verbs have more than 1 translation so we get any one of them
+    const translationIndex = Math.floor(Math.random() * v.translations.length);
+    const translationChoice = v.translations[translationIndex];
+
     // If the verb is phrasal such as "to be born" or "to go up",
     // we use the main verb as the verb which we conjugate, and then
     // add on the "extra words" such as "up" later on
-    const isPhrasal = v.translation.match(/([a-z\s]+)\(\+[a-z\s]+\)/);
+    const isPhrasal = translationChoice.match(/([a-z\s]+)\(\+[a-z\s]+\)/);
     const phrasalRoot = isPhrasal ? isPhrasal[1] : null;
     const extraWords = isPhrasal
-      ? v.translation.match(/\(\+([a-z\s]+)\)/)[1]
+      ? translationChoice.match(/\(\+([a-z\s]+)\)/)[1]
       : null;
 
     // choose a conjugation at random
@@ -47,7 +51,7 @@ export function generateSet(params) {
     const pronounIndex = choosePronoun(v, pronouns);
 
     // crete start, correct and original
-    const translation = isPhrasal ? phrasalRoot : v.translation;
+    const translation = isPhrasal ? phrasalRoot : translationChoice;
     const engVerb = params.english.verbs.basic[translation];
     const engPronoun = getEngPronoun(params.english.pronouns[pronounIndex], v);
     let engCorrect;
