@@ -1,13 +1,24 @@
+const acceptedPronouns = ["i", "you", "he/she/it", "you(pl)", "we", "they"];
+
 export function generateSet(params) {
   if (!params.english) throw new Error("english is required");
   if (!params.target) throw new Error("target is required");
   if (params.length === undefined) throw new Error("length is required");
   if (!params.tenses) throw new Error("tenses is required");
+  if (!params.pronouns) throw new Error("pronouns is required");
   if (!params.verbType) throw new Error("verbType is required");
 
+  // Remove any nonsensical pronouns
+  params.pronouns = params.pronouns.map(p => p.toLowerCase());
+  const pronounOptions = params.pronouns.filter(p => {
+    return acceptedPronouns.includes(p.toLowerCase());
+  });
+
   let verbs = params.target.verbs.basic;
-  if (params.verbType !== "all") {
-    verbs = verbs.filter(v => {
+  verbs = verbs.filter(v => {
+    if (!supportsSuitablePronouns(v, pronounOptions)) return false;
+    else {
+      if (params.verbType === "all") return true;
       if (params.verbType === "irregular" && v.type.includes("irregular")) {
         return true;
       } else if (params.verbType === "common" && v.type.includes("common")) {
@@ -15,20 +26,23 @@ export function generateSet(params) {
       } else {
         return false;
       }
-    });
-  }
+    }
+  });
+
+  if (verbs.length === 0) return [];
 
   // Remove any nonsensical tenses
   const tenseOptions = Object.keys(verbs[0].conjugations).filter(c => {
     return params.tenses.includes(c);
   });
 
-  const pronouns = params.target.pronouns;
-
   const set = [];
   for (let i = 0; i < params.length; i++) {
     // choose a verb at random
     const v = verbs[Math.floor(Math.random() * verbs.length)];
+
+    // choose a pronoun index at random, out of the available options
+    const pronounIndex = choosePronoun(v, pronounOptions);
 
     const isReflexive = v.type.includes("reflexive");
 
@@ -47,8 +61,6 @@ export function generateSet(params) {
 
     // choose a conjugation at random
     const c = tenseOptions[Math.floor(Math.random() * tenseOptions.length)];
-    // choose a pronoun index at random, , out of the available options
-    const pronounIndex = choosePronoun(v, pronouns);
 
     // crete start, correct and original
     const translation = isPhrasal ? phrasalRoot : translationChoice;
@@ -87,18 +99,21 @@ export function generateSet(params) {
  * based on which pronouns this particular verb conjugates for
  * For example, llover would only ever return a pronoun index of 2
  * for third person singular
+ * Returns null if the given verb does not support the listed pronouns
  * @param {Object} verb
- * @return {Number}
+ * @param {Array} pronounOptions
+ * @return {Number|Null}
  */
-export function choosePronoun(verb) {
+export function choosePronoun(verb, pronounOptions) {
+  pronounOptions = pronounOptions.map(p => p.toLowerCase());
   const availablePronouns = verb.conjugations.present
-    .map((p, i) => ({ i, pronoun: p }))
-    .filter(p => p.pronoun)
+    .map((p, i) => ({ i, pronoun: acceptedPronouns[i], isNull: p === null }))
+    .filter(p => !p.isNull && pronounOptions.includes(p.pronoun))
     .map(p => p.i);
 
-  return availablePronouns[
-    Math.floor(Math.random() * availablePronouns.length)
-  ];
+  const res =
+    availablePronouns[Math.floor(Math.random() * availablePronouns.length)];
+  return res === undefined ? null : res;
 }
 
 /**
@@ -137,4 +152,14 @@ function getStartPronoun(pronoun, verb) {
   } else {
     return pronoun;
   }
+}
+
+export function supportsSuitablePronouns(verb, pronounOptions) {
+  const conjs = verb.conjugations.present;
+  for (let i = 0; i < pronounOptions.length; i++) {
+    const pronounIndex = acceptedPronouns.indexOf(pronounOptions[i]);
+    if (conjs[pronounIndex] !== null) return true;
+  }
+
+  return false;
 }

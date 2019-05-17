@@ -11,7 +11,6 @@ const FlexDiv = styled.div`
   justify-content: space-around;
   max-width: 500px;
   margin: auto;
-  margin-top: 20px;
 `;
 
 const Select = styled.select`
@@ -45,10 +44,19 @@ class Home extends React.Component {
       preterite: true,
       conditional: true
     },
+    pronouns: {
+      I: true,
+      you: true,
+      "he/she/it": true,
+      "you(pl)": true,
+      we: true,
+      they: true
+    },
     chosenVerbType: "all",
     language: "Spanish",
     tensesError: null,
-    numOfQuestionsError: null
+    numOfQuestionsError: null,
+    pronounsError: null
   };
 
   generateLink = () => {
@@ -62,10 +70,17 @@ class Home extends React.Component {
       }
     });
     l += tenses.join(",");
+    const pronouns = [];
+    Object.keys(this.state.pronouns).forEach(p => {
+      if (this.state.pronouns[p]) {
+        pronouns.push(p);
+      }
+    });
+    l += `&pronouns=${pronouns.join(",")}`;
     return l;
   };
 
-  toggleChecked = e => {
+  toggleCheckedTense = e => {
     const newTenses = Object.assign({}, this.state.tenses, {
       [e.target.name]: !this.state.tenses[e.target.name]
     });
@@ -77,6 +92,21 @@ class Home extends React.Component {
     this.setState({
       tenses: newTenses,
       tensesError
+    });
+  };
+
+  toggleCheckedPronoun = e => {
+    const newPronouns = Object.assign({}, this.state.pronouns, {
+      [e.target.name]: !this.state.pronouns[e.target.name]
+    });
+    const vals = Object.values(newPronouns);
+    let pronounsError = null;
+    if (vals.every(v => !v)) {
+      pronounsError = "Select at least 1 pronoun to practice";
+    }
+    this.setState({
+      pronouns: newPronouns,
+      pronounsError
     });
   };
 
@@ -146,7 +176,7 @@ class Home extends React.Component {
                 {Object.keys(this.state.tenses).map(t => (
                   <div key={t}>
                     <input
-                      onChange={this.toggleChecked}
+                      onChange={this.toggleCheckedTense}
                       type="checkBox"
                       name={t}
                       id={`${t}TenseCheck`}
@@ -157,6 +187,29 @@ class Home extends React.Component {
                 ))}
               </FlexDiv>
               <Error>{this.state.tensesError}</Error>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-4">
+              <Label>Select pronouns to practice:</Label>
+            </div>
+            <div className="col-8">
+              <FlexDiv>
+                {Object.keys(this.state.pronouns).map(p => (
+                  <div key={p}>
+                    <input
+                      onChange={this.toggleCheckedPronoun}
+                      type="checkBox"
+                      name={p}
+                      id={`${p}TenseCheck`}
+                      checked={this.state.pronouns[p]}
+                    />
+                    <Label htmlFor={`${p}TenseCheck`}>{p}</Label>
+                  </div>
+                ))}
+              </FlexDiv>
+              <Error>{this.state.pronounsError}</Error>
             </div>
           </div>
 

@@ -1,4 +1,8 @@
-import { generateSet, choosePronoun } from "../../src/data/helpers";
+import {
+  generateSet,
+  choosePronoun,
+  supportsSuitablePronouns
+} from "../../src/data/helpers";
 
 const spanishData = {
   pronouns: ["yo", "tú", "él/ella", "nosotros", "vosotros", "ellos/ellas"],
@@ -117,57 +121,103 @@ const englishDataThirdPerson = {
   }
 };
 
+describe("supportsSuitablePronouns", () => {
+  const verb = {
+    infinitive: "tener",
+    translations: ["to have"],
+    type: ["common", "irregular"],
+    conjugations: {
+      present: ["tengo", "tienes", "tiene", "tenemos", "tenéis", "tienen"],
+      preterite: [
+        "tuve",
+        "tuviste",
+        "tuvo",
+        "tuvimos",
+        "tuvisteis",
+        "tuvieron"
+      ],
+      imperfect: ["tenía", "tenías", "tenía", "teníamos", "teníais", "tenían"],
+      conditional: [
+        "tendría",
+        "tendrías",
+        "tendría",
+        "tendríamos",
+        "tendríais",
+        "tendrían"
+      ],
+      future: [
+        "tendré",
+        "tendrás",
+        "tendrá",
+        "tendremos",
+        "tendréis",
+        "tendrán"
+      ]
+    }
+  };
+
+  it("returns true if the verb given has 1 or more required pronouns", () => {
+    expect(supportsSuitablePronouns(verb, ["I"])).toBe(true);
+    expect(supportsSuitablePronouns(verb, ["you"])).toBe(true);
+    expect(supportsSuitablePronouns(verb, ["he/she/it"])).toBe(true);
+    expect(supportsSuitablePronouns(verb, ["we"])).toBe(true);
+    expect(supportsSuitablePronouns(verb, ["you(pl)"])).toBe(true);
+    expect(supportsSuitablePronouns(verb, ["they"])).toBe(true);
+  });
+});
+
 describe("choosePronoun", () => {
+  const verb = {
+    infinitive: "intentar",
+    translations: ["to try"],
+    conjugations: {
+      present: [
+        "intento",
+        "intentas",
+        "intenta",
+        "intentamos",
+        "intentáis",
+        "intentan"
+      ],
+      preterite: [
+        "intenté",
+        "intentaste",
+        "intentó",
+        "intentamos",
+        "intentasteis",
+        "intentaron"
+      ],
+      imperfect: [
+        "intentaba",
+        "intentabas",
+        "intentaba",
+        "intentábamos",
+        "intentabais",
+        "intentaban"
+      ],
+      conditional: [
+        "intentaría",
+        "intentarías",
+        "intentaría",
+        "intentaríamos",
+        "intentaríais",
+        "intentarían"
+      ],
+      future: [
+        "intentaré",
+        "intentarás",
+        "intentará",
+        "intentaremos",
+        "intentaréis",
+        "intentarán"
+      ]
+    }
+  };
   test("returns any random prounoun when given a verb that supports all pronouns", () => {
-    const verb = {
-      infinitive: "intentar",
-      translations: ["to try"],
-      conjugations: {
-        present: [
-          "intento",
-          "intentas",
-          "intenta",
-          "intentamos",
-          "intentáis",
-          "intentan"
-        ],
-        preterite: [
-          "intenté",
-          "intentaste",
-          "intentó",
-          "intentamos",
-          "intentasteis",
-          "intentaron"
-        ],
-        imperfect: [
-          "intentaba",
-          "intentabas",
-          "intentaba",
-          "intentábamos",
-          "intentabais",
-          "intentaban"
-        ],
-        conditional: [
-          "intentaría",
-          "intentarías",
-          "intentaría",
-          "intentaríamos",
-          "intentaríais",
-          "intentarían"
-        ],
-        future: [
-          "intentaré",
-          "intentarás",
-          "intentará",
-          "intentaremos",
-          "intentaréis",
-          "intentarán"
-        ]
-      }
-    };
+    const pronounOptions = ["I", "you", "he/she/it", "you(pl)", "we", "they"];
     const foundPronounIndices = [];
     new Array(100).fill(1).forEach(_ => {
-      foundPronounIndices.push(choosePronoun(verb));
+      foundPronounIndices.push(choosePronoun(verb, pronounOptions));
     });
     expect(foundPronounIndices).toContain(1);
     expect(foundPronounIndices).toContain(1);
@@ -177,8 +227,31 @@ describe("choosePronoun", () => {
     expect(foundPronounIndices).toContain(5);
   });
 
-  test("returns only a supported pronoun index for a verb such as llover", () => {
-    const verb = {
+  test("returns only the index of the specified pronouns from options passed", () => {
+    for (let i = 0; i < 30; i++) {
+      expect(choosePronoun(verb, ["I"])).toBe(0);
+    }
+
+    for (let i = 0; i < 30; i++) {
+      expect(choosePronoun(verb, ["he/she/it"])).toBe(2);
+    }
+  });
+
+  test("returns only the correct indices if more than 1 pronoun given", () => {
+    const res = [];
+    for (let i = 0; i < 100; i++) {
+      res.push(choosePronoun(verb, ["I", "you", "they"]));
+    }
+    expect(res).toContain(0);
+    expect(res).toContain(1);
+    expect(res).toContain(5);
+    expect(res).not.toContain(2);
+    expect(res).not.toContain(3);
+    expect(res).not.toContain(4);
+  });
+
+  describe("With a verb such as llover or ocurrir", () => {
+    const llover = {
       infinitive: "llover",
       translations: ["to rain"],
       conjugations: {
@@ -189,12 +262,9 @@ describe("choosePronoun", () => {
         future: [null, null, "lloverá", null, null, null]
       }
     };
-    new Array(30).fill(1).forEach(_ => {
-      expect(choosePronoun(verb)).toBe(2);
-    });
 
-    const verb2 = {
-      infinitive: "occurrir",
+    const ocurrir = {
+      infinitive: "ocurrir",
       translations: ["to occur"],
       conjugations: {
         present: [null, null, "ocurre", null, null, "ocurren"],
@@ -204,16 +274,59 @@ describe("choosePronoun", () => {
         future: [null, null, "ocurrirá", null, null, "ocurrirán"]
       }
     };
-    const foundPronounIndices = [];
-    new Array(30).fill(1).forEach(_ => {
-      foundPronounIndices.push(choosePronoun(verb2));
+
+    test("returns only a supported pronoun index when all pronounOptions available", () => {
+      const pronounOptions = ["I", "you", "he/she/it", "you(pl)", "we", "they"];
+
+      new Array(30).fill(1).forEach(_ => {
+        expect(choosePronoun(llover, pronounOptions)).toBe(2);
+      });
+
+      const foundPronounIndices = [];
+      new Array(30).fill(1).forEach(_ => {
+        foundPronounIndices.push(choosePronoun(ocurrir, pronounOptions));
+      });
+      expect(foundPronounIndices).toContain(2);
+      expect(foundPronounIndices).toContain(5);
+      expect(foundPronounIndices).not.toContain(0);
+      expect(foundPronounIndices).not.toContain(1);
+      expect(foundPronounIndices).not.toContain(3);
+      expect(foundPronounIndices).not.toContain(4);
     });
-    expect(foundPronounIndices).toContain(2);
-    expect(foundPronounIndices).toContain(5);
-    expect(foundPronounIndices).not.toContain(0);
-    expect(foundPronounIndices).not.toContain(1);
-    expect(foundPronounIndices).not.toContain(3);
-    expect(foundPronounIndices).not.toContain(4);
+
+    test("returns only a supported pronoun index when only 1 pronounOption available", () => {
+      let pronounOptions = ["he/she/it"];
+
+      new Array(30).fill(1).forEach(_ => {
+        expect(choosePronoun(llover, pronounOptions)).toBe(2);
+      });
+
+      new Array(30).fill(1).forEach(_ => {
+        expect(choosePronoun(ocurrir, pronounOptions)).toBe(2);
+      });
+
+      pronounOptions = ["he/she/it", "they"];
+
+      new Array(30).fill(1).forEach(_ => {
+        expect(choosePronoun(llover, pronounOptions)).toBe(2);
+      });
+
+      const foundPronounIndices = [];
+      new Array(30).fill(1).forEach(_ => {
+        foundPronounIndices.push(choosePronoun(ocurrir, pronounOptions));
+      });
+      expect(foundPronounIndices).toContain(2);
+      expect(foundPronounIndices).toContain(5);
+      expect(foundPronounIndices).not.toContain(0);
+      expect(foundPronounIndices).not.toContain(1);
+      expect(foundPronounIndices).not.toContain(3);
+      expect(foundPronounIndices).not.toContain(4);
+    });
+
+    test("returns null if the verb does not support any of the pronounOptions", () => {
+      const pronounOptions = ["you"];
+      expect(choosePronoun(llover, pronounOptions)).toBe(null);
+    });
   });
 });
 
@@ -224,6 +337,7 @@ describe("generateSet", () => {
       target: spanishData,
       length: 3,
       tenses: ["present", "conditional", "future", "preterite", "imperfect"],
+      pronouns: ["I", "you", "he/she/it", "you(pl)", "we", "they"],
       verbType: "all"
     });
 
@@ -240,6 +354,7 @@ describe("generateSet", () => {
       target: spanishDataThirdPerson,
       length: 3,
       tenses: ["present", "conditional", "future", "preterite", "imperfect"],
+      pronouns: ["I", "you", "he/she/it", "you(pl)", "we", "they"],
       verbType: "all"
     });
 
@@ -258,6 +373,7 @@ describe("generateSet", () => {
       target: spanishDataThirdPerson,
       length: 50,
       tenses: ["present", "conditional", "future", "preterite", "imperfect"],
+      pronouns: ["I", "you", "he/she/it", "you(pl)", "we", "they"],
       verbType: "all"
     });
 
@@ -343,6 +459,7 @@ describe("generateSet", () => {
       target: spanData,
       length: 50,
       tenses: ["present", "conditional", "future", "preterite", "imperfect"],
+      pronouns: ["I", "you", "he/she/it", "you(pl)", "we", "they"],
       verbType: "all"
     });
 
@@ -453,6 +570,7 @@ describe("generateSet", () => {
       target: spanishData,
       length: 50,
       tenses: ["present"],
+      pronouns: ["I", "you", "he/she/it", "you(pl)", "we", "they"],
       verbType: "common"
     });
 
@@ -563,6 +681,7 @@ describe("generateSet", () => {
       target: spanishData,
       length: 50,
       tenses: ["present"],
+      pronouns: ["I", "you", "he/she/it", "you(pl)", "we", "they"],
       verbType: "irregular"
     });
 
@@ -660,6 +779,7 @@ describe("generateSet", () => {
       target: spanishData,
       length: 3,
       tenses: ["present", "conditional", "future", "preterite", "imperfect"],
+      pronouns: ["I", "you", "he/she/it", "you(pl)", "we", "they"],
       verbType: "all"
     });
 
@@ -737,6 +857,7 @@ describe("generateSet", () => {
       target: spanishData,
       length: 50,
       tenses: ["preterite"],
+      pronouns: ["I", "you", "he/she/it", "you(pl)", "we", "they"],
       verbType: "all"
     });
 
@@ -751,5 +872,31 @@ describe("generateSet", () => {
 
     expect(collectedTranslations.did).toBeGreaterThan(1);
     expect(collectedTranslations.made).toBeGreaterThan(1);
+  });
+
+  test("Only selects the specified pronoun", () => {
+    const result = generateSet({
+      english: englishData,
+      target: spanishData,
+      length: 30,
+      tenses: ["present", "conditional", "future", "preterite", "imperfect"],
+      pronouns: ["I"],
+      verbType: "all"
+    });
+    result.forEach(r => {
+      expect(r.start).toContain("yo");
+    });
+  });
+
+  test("Ignores any third-person only verbs if the specified pronoun does not match", () => {
+    const result = generateSet({
+      english: englishDataThirdPerson,
+      target: spanishDataThirdPerson,
+      length: 30,
+      tenses: ["present", "conditional", "future", "preterite", "imperfect"],
+      pronouns: ["I"],
+      verbType: "all"
+    });
+    expect(result).toEqual([]);
   });
 });

@@ -30,6 +30,11 @@ class QuestionSet extends React.Component {
     return s.tenses ? s.tenses.split(",") : [];
   };
 
+  extractPronouns = () => {
+    const s = parse(this.props.location.search.slice(1));
+    return s.tenses ? s.pronouns.split(",") : [];
+  };
+
   extractQuestionLength = () => {
     const s = parse(this.props.location.search.slice(1));
     return s.questions ? Number(s.questions) : 30;
@@ -61,6 +66,7 @@ class QuestionSet extends React.Component {
         english: englishRes.data,
         target: spanishRes.data,
         tenses: this.extractTenses(),
+        pronouns: this.extractPronouns(),
         length: this.extractQuestionLength(),
         verbType: this.extractVerbType()
       });
