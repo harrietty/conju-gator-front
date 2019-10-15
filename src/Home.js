@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ReactSelect from "react-select";
 import styled from "styled-components";
 import Button from "./Reusable/Button";
 import Input from "./Reusable/Input";
@@ -23,6 +24,17 @@ const Label = styled.label`
   font-weight: 800;
 `;
 
+const selectStyles = {
+  multiValueRemove: styles => ({
+    ...styles,
+    color: "#68A27D",
+    ":hover": {
+      backgroundColor: "#68A27D",
+      color: "white"
+    }
+  })
+};
+
 class Home extends React.Component {
   static verbTypes = [
     { type: "all", meta: ["Randomly selected from over 250 available verbs"] },
@@ -32,7 +44,11 @@ class Home extends React.Component {
         "25 common verbs including ser, estar, tener, seguir, decir, venir, hacer, ir, poder"
       ]
     },
-    { type: "irregular", meta: ["Randomly selected irregular verbs"] }
+    { type: "irregular", meta: ["Randomly selected irregular verbs"] },
+    {
+      type: "specific",
+      meta: ["Choose which verbs you want to study from the list below"]
+    }
   ];
 
   state = {
@@ -56,7 +72,26 @@ class Home extends React.Component {
     language: "Spanish",
     tensesError: null,
     numOfQuestionsError: null,
-    pronounsError: null
+    pronounsError: null,
+    verbList: [],
+    verbsChosen: null
+  };
+
+  componentDidMount() {
+    this.fetchVerbList(this.state.language);
+  }
+
+  fetchVerbList = () => {
+    const verbs = [
+      { value: "comer", label: "comer" },
+      { value: "ir", label: "ir" },
+      { value: "volver", label: "volver" }
+    ];
+
+    // Async fetch
+    this.setState({
+      verbList: verbs
+    });
   };
 
   generateLink = () => {
@@ -139,6 +174,12 @@ class Home extends React.Component {
   changeVerbType = e => {
     this.setState({
       chosenVerbType: e.target.name
+    });
+  };
+
+  handleSpecificverbChange = e => {
+    this.setState({
+      verbsChosen: e
     });
   };
 
@@ -231,6 +272,23 @@ class Home extends React.Component {
                   <Label htmlFor={`${t.type}VerbSelection`}>{t.type}</Label>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Search for specific verbs */}
+          <div className="row">
+            <div className="col-4"></div>
+            <div className="col-8">
+              <ReactSelect
+                styles={selectStyles}
+                isDisabled={this.state.chosenVerbType !== "specific"}
+                isMulti={true}
+                isSearchable={true}
+                value={this.state.verbsChosen}
+                onChange={this.handleSpecificverbChange}
+                options={this.state.verbList}
+                placeholder="Search for verbs"
+              />
             </div>
           </div>
 
