@@ -26,24 +26,34 @@ const CenterDiv = styled.div`
 
 class QuestionSet extends React.Component {
   extractTenses = () => {
-    const s = parse(this.props.location.search.slice(1));
-    return s.tenses ? s.tenses.split(",") : [];
+    return this.params.tenses ? this.params.tenses.split(",") : [];
   };
 
   extractPronouns = () => {
-    const s = parse(this.props.location.search.slice(1));
-    return s.tenses ? s.pronouns.split(",") : [];
+    return this.params.tenses ? this.params.pronouns.split(",") : [];
   };
 
   extractQuestionLength = () => {
-    const s = parse(this.props.location.search.slice(1));
-    return s.questions ? Number(s.questions) : 30;
+    return this.params.questions ? Number(this.params.questions) : 30;
   };
 
   extractVerbType = () => {
-    const s = parse(this.props.location.search.slice(1));
-    return s.verbs ? s.verbs : "all";
+    let v = "all";
+    if (this.params.verbs && this.params.verbs !== "specific") {
+      v = this.params.verbs;
+    }
+    return v;
   };
+
+  extractSelectedVerbs = () => {
+    return this.params.selectedVerbs
+      ? this.params.selectedVerbs.split(",")
+      : null;
+  };
+
+  componentWillMount() {
+    this.params = parse(this.props.location.search.slice(1));
+  }
 
   state = {
     question: 0,
@@ -54,13 +64,19 @@ class QuestionSet extends React.Component {
   };
 
   componentDidMount = async () => {
+    const selectedVerbs = this.extractSelectedVerbs();
+    const spanishFetchUrl =
+      "https://s3-eu-west-1.amazonaws.com/conjugator-verb-data/spanish.dev.json";
+    const englishFetchUrl =
+      "https://s3-eu-west-1.amazonaws.com/conjugator-verb-data/english.dev.json";
+
+    if (selectedVerbs) {
+      // update URLs to only get the selected verbs
+    }
+
     try {
-      const spanishRes = await axios.get(
-        "https://s3-eu-west-1.amazonaws.com/conjugator-verb-data/spanish.json"
-      );
-      const englishRes = await axios.get(
-        "https://s3-eu-west-1.amazonaws.com/conjugator-verb-data/english.json"
-      );
+      const spanishRes = await axios.get(spanishFetchUrl);
+      const englishRes = await axios.get(englishFetchUrl);
 
       const questions = generateSet({
         english: englishRes.data,

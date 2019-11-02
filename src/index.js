@@ -34,7 +34,9 @@ render(
 
             // If the verb type doesn't make sense, set it to "all"
             let verbType = s.verbs;
-            if (!["all", "irregular", "common"].includes(verbType)) {
+            if (
+              !["all", "irregular", "common", "specific"].includes(verbType)
+            ) {
               verbType = "all";
             }
 
@@ -51,6 +53,7 @@ render(
             if (!tenses.split(",").every(t => tenseChoices.includes(t))) {
               tenses = tenseChoices.join(",");
             }
+
             const search = `?verbs=${verbType}&questions=30&tenses=${tenses}`;
             if (
               (s.questions && Number(s.questions) > 300) ||

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 import ReactSelect from "react-select";
 import styled from "styled-components";
 import Button from "./Reusable/Button";
@@ -74,37 +75,45 @@ class Home extends React.Component {
     numOfQuestionsError: null,
     pronounsError: null,
     verbList: [],
-    verbsChosen: null
+    verbsError: null,
+    verbsChosen: []
   };
 
   componentDidMount() {
     this.fetchVerbList(this.state.language);
   }
 
-  fetchVerbList = () => {
-    const verbs = [
-      { value: "comer", label: "comer" },
-      { value: "ir", label: "ir" },
-      { value: "volver", label: "volver" }
-    ];
-
-    // Async fetch
-    this.setState({
-      verbList: verbs
-    });
+  fetchVerbList = async () => {
+    try {
+      const resp = await axios.get(
+        "https://op3bgpadfj.execute-api.eu-west-1.amazonaws.com/dev/verbs?language=spanish"
+      );
+      const verbList = resp.data.map(v => ({ value: v, label: v }));
+      this.setState({
+        verbList,
+        verbsError: null
+      });
+    } catch (e) {
+      this.setState({
+        verbList: [],
+        verbsError: "Could not fetch verbs"
+      });
+    }
   };
 
   generateLink = () => {
     let l = `/${this.state.language.toLowerCase()}?`;
     l += `verbs=${this.state.chosenVerbType}&`;
-    l += `questions=${this.state.numOfQuestions}&tenses=`;
+    l += `questions=${this.state.numOfQuestions}`;
+
     const tenses = [];
     Object.keys(this.state.tenses).forEach(t => {
       if (this.state.tenses[t]) {
         tenses.push(t);
       }
     });
-    l += tenses.join(",");
+    l += `&tenses=${tenses.join(",")}`;
+
     const pronouns = [];
     Object.keys(this.state.pronouns).forEach(p => {
       if (this.state.pronouns[p]) {
@@ -112,6 +121,10 @@ class Home extends React.Component {
       }
     });
     l += `&pronouns=${pronouns.join(",")}`;
+
+    const selectedVerbs = this.state.verbsChosen.map(v => v.value);
+    l += `&selectedVerbs=${selectedVerbs.join(",")}`;
+
     return l;
   };
 
@@ -177,7 +190,7 @@ class Home extends React.Component {
     });
   };
 
-  handleSpecificverbChange = e => {
+  handleSpecificVerbChange = e => {
     this.setState({
       verbsChosen: e
     });
@@ -285,9 +298,12 @@ class Home extends React.Component {
                 isMulti={true}
                 isSearchable={true}
                 value={this.state.verbsChosen}
-                onChange={this.handleSpecificverbChange}
+                onChange={this.handleSpecificVerbChange}
                 options={this.state.verbList}
                 placeholder="Search for verbs"
+                noOptionsMessage={() =>
+                  this.state.verbsError ? "Could not load verbs" : "No options"
+                }
               />
             </div>
           </div>
