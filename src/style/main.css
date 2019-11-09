@@ -22,3 +22,11 @@ a:visited,
 a:active {
   color: #000;
 }
+
+.infinitive-select div[class*="multiValue"] div:nth-child(2) {
+  color: #68a27d;
+}
+.infinitive-select div[class*="multiValue"] div:nth-child(2):hover {
+  background-color: #68a27d;
+  color: white;
+}

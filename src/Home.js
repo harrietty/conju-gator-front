@@ -25,17 +25,6 @@ const Label = styled.label`
   font-weight: 800;
 `;
 
-const selectStyles = {
-  multiValueRemove: styles => ({
-    ...styles,
-    color: "#68A27D",
-    ":hover": {
-      backgroundColor: "#68A27D",
-      color: "white"
-    }
-  })
-};
-
 class Home extends React.Component {
   static verbTypes = [
     { type: "all", meta: ["Randomly selected from over 250 available verbs"] },
@@ -293,7 +282,7 @@ class Home extends React.Component {
             <div className="col-4"></div>
             <div className="col-8">
               <ReactSelect
-                styles={selectStyles}
+                className="infinitive-select"
                 isDisabled={this.state.chosenVerbType !== "specific"}
                 isMulti={true}
                 isSearchable={true}
