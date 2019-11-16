@@ -68,7 +68,7 @@ class QuestionSet extends React.Component {
     let spanishFetchUrl =
       "https://api.conju-gator.com/conjugations?language=spanish";
     const englishFetchUrl =
-      "https://s3-eu-west-1.amazonaws.com/conjugator-verb-data/english.json";
+      "https://api.conju-gator.com/conjugations?language=english";
 
     if (selectedVerbs) {
       // update URLs to only get the selected verbs
