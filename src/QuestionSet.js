@@ -58,6 +58,7 @@ class QuestionSet extends React.Component {
   state = {
     question: 0,
     correct: [],
+    incorrect: [],
     questions: [],
     dataError: null,
     loading: true
@@ -102,13 +103,25 @@ class QuestionSet extends React.Component {
   };
 
   handleQuestionSubmit = response => {
-    const { correct } = this.state.questions[this.state.question];
+    const questionAnswered = this.state.questions[this.state.question];
     const newCorrect = this.state.correct.slice();
-    if (response.toLowerCase() === correct) newCorrect.push(true);
-    else newCorrect.push(false);
+    const newIncorrect = this.state.incorrect.slice();
+    if (response.toLowerCase() === questionAnswered.correct) {
+      newCorrect.push({
+        question: questionAnswered.original,
+        answer: response
+      });
+    } else {
+      newIncorrect.push({
+        question: questionAnswered.original,
+        answer: response
+      });
+    }
+
     this.setState({
       question: this.state.question + 1,
-      correct: newCorrect
+      correct: newCorrect,
+      incorrect: newIncorrect
     });
   };
 
@@ -147,10 +160,13 @@ class QuestionSet extends React.Component {
             <Progress percent={progress} theme={progressTheme} />
           </ProgressContainer>
           {this.state.question === this.state.questions.length ? (
-            <FinalScreen
-              correct={this.state.correct.filter(c => c).length}
-              total={this.state.questions.length}
-            />
+            <React.Fragment>
+              <FinalScreen
+                correct={this.state.correct}
+                incorrect={this.state.incorrect}
+                total={this.state.questions.length}
+              />
+            </React.Fragment>
           ) : (
             <Question
               {...this.state.questions[this.state.question]}

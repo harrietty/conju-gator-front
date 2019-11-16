@@ -3,18 +3,20 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
+import Results from "./Results";
 import Button from "./Reusable/Button";
 
 const Container = styled.div`
   text-align: center;
 `;
 
-const FinalScreen = ({ correct, total }) => (
+const FinalScreen = props => (
   <Container>
     <h3>Your score:</h3>
     <h2>
-      {correct}/{total}
+      {props.correct.length}/{props.total}
     </h2>
+    <Results correct={props.correct} incorrect={props.incorrect} />
     <Link to="/">
       <Button>Home</Button>
     </Link>
@@ -22,7 +24,8 @@ const FinalScreen = ({ correct, total }) => (
 );
 
 FinalScreen.propTypes = {
-  correct: PropTypes.number.isRequired,
+  correct: PropTypes.array.isRequired,
+  incorrect: PropTypes.array.isRequired,
   total: PropTypes.number.isRequired
 };
 
