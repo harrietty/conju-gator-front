@@ -4,8 +4,17 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
+const configuration = require("./configuration");
 
 const isDevelopment = process.env.NODE_ENV === "development";
+
+function prepareConfig(config) {
+  const c = {};
+  Object.keys(config).forEach(key => {
+    c[`process.env.${key}`] = JSON.stringify(config[key]);
+  });
+  return c;
+}
 
 module.exports = {
   entry: "./src/index.js",
@@ -42,6 +51,9 @@ module.exports = {
   },
   plugins: [
     isDevelopment && new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin(
+      prepareConfig(configuration[process.env.NODE_ENV])
+    ),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "./index.html",

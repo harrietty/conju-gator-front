@@ -65,10 +65,8 @@ class QuestionSet extends React.Component {
 
   componentDidMount = async () => {
     const selectedVerbs = this.extractSelectedVerbs();
-    let spanishFetchUrl =
-      "https://api.conju-gator.com/conjugations?language=spanish";
-    const englishFetchUrl =
-      "https://api.conju-gator.com/conjugations?language=english";
+    let spanishFetchUrl = `${process.env.API_ENDPOINT}/conjugations?language=spanish`;
+    const englishFetchUrl = `${process.env.API_ENDPOINT}/conjugations?language=english`;
 
     if (selectedVerbs) {
       // update URLs to only get the selected verbs

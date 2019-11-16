@@ -75,7 +75,7 @@ class Home extends React.Component {
   fetchVerbList = async () => {
     try {
       const resp = await axios.get(
-        "https://api.conju-gator.com/infinitives?language=spanish"
+        `${process.env.API_ENDPOINT}/infinitives?language=spanish`
       );
       const verbList = resp.data.map(v => ({ value: v, label: v }));
       this.setState({
