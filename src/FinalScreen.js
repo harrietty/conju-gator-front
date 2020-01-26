@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import Button from "@material-ui/core/Button";
 
 import Results from "./Results";
-import Button from "./Reusable/Button";
 
 const Container = styled.div`
   text-align: center;
@@ -18,7 +18,9 @@ const FinalScreen = props => (
     </h2>
     <Results correct={props.correct} incorrect={props.incorrect} />
     <Link to="/">
-      <Button>Home</Button>
+      <Button variant="contained" color="primary">
+        Home
+      </Button>
     </Link>
   </Container>
 );

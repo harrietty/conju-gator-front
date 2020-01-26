@@ -63,13 +63,13 @@ class Question extends React.Component {
         showingCorrect: false
       });
       this.props.handleQuestionSubmit(response);
-      this._button.blur();
-      this._input.current.focus();
+      // this._button.blur();
+      // this._input.current.focus();
     } else if (response !== this.props.correct) {
       this.setState({
         showingCorrect: true
       });
-      this._button.focus();
+      // this._button.focus();
     }
   };
 
@@ -123,7 +123,7 @@ class Question extends React.Component {
             </div>
           </Flex>
           {this.state.showingCorrect && <Error>{this.props.correct}</Error>}
-          <Button type="submit" refCallback={c => (this._button = c)}>
+          <Button color="white" backgroundColor="green" type="submit">
             {this.state.showingCorrect ? "Next" : "Check"}
           </Button>
         </form>

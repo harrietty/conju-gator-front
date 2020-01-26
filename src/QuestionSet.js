@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import axios from "axios";
 import { Progress } from "react-sweet-progress";
+import * as colors from "./style/colors";
 import "react-sweet-progress/lib/style.css";
 
 import { generateSet } from "./data/helpers";
@@ -131,11 +132,11 @@ class QuestionSet extends React.Component {
       : 0;
     const progressTheme = {
       success: {
-        color: "#0eb9be",
+        color: colors.green,
         symbol: progress + "%"
       },
       active: {
-        color: "#0eb9be",
+        color: colors.green,
         symbol: progress + "%"
       }
     };

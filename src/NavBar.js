@@ -4,7 +4,7 @@ import { Toolbar } from "@material-ui/core";
 import styled from "styled-components";
 import { useAuth0 } from "./Auth0Provider";
 import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
+import Button from "./Reusable/Button";
 import Typography from "@material-ui/core/Typography";
 import Profile from "./Profile";
 
@@ -52,8 +52,12 @@ const NavBar = () => {
           </Typography>
 
           {!isAuthenticated && (
-            <Button size="small" onClick={() => loginWithRedirect({})}>
-              Log in
+            <Button
+              size="small"
+              backgroundColor="white"
+              onClick={() => loginWithRedirect({})}
+            >
+              Sign in
             </Button>
           )}
 
