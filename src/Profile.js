@@ -3,6 +3,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Avatar from "@material-ui/core/Avatar";
+import configuration from "./configuration";
 
 import { useAuth0 } from "./Auth0Provider";
 
@@ -22,7 +23,9 @@ const Profile = () => {
   };
 
   const closeAndLogout = () => {
-    logout();
+    logout({
+      returnTo: configuration[process.env.NODE_ENV].APP_ROOT
+    });
     setAnchorEl(null);
   };
 

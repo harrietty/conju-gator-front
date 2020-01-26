@@ -5,6 +5,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { Progress } from "react-sweet-progress";
 import * as colors from "./style/colors";
+import configuration from "./configuration";
 import "react-sweet-progress/lib/style.css";
 
 import { generateSet } from "./data/helpers";
@@ -66,9 +67,10 @@ class QuestionSet extends React.Component {
   };
 
   componentDidMount = async () => {
+    const apiRoot = configuration[process.env.NODE_ENV].API_ENDPOINT;
     const selectedVerbs = this.extractSelectedVerbs();
-    let spanishFetchUrl = `${process.env.API_ENDPOINT}/conjugations?language=spanish`;
-    const englishFetchUrl = `${process.env.API_ENDPOINT}/conjugations?language=english`;
+    let spanishFetchUrl = `${apiRoot}/conjugations?language=spanish`;
+    const englishFetchUrl = `${apiRoot}/conjugations?language=english`;
 
     if (selectedVerbs) {
       // update URLs to only get the selected verbs
