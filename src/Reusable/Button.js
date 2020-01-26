@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Btn = styled.button`
-  height: 37px;
-  min-width: 200px;
+  height: ${props => (props.size === "small" ? "27px" : "37px")};
+  min-width: ${props => (props.size === "small" ? "160px" : "200px")};
   color: ${props => (props.disabled ? "#908589" : "white")};
   background: ${props => (props.disabled ? "#CCC4C7" : "#664668")};
-  font-size: 1.4rem;
+  font-size: ${props => (props.size === "small" ? "0.8rem" : "1.4rem")};
   border: 0;
   border-radius: 2px;
   margin: 5px;
@@ -21,9 +21,9 @@ const Btn = styled.button`
 
 class Button extends React.Component {
   render() {
-    const { children, onClick, disabled, refCallback } = this.props;
+    const { children, onClick, disabled, refCallback, size } = this.props;
     return (
-      <Btn onClick={onClick} disabled={disabled} ref={refCallback}>
+      <Btn size={size} onClick={onClick} disabled={disabled} ref={refCallback}>
         {children}
       </Btn>
     );
@@ -34,7 +34,8 @@ Button.propTypes = {
   children: PropTypes.any,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
-  refCallback: PropTypes.func
+  refCallback: PropTypes.func,
+  size: PropTypes.string
 };
 
 export default Button;

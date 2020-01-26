@@ -1,71 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-137858771-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137858771-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-137858771-1");
+  </script>
+
+  <!-- Twitter Card Data -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Practice Verb Conjugations with Conju-gator!" />
+  <meta name="twitter:description"
+    content="Free, simple app to help you practice all the common verb conjugations. Currently supporting Spanish." />
+  <meta name="twitter:image" content="https://conju-gator.com/twittercard.png" />
+  <!-- End Twitter Card Data -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="Description"
+    content="Practice verb conjugations in Spanish. Choose to focus on irregular or most common verbs and practice conjugations in numerous tenses." />
+  <title>Conju-gator: Practice verb conjugations</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <script src="https://kit.fontawesome.com/9836b89613.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/javascript">
+    WebFontConfig = {
+      google: {
+        families: ["Overlock", "Oxygen"]
       }
-      gtag("js", new Date());
+    };
+    (function () {
+      var wf = document.createElement("script");
+      wf.src =
+        ("https:" == document.location.protocol ? "https" : "http") +
+        "://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js";
+      wf.type = "text/javascript";
+      wf.async = "true";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
+</body>
 
-      gtag("config", "UA-137858771-1");
-    </script>
-
-    <!-- Twitter Card Data -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Practice Verb Conjugations with Conju-gator!"
-    />
-    <meta
-      name="twitter:description"
-      content="Free, simple app to help you practice all the common verb conjugations. Currently supporting Spanish."
-    />
-    <meta
-      name="twitter:image"
-      content="https://conju-gator.com/twittercard.png"
-    />
-    <!-- End Twitter Card Data -->
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta
-      name="Description"
-      content="Practice verb conjugations in Spanish. Choose to focus on irregular or most common verbs and practice conjugations in numerous tenses."
-    />
-    <title>Conju-gator: Practice verb conjugations</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <script
-      src="https://kit.fontawesome.com/9836b89613.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="text/javascript">
-      WebFontConfig = {
-        google: {
-          families: ["Overlock", "Oxygen"]
-        }
-      };
-      (function() {
-        var wf = document.createElement("script");
-        wf.src =
-          ("https:" == document.location.protocol ? "https" : "http") +
-          "://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js";
-        wf.type = "text/javascript";
-        wf.async = "true";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(wf, s);
-      })();
-    </script>
-  </body>
 </html>

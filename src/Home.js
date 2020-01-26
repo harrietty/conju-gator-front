@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import ReactSelect from "react-select";
 import styled from "styled-components";
-import Button from "./Reusable/Button";
+import Button from "@material-ui/core/Button";
 import Input from "./Reusable/Input";
 import Error from "./Reusable/Error";
 
@@ -91,7 +91,7 @@ class Home extends React.Component {
   };
 
   generateLink = () => {
-    let l = `/${this.state.language.toLowerCase()}?`;
+    let l = `/languages/${this.state.language.toLowerCase()}?`;
     l += `verbs=${this.state.chosenVerbType}&`;
     l += `questions=${this.state.numOfQuestions}`;
 
@@ -317,6 +317,7 @@ class Home extends React.Component {
             <div className="col-4" />
             <div className="col-8">
               <Button
+                type="submit"
                 disabled={
                   !!(this.state.tensesError || this.state.numOfQuestionsError)
                 }
