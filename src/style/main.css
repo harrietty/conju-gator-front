@@ -2,25 +2,13 @@
   box-sizing: border-box;
 }
 
-.wf-loading body,
-.wf-inactive body {
-  font-family: sans-serif;
-}
-
-.wf-active body {
-  font-family: "Oxygen", sans-serif;
-}
-
 body {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 200;
+  background-color: #fcfcfc;
+  color: #141414;
   margin: 0;
   padding: 0;
-  background-color: #ffebcd;
-}
-
-a:link,
-a:visited,
-a:active {
-  color: #000;
 }
 
 .infinitive-select div[class*="multiValue"] div:nth-child(2) {

@@ -8,7 +8,6 @@ import { useAuth0 } from "./Auth0Provider";
 import QuestionSet from "./QuestionSet";
 import PrivacyPolicy from "./PrivacyPolicy";
 import Home from "./Home";
-import Nav from "./Nav";
 import NavBar from "./NavBar";
 
 const MainApp = styled.main`
@@ -27,7 +26,6 @@ const App = () => {
         <NavBar />
       </div>
       <MainApp>
-        <Nav />
         <div className="container">
           <Route exact path="/" component={Home} />
           <Route exact path="/privacy-policy" component={PrivacyPolicy} />

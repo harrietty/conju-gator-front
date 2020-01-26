@@ -21,8 +21,8 @@ const Select = styled.select`
   border: 1px solid #63b5b0;
 `;
 
-const Label = styled.label`
-  font-weight: 800;
+const Description = styled.label`
+  font-weight: 400;
 `;
 
 class Home extends React.Component {
@@ -192,7 +192,7 @@ class Home extends React.Component {
           {/* Select a language */}
           <div className="row">
             <div className="col-4">
-              <Label htmlFor="selectLang">Select a language:</Label>
+              <Description htmlFor="selectLang">Select a language:</Description>
             </div>
             <div className="col-8">
               <Select
@@ -212,7 +212,7 @@ class Home extends React.Component {
           {/* Selec Tenses */}
           <div className="row">
             <div className="col-4">
-              <Label>Select tenses to practice:</Label>
+              <Description>Select tenses to practice:</Description>
             </div>
             <div className="col-8">
               <FlexDiv>
@@ -225,7 +225,7 @@ class Home extends React.Component {
                       id={`${t}TenseCheck`}
                       checked={this.state.tenses[t]}
                     />
-                    <Label htmlFor={`${t}TenseCheck`}>{t}</Label>
+                    <label htmlFor={`${t}TenseCheck`}>{t}</label>
                   </div>
                 ))}
               </FlexDiv>
@@ -235,7 +235,7 @@ class Home extends React.Component {
 
           <div className="row">
             <div className="col-4">
-              <Label>Select pronouns to practice:</Label>
+              <Description>Select pronouns to practice:</Description>
             </div>
             <div className="col-8">
               <FlexDiv>
@@ -248,7 +248,7 @@ class Home extends React.Component {
                       id={`${p}TenseCheck`}
                       checked={this.state.pronouns[p]}
                     />
-                    <Label htmlFor={`${p}TenseCheck`}>{p}</Label>
+                    <label htmlFor={`${p}TenseCheck`}>{p}</label>
                   </div>
                 ))}
               </FlexDiv>
@@ -259,7 +259,7 @@ class Home extends React.Component {
           {/* Select Irregular/Common/All */}
           <div className="row">
             <div className="col-4">
-              <Label>What verbs do you want to study?</Label>
+              <Description>What verbs do you want to study?</Description>
             </div>
             <div className="col-8">
               {Home.verbTypes.map(t => (
@@ -271,7 +271,7 @@ class Home extends React.Component {
                     id={`${t.type}VerbSelection`}
                     checked={this.state.chosenVerbType === t.type}
                   />
-                  <Label htmlFor={`${t.type}VerbSelection`}>{t.type}</Label>
+                  <label htmlFor={`${t.type}VerbSelection`}>{t.type}</label>
                 </div>
               ))}
             </div>
@@ -300,7 +300,9 @@ class Home extends React.Component {
           {/* How many questions? */}
           <div className="row">
             <div className="col-4">
-              <Label htmlFor="questionQuantity">How many questions?</Label>
+              <Description htmlFor="questionQuantity">
+                How many questions?
+              </Description>
             </div>
             <div className="col-8">
               <Input
