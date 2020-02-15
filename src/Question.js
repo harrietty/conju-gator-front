@@ -63,13 +63,10 @@ class Question extends React.Component {
         showingCorrect: false
       });
       this.props.handleQuestionSubmit(response);
-      // this._button.blur();
-      // this._input.current.focus();
     } else if (response !== this.props.correct) {
       this.setState({
         showingCorrect: true
       });
-      // this._button.focus();
     }
   };
 

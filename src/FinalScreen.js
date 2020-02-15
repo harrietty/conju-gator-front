@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import Button from "@material-ui/core/Button";
+import Button from "./Reusable/Button";
 
 import Results from "./Results";
 
@@ -18,7 +18,7 @@ const FinalScreen = props => (
     </h2>
     <Results correct={props.correct} incorrect={props.incorrect} />
     <Link to="/">
-      <Button variant="contained" color="primary">
+      <Button color="white" backgroundColor="green">
         Home
       </Button>
     </Link>

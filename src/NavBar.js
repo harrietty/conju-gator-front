@@ -47,7 +47,12 @@ const NavBar = () => {
         <ConjuToolbar>
           <Typography variant="h6" noWrap>
             <StyledNavLink>
-              <Link to="/">conju-gator 🐊</Link>
+              <Link to="/">
+                conju-gator{" "}
+                <span role={"img"} aria-label={"Crocodile Logo"}>
+                  🐊
+                </span>
+              </Link>
             </StyledNavLink>
           </Typography>
 
