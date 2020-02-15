@@ -1,6 +1,5 @@
 import { parse } from "querystring";
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Progress } from "react-sweet-progress";
@@ -8,7 +7,7 @@ import * as colors from "./style/colors";
 import configuration from "./configuration";
 import "react-sweet-progress/lib/style.css";
 
-import { generateSet } from "./data/helpers";
+import { LanguageData } from "./data/helpers";
 
 import Question from "./Question";
 import FinalScreen from "./FinalScreen";
@@ -26,164 +25,181 @@ const CenterDiv = styled.div`
   text-align: center;
 `;
 
-class QuestionSet extends React.Component {
-  extractTenses = () => {
-    return this.params.tenses ? this.params.tenses.split(",") : [];
-  };
+const QuestionSet = ({ location }) => {
+  const [loading, setLoading] = useState(true);
+  const [langData, setLangData] = useState(null);
+  const [correct, setCorrect] = useState([]);
+  const [incorrect, setIncorrect] = useState([]);
+  const [currentQuestion, setCurrentQuestion] = useState(null);
+  const [completedQuestionsNum, setCompletedQuestionsNum] = useState(0);
+  const [
+    hasFinishedInfiniteQuestionSet,
+    setHasFinishedInfiniteQuestionSet
+  ] = useState(false);
+  const [totalQuestions, setTotalQuestions] = useState(Infinity);
+  const [dataError, setDataError] = useState(null);
+  let params;
 
-  extractPronouns = () => {
-    return this.params.tenses ? this.params.pronouns.split(",") : [];
-  };
+  useEffect(() => {
+    params = parse(location.search.slice(1));
 
-  extractQuestionLength = () => {
-    return this.params.questions ? Number(this.params.questions) : 30;
-  };
-
-  extractVerbType = () => {
-    let v = "all";
-    if (this.params.verbs && this.params.verbs !== "specific") {
-      v = this.params.verbs;
-    }
-    return v;
-  };
-
-  extractSelectedVerbs = () => {
-    return this.params.selectedVerbs
-      ? this.params.selectedVerbs.split(",")
-      : null;
-  };
-
-  componentWillMount() {
-    this.params = parse(this.props.location.search.slice(1));
-  }
-
-  state = {
-    question: 0,
-    correct: [],
-    incorrect: [],
-    questions: [],
-    dataError: null,
-    loading: true
-  };
-
-  componentDidMount = async () => {
     const apiRoot = configuration[process.env.NODE_ENV].API_ENDPOINT;
-    const selectedVerbs = this.extractSelectedVerbs();
+    const selectedVerbs = extractSelectedVerbs();
     let spanishFetchUrl = `${apiRoot}/conjugations?language=spanish`;
     const englishFetchUrl = `${apiRoot}/conjugations?language=english`;
 
     if (selectedVerbs) {
       // update URLs to only get the selected verbs
-      spanishFetchUrl += `&verbs=${this.params.selectedVerbs}`;
+      spanishFetchUrl += `&verbs=${params.selectedVerbs}`;
     }
 
+    fetchVerbs(spanishFetchUrl, englishFetchUrl);
+  }, [location]);
+
+  const extractTenses = () => {
+    return params.tenses ? params.tenses.split(",") : [];
+  };
+
+  const extractPronouns = () => {
+    return params.tenses ? params.pronouns.split(",") : [];
+  };
+
+  const extractQuestionLength = () => {
+    return params.questions
+      ? params.questions === "infinite"
+        ? Infinity
+        : Number(params.questions)
+      : 30;
+  };
+
+  const extractVerbType = () => {
+    let v = "all";
+    if (params.verbs && params.verbs !== "specific") {
+      v = params.verbs;
+    }
+    return v;
+  };
+
+  const extractSelectedVerbs = () => {
+    return params.selectedVerbs ? params.selectedVerbs.split(",") : null;
+  };
+
+  const fetchVerbs = async (spanishFetchUrl, englishFetchUrl) => {
     try {
+      const questionLength = extractQuestionLength();
+      setTotalQuestions(questionLength);
+
       const spanishRes = await axios.get(spanishFetchUrl);
       const englishRes = await axios.get(englishFetchUrl);
 
-      const questions = generateSet({
+      const langData = new LanguageData({
         english: englishRes.data,
         target: spanishRes.data,
-        tenses: this.extractTenses(),
-        pronouns: this.extractPronouns(),
-        length: this.extractQuestionLength(),
-        verbType: this.extractVerbType()
+        tenses: extractTenses(),
+        pronouns: extractPronouns(),
+        length: questionLength,
+        verbType: extractVerbType()
       });
-      this.setState({
-        questions,
-        loading: false
-      });
+      setLangData(langData);
+      setCurrentQuestion(langData.getNextQuestion());
     } catch (e) {
       if (e.response) {
-        this.setState({
-          dataError: "Sorry, something went wrong fetching verb data",
-          loading: false
-        });
+        setDataError("Sorry, something went wrong fetching verb data");
       } else {
         throw e;
       }
     }
+    setLoading(false);
   };
 
-  handleQuestionSubmit = response => {
-    const questionAnswered = this.state.questions[this.state.question];
-    const newCorrect = this.state.correct.slice();
-    const newIncorrect = this.state.incorrect.slice();
-    if (response.toLowerCase() === questionAnswered.correct) {
-      newCorrect.push({
-        question: questionAnswered.original,
-        answer: response
-      });
+  const handleQuestionSubmit = response => {
+    if (response.toLowerCase() === currentQuestion.correct) {
+      setCorrect([
+        ...correct,
+        {
+          question: currentQuestion.original,
+          answer: response
+        }
+      ]);
+      setCompletedQuestionsNum(completedQuestionsNum + 1);
+      setCurrentQuestion(langData.getNextQuestion());
     } else {
-      newIncorrect.push({
-        question: questionAnswered.original,
-        answer: response
-      });
-    }
+      setIncorrect([
+        ...incorrect,
+        {
+          question: currentQuestion.original,
+          answer: response
+        }
+      ]);
+      setCompletedQuestionsNum(completedQuestionsNum + 1);
 
-    this.setState({
-      question: this.state.question + 1,
-      correct: newCorrect,
-      incorrect: newIncorrect
-    });
-  };
-
-  render() {
-    const progress = this.state.questions.length
-      ? Math.round((this.state.question / this.state.questions.length) * 100)
-      : 0;
-    const progressTheme = {
-      success: {
-        color: colors.green,
-        symbol: progress + "%"
-      },
-      active: {
-        color: colors.green,
-        symbol: progress + "%"
+      if (totalQuestions === Infinity) {
+        setHasFinishedInfiniteQuestionSet(true);
       }
-    };
-    if (this.state.loading) {
-      return (
+    }
+  };
+
+  const progress =
+    totalQuestions === Infinity
+      ? null
+      : totalQuestions
+      ? Math.round((completedQuestionsNum / totalQuestions) * 100)
+      : 0;
+
+  const progressTheme = {
+    success: {
+      color: colors.green,
+      symbol: progress + "%"
+    },
+    active: {
+      color: colors.green,
+      symbol: progress + "%"
+    }
+  };
+
+  if (loading) {
+    return (
+      <CenterDiv>
+        <p>Loading...</p>
+      </CenterDiv>
+    );
+  } else if (dataError) {
+    return (
+      <Container>
         <CenterDiv>
-          <p>Loading...</p>
+          <Error>{dataError}</Error>
         </CenterDiv>
-      );
-    } else if (this.state.dataError) {
-      return (
-        <Container>
-          <CenterDiv>
-            <Error>{this.state.dataError}</Error>
-          </CenterDiv>
-        </Container>
-      );
-    } else {
-      return (
-        <Container>
+      </Container>
+    );
+  } else {
+    return (
+      <Container>
+        {progress !== null ? (
           <ProgressContainer>
             <Progress percent={progress} theme={progressTheme} />
           </ProgressContainer>
-          {this.state.question === this.state.questions.length ? (
-            <React.Fragment>
-              <FinalScreen
-                correct={this.state.correct}
-                incorrect={this.state.incorrect}
-                total={this.state.questions.length}
-              />
-            </React.Fragment>
-          ) : (
-            <Question
-              {...this.state.questions[this.state.question]}
-              handleQuestionSubmit={this.handleQuestionSubmit}
+        ) : hasFinishedInfiniteQuestionSet ? null : (
+          <p>Streak number</p>
+        )}
+        {completedQuestionsNum === totalQuestions ||
+        hasFinishedInfiniteQuestionSet ? (
+          <React.Fragment>
+            <FinalScreen
+              correct={correct}
+              incorrect={incorrect}
+              total={totalQuestions}
+              streakMode={totalQuestions === Infinity}
             />
-          )}
-        </Container>
-      );
-    }
+          </React.Fragment>
+        ) : (
+          <Question
+            {...currentQuestion}
+            handleQuestionSubmit={handleQuestionSubmit}
+          />
+        )}
+      </Container>
+    );
   }
-
-  static propTypes = {
-    location: PropTypes.object.isRequired
-  };
-}
+};
 
 export default QuestionSet;

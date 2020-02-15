@@ -12,9 +12,11 @@ const Container = styled.div`
 
 const FinalScreen = props => (
   <Container>
-    <h3>Your score:</h3>
+    <h3>{props.streakMode ? "Your streak:" : "Your score:"}</h3>
     <h2>
-      {props.correct.length}/{props.total}
+      {props.streakMode
+        ? props.correct.length
+        : props.correct.length / props.total}
     </h2>
     <Results correct={props.correct} incorrect={props.incorrect} />
     <Link to="/">
@@ -28,7 +30,8 @@ const FinalScreen = props => (
 FinalScreen.propTypes = {
   correct: PropTypes.array.isRequired,
   incorrect: PropTypes.array.isRequired,
-  total: PropTypes.number.isRequired
+  total: PropTypes.number.isRequired,
+  streakMode: PropTypes.bool.isRequired
 };
 
 export default FinalScreen;

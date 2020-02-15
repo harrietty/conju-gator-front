@@ -1,48 +1,44 @@
 const acceptedPronouns = ["i", "you", "he/she/it", "you(pl)", "we", "they"];
 
-export function generateSet(params) {
-  if (!params.english) throw new Error("english is required");
-  if (!params.target) throw new Error("target is required");
-  if (params.length === undefined) throw new Error("length is required");
-  if (!params.tenses) throw new Error("tenses is required");
-  if (!params.pronouns) throw new Error("pronouns is required");
-  if (!params.verbType) throw new Error("verbType is required");
+export class LanguageData {
+  constructor(params) {
+    if (!params.english) throw new Error("english is required");
+    if (!params.target) throw new Error("target is required");
+    if (params.length === undefined) throw new Error("length is required");
+    if (!params.tenses) throw new Error("tenses is required");
+    if (!params.pronouns) throw new Error("pronouns is required");
+    if (!params.verbType) throw new Error("verbType is required");
 
-  // Remove any nonsensical pronouns
-  params.pronouns = params.pronouns.map(p => p.toLowerCase());
-  const pronounOptions = params.pronouns.filter(p => {
-    return acceptedPronouns.includes(p.toLowerCase());
-  });
-
-  let verbs = params.target.verbs.basic;
-  verbs = verbs.filter(v => {
-    if (!supportsSuitablePronouns(v, pronounOptions)) return false;
-    else {
-      if (params.verbType === "all") return true;
-      if (params.verbType === "irregular" && v.type.includes("irregular")) {
-        return true;
-      } else if (params.verbType === "common" && v.type.includes("common")) {
-        return true;
-      } else {
-        return false;
+    this.params = params;
+    this.pronouns = params.pronouns.map(p => p.toLowerCase());
+    this.pronounOptions = this.pronouns.filter(p => {
+      return acceptedPronouns.includes(p.toLowerCase());
+    });
+    this.verbs = params.target.verbs.basic;
+    this.verbs = this.verbs.filter(v => {
+      if (!supportsSuitablePronouns(v, this.pronounOptions)) return false;
+      else {
+        if (params.verbType === "all") return true;
+        if (params.verbType === "irregular" && v.type.includes("irregular")) {
+          return true;
+        } else if (params.verbType === "common" && v.type.includes("common")) {
+          return true;
+        } else {
+          return false;
+        }
       }
-    }
-  });
+    });
+    this.tenseOptions = Object.keys(this.verbs[0].conjugations).filter(c => {
+      return params.tenses.includes(c);
+    });
+  }
 
-  if (verbs.length === 0) return [];
-
-  // Remove any nonsensical tenses
-  const tenseOptions = Object.keys(verbs[0].conjugations).filter(c => {
-    return params.tenses.includes(c);
-  });
-
-  const set = [];
-  for (let i = 0; i < params.length; i++) {
+  getNextQuestion() {
     // choose a verb at random
-    const v = verbs[Math.floor(Math.random() * verbs.length)];
+    const v = this.verbs[Math.floor(Math.random() * this.verbs.length)];
 
     // choose a pronoun index at random, out of the available options
-    const pronounIndex = choosePronoun(v, pronounOptions);
+    const pronounIndex = choosePronoun(v, this.pronounOptions);
 
     const isReflexive = v.type.includes("reflexive");
 
@@ -60,12 +56,17 @@ export function generateSet(params) {
       : null;
 
     // choose a conjugation at random
-    const c = tenseOptions[Math.floor(Math.random() * tenseOptions.length)];
+    const c = this.tenseOptions[
+      Math.floor(Math.random() * this.tenseOptions.length)
+    ];
 
     // crete start, correct and original
     const translation = isPhrasal ? phrasalRoot : translationChoice;
-    const engVerb = params.english.verbs.basic[translation];
-    const engPronoun = getEngPronoun(params.english.pronouns[pronounIndex], v);
+    const engVerb = this.params.english.verbs.basic[translation];
+    const engPronoun = getEngPronoun(
+      this.params.english.pronouns[pronounIndex],
+      v
+    );
     let engCorrect;
     if (c === "present") {
       engCorrect = engVerb.present[pronounIndex];
@@ -81,17 +82,16 @@ export function generateSet(params) {
       if (isPhrasal) engCorrect += ` ${extraWords}`;
     }
     const original = `${engPronoun} ${engCorrect} (${c})`;
-    const start = getStartPronoun(params.target.pronouns[pronounIndex], v);
+    const start = getStartPronoun(this.params.target.pronouns[pronounIndex], v);
     const correct = v.conjugations[c][pronounIndex];
-    set.push({
+    return {
       start,
       original,
       correct,
       infinitive: v.infinitive,
       isReflexive
-    });
+    };
   }
-  return set;
 }
 
 /**

@@ -42,6 +42,7 @@ class Home extends React.Component {
   ];
 
   state = {
+    keepGoing: true,
     numOfQuestions: 30,
     tenses: {
       present: true,
@@ -93,7 +94,9 @@ class Home extends React.Component {
   generateLink = () => {
     let l = `/languages/${this.state.language.toLowerCase()}?`;
     l += `verbs=${this.state.chosenVerbType}&`;
-    l += `questions=${this.state.numOfQuestions}`;
+    l += `questions=${
+      this.state.keepGoing ? "infinite" : this.state.numOfQuestions
+    }`;
 
     const tenses = [];
     Object.keys(this.state.tenses).forEach(t => {
@@ -182,6 +185,12 @@ class Home extends React.Component {
   handleSpecificVerbChange = e => {
     this.setState({
       verbsChosen: e
+    });
+  };
+
+  toggleKeepGoing = () => {
+    this.setState({
+      keepGoing: !this.state.keepGoing
     });
   };
 
@@ -305,7 +314,23 @@ class Home extends React.Component {
               </Description>
             </div>
             <div className="col-8">
+              <input
+                onChange={this.toggleKeepGoing}
+                type="checkBox"
+                name={"keep_going"}
+                id={"keep_going_checkbox"}
+                checked={this.state.keepGoing}
+              />
+              <label htmlFor="keep_going">
+                Keep going until I get something wrong
+              </label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4"></div>
+            <div className="col-8">
               <Input
+                disabled={this.state.keepGoing}
                 id="questionQuantity"
                 onChange={this.handleQuestionChange}
                 type="number"
