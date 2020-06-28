@@ -6,6 +6,9 @@ import styled from "styled-components";
 import Button from "./Reusable/Button";
 import Input from "./Reusable/Input";
 import Error from "./Reusable/Error";
+import config from "./configuration";
+
+const envConfig = config[process.env.NODE_ENV];
 
 const FlexDiv = styled.div`
   text-align: center;
@@ -76,7 +79,7 @@ class Home extends React.Component {
   fetchVerbList = async () => {
     try {
       const resp = await axios.get(
-        `${process.env.API_ENDPOINT}/infinitives?language=spanish`
+        `${envConfig.API_ENDPOINT}/infinitives?language=spanish`
       );
       const verbList = resp.data.map(v => ({ value: v, label: v }));
       this.setState({

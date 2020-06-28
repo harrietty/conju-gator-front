@@ -1,17 +1,18 @@
 import { parse } from "querystring";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Progress } from "react-sweet-progress";
 import * as colors from "./style/colors";
-import configuration from "./configuration";
+import config from "./configuration";
 import "react-sweet-progress/lib/style.css";
-
 import { LanguageData } from "./data/helpers";
 
 import Question from "./Question";
 import FinalScreen from "./FinalScreen";
 import Error from "./Reusable/Error";
+
+const envConfig = config[process.env.NODE_ENV];
 
 const Container = styled.div`
   margin-top: 50px;
@@ -38,15 +39,15 @@ const QuestionSet = ({ location }) => {
   ] = useState(false);
   const [totalQuestions, setTotalQuestions] = useState(Infinity);
   const [dataError, setDataError] = useState(null);
-  let params;
+
+  const params = useMemo(() => {
+    return parse(location.search.slice(1));
+  }, [location]);
 
   useEffect(() => {
-    params = parse(location.search.slice(1));
-
-    const apiRoot = configuration[process.env.NODE_ENV].API_ENDPOINT;
     const selectedVerbs = extractSelectedVerbs();
-    let spanishFetchUrl = `${apiRoot}/conjugations?language=spanish`;
-    const englishFetchUrl = `${apiRoot}/conjugations?language=english`;
+    let spanishFetchUrl = `${envConfig.API_ENDPOINT}/conjugations?language=spanish`;
+    const englishFetchUrl = `${envConfig.API_ENDPOINT}/conjugations?language=english`;
 
     if (selectedVerbs) {
       // update URLs to only get the selected verbs
@@ -54,7 +55,7 @@ const QuestionSet = ({ location }) => {
     }
 
     fetchVerbs(spanishFetchUrl, englishFetchUrl);
-  }, [location]);
+  }, [params]);
 
   const extractTenses = () => {
     return params.tenses ? params.tenses.split(",") : [];
